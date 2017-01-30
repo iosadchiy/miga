@@ -13,6 +13,7 @@
 * Transaction
 * Payment
 * Counter
+* CounterChecks
 * Due
 * Plot
 * Member
