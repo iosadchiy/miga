@@ -1,0 +1,17 @@
+p= link_to t('plots.index.new'), new_plot_path
+table.table.table-striped
+  thead
+    tr
+      th= t('plots.index.number')
+      th= t('plots.index.space')
+      th= t('plots.index.cadastre')
+      th= t('plots.index.ukrgosact')
+      th
+  - @plots.each do |plot|
+    tr
+      td= plot.number
+      td= plot.space
+      td= plot.cadastre
+      td= plot.ukrgosact
+      td= link_to '<span class="glyphicon glyphicon-remove"></span>'.html_safe,
+        plot, method: :delete, data: {confirm: t('plots.index.confirm_delete')}

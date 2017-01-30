@@ -27,3 +27,8 @@ ru:
       fio: "ФИО"
       phone: "Телефон"
       inactive: "Исключенные"
+  plots:
+    index:
+      title: "Реестр участков"
+      confirm_delete: "Удалить участок?"
+      new: "добавить"
