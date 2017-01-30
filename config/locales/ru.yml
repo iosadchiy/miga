@@ -1,0 +1,9 @@
+ru:
+  nav:
+    payments: "Платежи"
+    member_list: "Реестр членов"
+    plot_list: "Реестр участков"
+    settings: "Настройки"
+  payments:
+    title: "Платежи"
+    plot_number: "Номер участка"

@@ -43,6 +43,8 @@ gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
 
+gem 'rails-i18n'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

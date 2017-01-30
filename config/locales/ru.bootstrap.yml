@@ -1,0 +1,20 @@
+ru:
+  breadcrumbs:
+    application:
+      root: "Главная"
+    pages:
+      pages: "Страницы"
+  helpers:
+    actions: "Действия"
+    links:
+      back: "Назад"
+      cancel: "Отмена"
+      confirm: "Вы уверены?"
+      destroy: "Удалить"
+      new: "Создать"
+      edit: "Изменить"
+    titles:
+      edit: "Изменить %{model}"
+      save: "Сохранить %{model}"
+      new: "Создать %{model}"
+      delete: "Удалить %{model}"
