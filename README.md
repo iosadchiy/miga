@@ -10,6 +10,8 @@ Requirements: ruby 2.4.0, execjs runtime
 * run tests: `rails test`
 * start dev server: `rails server`
 
+To add some fake data: `rails db:seed FAKEDATA=1`
+
 ## Resources:
 
 * members
