@@ -8,6 +8,7 @@ Requirements: ruby 2.4.0, execjs runtime
 * install gems: `bundle install`
 * setup the DB: `rails db:setup`
 * run tests: `rails test`
+* start dev server: `rails server`
 
 ## Resources:
 
