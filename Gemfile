@@ -35,9 +35,6 @@ gem 'jbuilder', '~> 2.5'
 # Templates
 gem 'slim-rails'
 
-# Dry-up
-gem 'responders'
-
 gem 'rails-i18n'
 
 # Bootstrap
