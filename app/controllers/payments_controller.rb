@@ -1,8 +1,10 @@
 class PaymentsController < ApplicationController
   def index
+    self.page_title = t('payments.title')
   end
 
   def new
+    self.page_title = t('payments.new.title')
     @payment = Payment.new(member: Member.owner_of(plot_number))
   rescue ActiveRecord::RecordNotFound => e
     raise e unless e.model == "Plot"

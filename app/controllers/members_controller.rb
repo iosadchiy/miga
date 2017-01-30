@@ -1,6 +1,7 @@
 class MembersController < ApplicationController
   def index
-    render 'index'
+    self.page_title = t('members.title')
+    @members = Member.all
   end
 
   def create

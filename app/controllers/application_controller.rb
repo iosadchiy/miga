@@ -3,6 +3,9 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   add_flash_types :danger, :warning, :info, :success
 
+  attr_accessor :page_title
+  helper_method :page_title
+
   def set_locale
     I18n.locale = :ru
   end

@@ -1,11 +1,7 @@
-.container
-  .page-header
-    h1= t 'payments.title'
-  = render 'layouts/flash'
-  form action=new_payment_path
-    .input-group
-      input.form-control[type="text" id="plot_number" name="plot_number" autofocus="true"
-        placeholder=t('payments.plot_number')]
-      .input-group-btn
-        button.btn.btn-default type="submit"
-          i.glyphicon.glyphicon-search
+form action=new_payment_path
+  .input-group
+    input.form-control[type="text" id="plot_number" name="plot_number" autofocus="true"
+      placeholder=t('payments.plot_number')]
+    .input-group-btn
+      button.btn.btn-default type="submit"
+        i.glyphicon.glyphicon-search
