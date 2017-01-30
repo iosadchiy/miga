@@ -3,7 +3,9 @@ ru:
     payments: "Платежи"
     member_list: "Реестр членов"
     plot_list: "Реестр участков"
-    settings: "Настройки"
+    config: "Настройки"
   payments:
     title: "Платежи"
     plot_number: "Номер участка"
+  members:
+    title: "Реестр членов"
