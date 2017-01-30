@@ -1,4 +1,6 @@
 ru:
+  shared:
+    square_meters: 'м²'
   nav:
     payments: "Платежи"
     member_list: "Реестр членов"
@@ -10,5 +12,7 @@ ru:
     no_such_plot: "Такой участок не найден"
     new:
       title: "Платежи"
+      plots: "Участки"
+      space: "Площадь"
   members:
     title: "Реестр членов"

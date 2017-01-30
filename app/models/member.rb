@@ -2,6 +2,8 @@ class Member < ApplicationRecord
   ACTIVE = 'Active'
   DELETED = 'Deleted'
 
+  has_many :plots, -> { order :number }
+
   scope :active, -> { where(status: ACTIVE) }
   scope :deleted, -> { where(status: DELETED) }
 
