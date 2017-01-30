@@ -40,6 +40,9 @@ gem 'responders'
 
 gem 'rails-i18n'
 
+# Bootstrap
+gem 'bootstrap-sass'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
