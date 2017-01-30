@@ -40,6 +40,9 @@ gem 'rails-i18n'
 # Bootstrap
 gem 'bootstrap-sass'
 
+# Better form builder
+gem 'simple_form'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
