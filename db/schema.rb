@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170130075415) do
+ActiveRecord::Schema.define(version: 20170130104506) do
 
   create_table "counters", force: :cascade do |t|
     t.string   "type"
@@ -33,6 +33,13 @@ ActiveRecord::Schema.define(version: 20170130075415) do
     t.index ["status"], name: "index_members_on_status"
   end
 
+  create_table "payments", force: :cascade do |t|
+    t.integer  "member_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["member_id"], name: "index_payments_on_member_id"
+  end
+
   create_table "plots", force: :cascade do |t|
     t.string   "number"
     t.integer  "space"
@@ -42,6 +49,7 @@ ActiveRecord::Schema.define(version: 20170130075415) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["member_id"], name: "index_plots_on_member_id"
+    t.index ["number"], name: "index_plots_on_number"
   end
 
 end
