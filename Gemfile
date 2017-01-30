@@ -38,11 +38,6 @@ gem 'slim-rails'
 # Dry-up
 gem 'responders'
 
-# Boostrap with LESS support
-gem "therubyracer"
-gem "less-rails"
-gem "twitter-bootstrap-rails"
-
 gem 'rails-i18n'
 
 # Use Capistrano for deployment
