@@ -1,8 +1,11 @@
 .container
   .page-header
     h1= t 'payments.title'
-  form.form
-    .form-group
-      label.control-label.col-sm-2 for="plot_number"= t 'payments.plot_number'
-      .col-sm-2
-        input.form-control type="text" id="plot_number"
+
+  form
+    .input-group
+      input.form-control[type="text" id="plot_number" autofocus="true"
+        placeholder=t('payments.plot_number')]
+      .input-group-btn
+        button.btn.btn-default type="submit"
+          i.glyphicon.glyphicon-search
