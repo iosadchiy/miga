@@ -13,4 +13,12 @@ class Member < ApplicationRecord
   def self.owner_of(plot_number)
     Plot.find_by!(number: plot_number).member
   end
+
+  def membership_dues_debt
+    1234
+  end
+
+  def other_dues_debt
+    4321
+  end
 end

@@ -4,6 +4,7 @@ class CreateMembers < ActiveRecord::Migration[5.0]
       t.string :fio
       t.string :address
       t.string :phone
+      t.string :email
       t.string :status, index: true
 
       t.timestamps

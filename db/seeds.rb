@@ -3,6 +3,7 @@ if ENV['FAKEDATA'] == "1"
     fio: "Пупкин Василий Иванович",
     address: "г.Севастополь, пр.Ген.Острякова 12, кв 4",
     phone: "+79780001122",
+    email: "vasya@pupkin.ru",
     status: Member::ACTIVE
   )
   petya = Member.create!(

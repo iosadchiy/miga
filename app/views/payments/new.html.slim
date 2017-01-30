@@ -3,5 +3,16 @@
     p #{t 'payments.new.plots'}: #{@member.plot_list}
     p #{t 'payments.new.space'}: #{@member.space}
 
+.row
+  .col-lg-6
+    p #{@member.fio}<br>
+      #{@member.address}<br>
+      #{@member.phone}<br>
+      #{@member.email}<br>
+      #{link_to t('shared.form.edit'), edit_member_path(@member)}
+  .col-lg-6
+    p #{t 'payments.new.membership_dues_debt'}: #{number_to_currency @member.membership_dues_debt}
+    p #{t 'payments.new.other_dues_debt'}: #{number_to_currency @member.other_dues_debt}
+
 = debug @payment
 = debug @payment.member

@@ -1,6 +1,8 @@
 ru:
   shared:
     square_meters: 'м²'
+    form:
+      edit: "изменить"
   nav:
     payments: "Платежи"
     member_list: "Реестр членов"
@@ -14,5 +16,7 @@ ru:
       title: "Платежи"
       plots: "Участки"
       space: "Площадь"
+      membership_dues_debt: "Задолженность по членским взносам"
+      other_dues_debt: "Задолженность по целевым платежам"
   members:
     title: "Реестр членов"
