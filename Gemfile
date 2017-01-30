@@ -32,8 +32,8 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Former Jade templates
-gem 'pug-rails'
+# Templates
+gem 'slim-rails'
 
 # Dry-up
 gem 'responders'
