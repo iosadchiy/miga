@@ -7,5 +7,7 @@ ru:
   payments:
     title: "Платежи"
     plot_number: "Номер участка"
+    new:
+      title: "Платежи"
   members:
     title: "Реестр членов"
