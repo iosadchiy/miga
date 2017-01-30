@@ -35,6 +35,9 @@ gem 'jbuilder', '~> 2.5'
 # Former Jade templates
 gem 'pug-rails'
 
+# Dry-up
+gem 'responders'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
