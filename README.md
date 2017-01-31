@@ -16,7 +16,7 @@ To add some fake data: `rails db:seed FAKEDATA=1`
 
 * members
 * plots
-* config
+* setting
 * payments
 * dues
 
@@ -29,4 +29,4 @@ To add some fake data: `rails db:seed FAKEDATA=1`
 * Due
 * Plot
 * Member
-* Config
+* Setting
