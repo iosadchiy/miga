@@ -10,6 +10,8 @@ module MigaBe
   class Application < Rails::Application
     # Use the responders controller from the responders gem
     config.app_generators.scaffold_controller :responders_controller
+    # Use boostrap-compatile flash keys for responders
+    config.responders.flash_keys = [ :success, :danger ]
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

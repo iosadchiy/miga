@@ -17,30 +17,20 @@ class PlotsController < ApplicationController
   def create
     @plot = Plot.create(plot_params)
     self.page_title = t 'plots.new.title'
-    if @plot.valid?
-      redirect_to :plots, success: t('plots.flash.created')
-    else
-      render 'new'
-    end
+    respond_with @plot
   end
 
   def update
     @plot = Plot.find(params[:id])
     self.page_title = t 'plots.edit.title', number: @plot.number
-    if @plot.update(plot_params)
-      redirect_to :plots, success: t('plots.flash.updated')
-    else
-      render 'edit'
-    end
+    @plot.update(plot_params)
+    respond_with @plot
   end
 
   def destroy
     plot = Plot.find(params[:id])
-    if plot.destroy
-      redirect_to :plots, success: t('plots.flash.destroyed')
-    else
-      redirect_to plot, danger: t('plots.flash.cannot_destroy')
-    end
+    plot.destroy
+    respond_with plot
   end
 
   def plot_params

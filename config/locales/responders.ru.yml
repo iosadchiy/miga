@@ -1,0 +1,12 @@
+ru:
+  flash:
+    actions:
+      create:
+        success: '%{resource_name} создан.'
+        danger: '%{resource_name} создать не удалось.'
+      update:
+        success: '%{resource_name} изменен.'
+        danger: '%{resource_name} изменить не удалось.'
+      destroy:
+        success: '%{resource_name} удален.'
+        danger: '%{resource_name} удалить не удалось.'
