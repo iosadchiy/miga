@@ -1,5 +1,5 @@
 class PlotsController < ApplicationController
-  before_action :load_plot, only: %w(edit update destroy)
+  before_action :load_resource
 
   def index
     self.page_title = t 'plots.index.title'
@@ -30,10 +30,6 @@ class PlotsController < ApplicationController
   def destroy
     @plot.destroy
     respond_with @plot
-  end
-
-  def load_plot
-    @plot = Plot.find(params[:id])
   end
 
   def plot_params

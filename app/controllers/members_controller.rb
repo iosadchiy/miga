@@ -1,5 +1,5 @@
 class MembersController < ApplicationController
-  before_action :load_member, only: %w(edit update destroy)
+  before_action :load_resource
 
   def index
     self.page_title = t('members.index.title')
@@ -34,10 +34,6 @@ class MembersController < ApplicationController
   def destroy
     @member.destroy
     respond_with @member
-  end
-
-  def load_member
-    @member = Member.find(params[:id])
   end
 
   def member_params

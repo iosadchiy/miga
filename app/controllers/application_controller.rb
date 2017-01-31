@@ -14,4 +14,15 @@ class ApplicationController < ActionController::Base
   def set_locale
     I18n.locale = :ru
   end
+
+  # Guess model class from controller name
+  # and find it's instance by id from params
+  def load_resource
+    if action_name.in? %w(edit update destroy)
+      resource_name = controller_name.singularize
+      model_class = resource_name.capitalize.constantize
+      resource = model_class.find(params[:id])
+      instance_variable_set "@#{resource_name}", resource
+    end
+  end
 end
