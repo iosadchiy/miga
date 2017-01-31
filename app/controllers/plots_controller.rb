@@ -1,7 +1,7 @@
 class PlotsController < ApplicationController
   def index
     self.page_title = t 'plots.index.title'
-    @plots = Plot.all
+    @plots = Plot.order(:number)
   end
 
   def edit
