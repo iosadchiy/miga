@@ -1,0 +1,13 @@
+- if @member.deleted?
+  .alert.alert-warning= t 'members.edit.warn_user_deleted'
+
+= simple_form_for @member do |f|
+  = f.input :fio
+  = f.input :address
+  = f.input :phone
+  = f.input :email
+
+  = f.submit class: "btn btn-primary"
+  - unless @member.new_record?
+    = link_to t('helpers.submit.delete'), @member, method: :delete,
+      class: "btn btn-danger pull-right", data: {confirm: t('helpers.confirm_delete')}

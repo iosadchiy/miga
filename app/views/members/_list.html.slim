@@ -7,5 +7,5 @@ table.table.table-striped
   - members.each do |member|
     tr
       td= member.plot_list
-      td= member.fio
+      td= link_to member.fio, [:edit, member]
       td= member.phone

@@ -1,22 +1,46 @@
 class MembersController < ApplicationController
+  before_action :load_member, only: %w(edit update destroy)
+
   def index
     self.page_title = t('members.index.title')
     @members = Member.active.map{|m| MemberPresenter.new(m)}
     @deleted_members = Member.deleted.map{|m| MemberPresenter.new(m)}
   end
 
-  def create
+  def new
+    self.page_title = t('members.new.title')
+    @member = Member.new
   end
 
-  def new
+  def create
+    self.page_title = t('members.new.title')
+    @member = Member.create(member_params.merge(status: Member::ACTIVE))
+    respond_with @member
   end
 
   def edit
+    self.page_title = t('members.edit.title', fio: @member.fio)
+  end
+
+  def update
+    self.page_title = t('members.edit.title', fio: @member.fio)
+    @member.update(member_params)
+    respond_with @member
   end
 
   def show
   end
 
-  def delete
+  def destroy
+    @member.destroy
+    respond_with @member
+  end
+
+  def load_member
+    @member = Member.find(params[:id])
+  end
+
+  def member_params
+    params.require(:member).permit(:fio, :address, :phone, :email)
   end
 end

@@ -2,6 +2,7 @@ ru:
   activerecord:
     models:
       plot: "Участок"
+      member: "Пользователь"
     attributes:
       plot:
         number: "Номер"
@@ -9,6 +10,12 @@ ru:
         space: "Площадь"
         cadastre: "Кадастровый номер"
         ukrgosact: "Укрогосакт"
+      member:
+        fio: "ФИО"
+        address: "Адрес"
+        phone: "Телефон"
+        email: "Почта"
+        status: "Статус"
   helpers:
     submit:
       delete: "Удалить"
@@ -45,6 +52,11 @@ ru:
       fio: "ФИО"
       phone: "Телефон"
       inactive: "Исключенные"
+    new:
+      title: "Добавление пользователя"
+    edit:
+      title: "%{fio}"
+      warn_user_deleted: "Исключен из членов СТ"
   plots:
     flash:
       created: "Участок создан"
