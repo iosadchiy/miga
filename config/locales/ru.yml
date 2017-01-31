@@ -26,6 +26,7 @@ ru:
     title: "Платежи"
     plot_number: "Номер участка"
     no_such_plot: "Такой участок не найден"
+    no_member: "Бесхозный участок"
     new:
       title: "Платежи"
       plots: "Участки"

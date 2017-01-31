@@ -5,12 +5,12 @@ class PaymentsController < ApplicationController
 
   def new
     self.page_title = t('payments.new.title')
-    member = Member.owner_of(plot_number)
+    plot = Plot.find_by(number: plot_number) or
+      redirect_back fallback_location: :payments, danger: t('payments.no_such_plot')
+    member = plot.member or
+      redirect_back fallback_location: :payments, warning: t('payments.no_member')
     @member = MemberPresenter.new(member)
     @payment = PaymentPresenter.new(Payment.new(member: member))
-  rescue ActiveRecord::RecordNotFound => e
-    raise e unless e.model == "Plot"
-    redirect_to :payments, danger: t('payments.no_such_plot')
   end
 
   def plot_number
