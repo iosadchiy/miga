@@ -1,4 +1,7 @@
 class PaymentsController < ApplicationController
+
+  class PlotNotValidError < RuntimeError; end
+
   def index
     self.page_title = t('payments.title')
   end
@@ -6,11 +9,13 @@ class PaymentsController < ApplicationController
   def new
     self.page_title = t('payments.new.title')
     plot = Plot.find_by(number: plot_number) or
-      redirect_back fallback_location: :payments, danger: t('payments.no_such_plot')
+      raise PlotNotValidError.new t('payments.no_such_plot')
     member = plot.member or
-      redirect_back fallback_location: :payments, warning: t('payments.no_member')
+      raise PlotNotValidError.new t('payments.no_member')
     @member = MemberPresenter.new(member)
     @payment = PaymentPresenter.new(Payment.new(member: member))
+  rescue PlotNotValidError => e
+    redirect_back fallback_location: :payments, danger: e.message
   end
 
   def plot_number
