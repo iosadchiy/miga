@@ -17,6 +17,9 @@ ru:
         phone: "Телефон"
         email: "Почта"
         status: "Статус"
+      setting:
+        price_electricity: "Электричество, цена за кВт·ч, рублей"
+        price_water: "Вода, цена за м³, рублей"
   helpers:
     submit:
       delete: "Удалить"
