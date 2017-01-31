@@ -44,6 +44,9 @@ gem 'bootstrap-sass'
 # Better form builder
 gem 'simple_form'
 
+# Dry up controllers
+gem 'responders'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
