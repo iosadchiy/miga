@@ -5,7 +5,7 @@ class MemberPresenter < SimpleDelegator
 
   def self.active_plus_owner_of(plot)
     res = from_collection(Member.active)
-    res << new(plot.member) if plot && !plot.member.active?
+    res << new(plot.member) if plot && plot.member && !plot.member.active?
     res
   end
 

@@ -41,9 +41,14 @@ ru:
       phone: "Телефон"
       inactive: "Исключенные"
   plots:
+    flash:
+      created: "Участок создан"
+      updated: "Участок изменен"
     index:
       title: "Реестр участков"
       confirm_delete: "Удалить участок?"
       new: "добавить"
     edit:
       title: "Участок %{number}"
+    new:
+      title: "Добавление участка"
