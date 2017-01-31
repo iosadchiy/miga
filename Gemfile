@@ -35,6 +35,7 @@ gem 'jbuilder', '~> 2.5'
 # Templates
 gem 'slim-rails'
 
+# The languages
 gem 'rails-i18n'
 
 # Bootstrap

@@ -34,6 +34,15 @@ class PlotsController < ApplicationController
     end
   end
 
+  def destroy
+    plot = Plot.find(params[:id])
+    if plot.destroy
+      redirect_to :plots, success: t('plots.flash.destroyed')
+    else
+      redirect_to plot, danger: t('plots.flash.cannot_destroy')
+    end
+  end
+
   def plot_params
     params.require(:plot).permit(:member_id, :number, :space, :cadastre, :ukrgosact)
   end

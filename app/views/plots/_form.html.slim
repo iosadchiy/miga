@@ -4,4 +4,7 @@
   = f.input :space
   = f.input :cadastre
   = f.input :ukrgosact
-  = f.submit
+  = f.submit class: "btn btn-primary"
+  - unless @plot.new_record?
+    = link_to t('helpers.submit.delete'), @plot, method: :delete,
+      class: "btn btn-danger pull-right", data: {confirm: t('helpers.confirm_delete')}

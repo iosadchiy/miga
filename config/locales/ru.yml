@@ -9,6 +9,10 @@ ru:
         space: "Площадь"
         cadastre: "Кадастровый номер"
         ukrgosact: "Укрогосакт"
+  helpers:
+    submit:
+      delete: "Удалить"
+    confirm_delete: "Удалить?"
   shared:
     square_meters: 'м²'
     form:
@@ -44,9 +48,10 @@ ru:
     flash:
       created: "Участок создан"
       updated: "Участок изменен"
+      destroyed: "Участок удален"
+      cannot_destroy: "Невозможно удалить участок"
     index:
       title: "Реестр участков"
-      confirm_delete: "Удалить участок?"
       new: "добавить"
     edit:
       title: "Участок %{number}"
