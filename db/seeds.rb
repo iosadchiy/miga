@@ -1,3 +1,5 @@
+Setting.create! price_electricity: 2.75, price_water: 38
+
 if ENV['FAKEDATA'] == "1"
   vasya = Member.create!(
     fio: "Пупкин Василий Иванович",

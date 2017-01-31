@@ -70,3 +70,5 @@ ru:
       title: "Участок %{number}"
     new:
       title: "Добавление участка"
+  settings:
+    only_one_allowed: "Останется только один"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170130104506) do
+ActiveRecord::Schema.define(version: 20170131214503) do
 
   create_table "counters", force: :cascade do |t|
     t.string   "type"
@@ -51,6 +51,11 @@ ActiveRecord::Schema.define(version: 20170130104506) do
     t.datetime "updated_at", null: false
     t.index ["member_id"], name: "index_plots_on_member_id"
     t.index ["number"], name: "index_plots_on_number"
+  end
+
+  create_table "settings", force: :cascade do |t|
+    t.float "price_electricity"
+    t.float "price_water"
   end
 
 end
