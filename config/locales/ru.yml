@@ -3,6 +3,7 @@ ru:
     models:
       plot: "Участок"
       member: "Пользователь"
+      setting: "Настройки"
     attributes:
       plot:
         number: "Номер"
@@ -28,7 +29,7 @@ ru:
     payments: "Платежи"
     member_list: "Реестр членов"
     plot_list: "Реестр участков"
-    config: "Настройки"
+    settings: "Настройки"
   payments:
     title: "Платежи"
     plot_number: "Номер участка"
@@ -71,4 +72,7 @@ ru:
     new:
       title: "Добавление участка"
   settings:
+    title: "Настройки"
     only_one_allowed: "Останется только один"
+    edited: "Настройки обновлены"
+    cannot_edit: "Не удалось сохранить настройки"
