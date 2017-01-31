@@ -1,0 +1,7 @@
+= simple_form_for @plot do |f|
+  = f.association :member, collection: MemberPresenter.active_plus_owner_of(@plot)
+  = f.input :number
+  = f.input :space
+  = f.input :cadastre
+  = f.input :ukrgosact
+  = f.submit

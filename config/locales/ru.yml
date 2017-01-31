@@ -1,4 +1,14 @@
 ru:
+  activerecord:
+    models:
+      plot: "Участок"
+    attributes:
+      plot:
+        number: "Номер"
+        member: "Хозяин"
+        space: "Площадь"
+        cadastre: "Кадастровый номер"
+        ukrgosact: "Укрогосакт"
   shared:
     square_meters: 'м²'
     form:
@@ -19,6 +29,9 @@ ru:
       membership_dues_debt: "Задолженность по членским взносам"
       other_dues_debt: "Задолженность по целевым платежам"
   members:
+    status:
+      active: "Активен"
+      deleted: "Исключен"
     index:
       title: "Реестр членов"
       search: "Поиск по участку или ФИО"
@@ -32,3 +45,5 @@ ru:
       title: "Реестр участков"
       confirm_delete: "Удалить участок?"
       new: "добавить"
+    edit:
+      title: "Участок %{number}"

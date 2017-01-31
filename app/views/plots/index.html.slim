@@ -2,16 +2,19 @@ p= link_to t('plots.index.new'), new_plot_path
 table.table.table-striped
   thead
     tr
-      th= t('plots.index.number')
-      th= t('plots.index.space')
-      th= t('plots.index.cadastre')
-      th= t('plots.index.ukrgosact')
-      th
+      th= t('activerecord.attributes.plot.number')
+      th= t('activerecord.attributes.plot.member')
+      th= t('activerecord.attributes.plot.space')
+      th= t('activerecord.attributes.plot.cadastre')
+      th= t('activerecord.attributes.plot.ukrgosact')
+      /th
   - @plots.each do |plot|
     tr
-      td= plot.number
+      td= link_to plot.number, [:edit, plot]
+      td= plot.member.fio
       td= plot.space
       td= plot.cadastre
       td= plot.ukrgosact
-      td= link_to '<span class="glyphicon glyphicon-remove"></span>'.html_safe,
-        plot, method: :delete, data: {confirm: t('plots.index.confirm_delete')}
+      /td= link_to '<span class="glyphicon glyphicon-remove"></span>'.html_safe,
+        plot, method: :delete, class: "btn btn-default",
+        data: {confirm: t('plots.index.confirm_delete')}

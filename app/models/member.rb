@@ -21,4 +21,7 @@ class Member < ApplicationRecord
   def other_dues_debt
     4321
   end
+
+  def active?; status == ACTIVE; end
+  def deleted?; status == DELETED; end
 end
