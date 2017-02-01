@@ -19,9 +19,14 @@ ru:
         email: "Почта"
         status: "Статус"
       due:
+        kind: "Тип"
         purpose: "Назначение"
         unit: "Единица учета"
         price: "Цена за единицу"
+      due/unit:
+        per_square_meter: "за м²"
+        per_plot: "за участок"
+        per_member: "за члена"
       setting:
         price_electricity: "Электричество, цена за кВт·ч, рублей"
         price_water: "Вода, цена за м³, рублей"
@@ -32,6 +37,7 @@ ru:
   shared:
     square_meters: 'м²'
     form:
+      add: "добавить"
       edit: "изменить"
   nav:
     payments: "Платежи"
@@ -84,6 +90,8 @@ ru:
     index:
       title: "Взносы"
       entrance_dues: "Вступительные взносы"
+      target_dues: "Целевые взносы"
+      membership_dues: "Членские взносы"
   settings:
     title: "Настройки"
     only_one_allowed: "Останется только один"

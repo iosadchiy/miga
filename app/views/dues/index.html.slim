@@ -1,4 +1,3 @@
-h2= t 'dues.index.entrance_dues'
-
-table.table
-  thead
+= render 'list', dues: @entrance_dues, kind: :entrance
+= render 'list', dues: @target_dues, kind: :target
+= render 'list', dues: @membership_dues, kind: :membership

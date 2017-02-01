@@ -3,9 +3,10 @@
 # Table name: dues
 #
 #  id         :integer          not null, primary key
-#  purpose    :string
-#  unit       :string
-#  price      :float
+#  kind       :integer          not null
+#  purpose    :string           not null
+#  unit       :integer          not null
+#  price      :float            not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

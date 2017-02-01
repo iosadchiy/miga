@@ -36,4 +36,15 @@ if ENV['FAKEDATA'] == "1"
     number: "321",
     space: 420
   )
+
+  Due.create! [
+    {kind: :entrance, purpose: "Водовод", unit: :per_square_meter, price: 2500},
+    {kind: :entrance, purpose: "Электричество", unit: :per_plot, price: 10000},
+    {kind: :entrance, purpose: "Прием в члены", unit: :per_member, price: 10000},
+    {kind: :target, purpose: "Налог на землю 2017", unit: :per_square_meter, price: 50},
+    {kind: :target, purpose: "Апгрейд подстанции", unit: :per_plot, price: 20000},
+    {kind: :target, purpose: "Зимний водопровод", unit: :per_member, price: 30000},
+    {kind: :membership, purpose: "Членские взносы 2017", unit: :per_plot, price: 2400},
+    {kind: :membership, purpose: "Членские взносы 2016", unit: :per_square_meter, price: 9.5},
+  ]
 end
