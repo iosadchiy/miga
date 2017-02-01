@@ -8,6 +8,6 @@
   = f.input :email
 
   = f.submit class: "btn btn-primary"
-  - unless @member.new_record?
+  - if @member.persisted? && @member.active?
     = link_to t('helpers.submit.delete'), @member, method: :delete,
       class: "btn btn-danger pull-right", data: {confirm: t('helpers.confirm_delete')}
