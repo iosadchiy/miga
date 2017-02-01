@@ -1,0 +1,2 @@
+class Due < ApplicationRecord
+end

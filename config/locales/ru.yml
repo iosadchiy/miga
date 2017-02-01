@@ -32,6 +32,7 @@ ru:
     payments: "Платежи"
     member_list: "Реестр членов"
     plot_list: "Реестр участков"
+    dues: "Взносы"
     settings: "Настройки"
   payments:
     title: "Платежи"
@@ -74,6 +75,10 @@ ru:
       title: "Участок %{number}"
     new:
       title: "Добавление участка"
+  dues:
+    index:
+      title: "Взносы"
+      entrance_dues: "Вступительные взносы"
   settings:
     title: "Настройки"
     only_one_allowed: "Останется только один"
