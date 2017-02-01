@@ -25,7 +25,7 @@ class MembersController < ApplicationController
   def update
     self.page_title = t('members.edit.title', fio: @member.fio)
     @member.update(member_params)
-    respond_with @member
+    respond_with @member, location: -> { params[:back] }
   end
 
   def show

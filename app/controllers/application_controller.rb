@@ -11,6 +11,11 @@ class ApplicationController < ActionController::Base
   attr_accessor :page_title
   helper_method :page_title
 
+  helper_method :referer
+  def referer(fallback = nil)
+    request.referer || fallback || root_path
+  end
+
   def set_locale
     I18n.locale = :ru
   end

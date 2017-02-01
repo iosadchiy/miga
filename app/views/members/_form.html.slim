@@ -2,6 +2,7 @@
   .alert.alert-warning= t 'members.edit.warn_user_deleted'
 
 = simple_form_for @member do |f|
+  = hidden_field_tag :back, params[:back] || referer
   = f.input :fio
   = f.input :address
   = f.input :phone
