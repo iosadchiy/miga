@@ -3,6 +3,7 @@ ru:
     models:
       plot: "Участок"
       member: "Пользователь"
+      due: "Взнос"
       setting: "Настройки"
     attributes:
       plot:
@@ -17,6 +18,10 @@ ru:
         phone: "Телефон"
         email: "Почта"
         status: "Статус"
+      due:
+        purpose: "Назначение"
+        unit: "Единица учета"
+        price: "Цена за единицу"
       setting:
         price_electricity: "Электричество, цена за кВт·ч, рублей"
         price_water: "Вода, цена за м³, рублей"

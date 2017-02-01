@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20170201121404) do
   end
 
   create_table "dues", force: :cascade do |t|
-    t.string   "name"
+    t.string   "purpose"
     t.string   "unit"
     t.float    "price"
     t.datetime "created_at", null: false
