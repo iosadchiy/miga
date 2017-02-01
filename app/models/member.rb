@@ -35,4 +35,9 @@ class Member < ApplicationRecord
   def other_dues_debt
     4321
   end
+
+  def destroy
+    update(status: :deleted)
+  end
+  alias_method :destroy!, :destroy
 end
