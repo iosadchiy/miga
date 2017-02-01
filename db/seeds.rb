@@ -6,19 +6,19 @@ if ENV['FAKEDATA'] == "1"
     address: "г.Севастополь, пр.Ген.Острякова 12, кв 4",
     phone: "+79780001122",
     email: "vasya@pupkin.ru",
-    status: Member::ACTIVE
+    status: :active
   )
   petya = Member.create!(
     fio: "Забулдыкин Петр Петрович",
     address: "г.Севастополь, ул Маринеско 1, кв 2",
     phone: "+79780002233",
-    status: Member::ACTIVE
+    status: :active
   )
   kolya = Member.create!(
     fio: "Голохвадько Николай Евгеньевич",
     address: "г.Северодвинск, ул.Ленина 10, кв 3",
     phone: "+79780004455",
-    status: Member::DELETED
+    status: :deleted
   )
 
   Plot.create!(

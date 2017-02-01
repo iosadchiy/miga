@@ -3,11 +3,11 @@
 # Table name: members
 #
 #  id         :integer          not null, primary key
-#  fio        :string
+#  fio        :string           not null
 #  address    :string
 #  phone      :string
 #  email      :string
-#  status     :string
+#  status     :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -17,16 +17,12 @@
 #
 
 class Member < ApplicationRecord
-  ACTIVE = 'Active'
-  DELETED = 'Deleted'
+  enum status: [:active, :deleted]
 
   has_many :plots, -> { order :number }
 
-  scope :active, -> { where(status: ACTIVE) }
-  scope :deleted, -> { where(status: DELETED) }
-
   validates :fio, presence: true
-  validates :status, presence: true, inclusion: {in: [ACTIVE, DELETED]}
+  validates :status, presence: true
 
   def self.owner_of(plot_number)
     Plot.find_by!(number: plot_number).member
@@ -39,7 +35,4 @@ class Member < ApplicationRecord
   def other_dues_debt
     4321
   end
-
-  def active?; status == ACTIVE; end
-  def deleted?; status == DELETED; end
 end

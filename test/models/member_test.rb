@@ -3,11 +3,11 @@
 # Table name: members
 #
 #  id         :integer          not null, primary key
-#  fio        :string
+#  fio        :string           not null
 #  address    :string
 #  phone      :string
 #  email      :string
-#  status     :string
+#  status     :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

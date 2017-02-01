@@ -14,7 +14,7 @@ class MembersController < ApplicationController
 
   def create
     self.page_title = t('members.new.title')
-    @member = Member.create(member_params.merge(status: Member::ACTIVE))
+    @member = Member.create(member_params.merge(status: :active))
     respond_with @member
   end
 

@@ -33,11 +33,11 @@ ActiveRecord::Schema.define(version: 20170201121404) do
   end
 
   create_table "members", force: :cascade do |t|
-    t.string   "fio"
+    t.string   "fio",        null: false
     t.string   "address"
     t.string   "phone"
     t.string   "email"
-    t.string   "status"
+    t.integer  "status",     null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["status"], name: "index_members_on_status"
