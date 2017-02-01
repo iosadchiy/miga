@@ -30,3 +30,15 @@ To add some fake data: `rails db:seed FAKEDATA=1`
 * Plot
 * Member
 * Setting
+
+## Flows
+
+### Member pays for electricity
+
+    As an admin I open payments#new(plot_number=123)
+    Then I fill in current display
+    And the sum field gets updated
+    Then I press 'сформировать ордера'
+    And the payment confirmation page opens
+    And a Transaction is created
+    With old/new display values, price, sum, name, plot
