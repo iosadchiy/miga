@@ -1,10 +1,3 @@
-form
-  .input-group
-    input.form-control type="text" placeholder=t('members.index.search')
-    .input-group-btn
-      button.btn.btn-default type="submit"
-        i.glyphicon.glyphicon-search
-
 p= link_to t('members.index.new'), new_member_path
 
 = render 'list', members: @members
