@@ -1,4 +1,4 @@
 tr
-  td= link_to due.purpose, due
+  td= link_to due.purpose, [:edit, due]
   td= Due.human_attribute_name "unit.#{due.unit}"
   td= number_to_currency due.price
