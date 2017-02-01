@@ -47,6 +47,9 @@ gem 'simple_form'
 # Dry up controllers
 gem 'responders'
 
+# Annotate models
+gem 'annotate'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
