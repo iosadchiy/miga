@@ -1,3 +1,12 @@
+# == Schema Information
+#
+# Table name: settings
+#
+#  id                :integer          not null, primary key
+#  price_electricity :float
+#  price_water       :float
+#
+
 class Setting < ApplicationRecord
   # only one Setting allowed
   validates_each :id do |record, attr, value|
