@@ -16,7 +16,7 @@
       th
     = f.fields_for :registers do |ff|
       tr
-        td= ff.text_field :kind, class: "form-control"
+        td= ff.select :kind, options_for_enum(Register, :kind), {}, class: "form-control"
         td= ff.text_field :name, class: "form-control string optional"
         td= ff.text_field :number, class: "form-control string optional"
         td= ff.text_field :display, class: "form-control string optional"
