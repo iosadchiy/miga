@@ -33,6 +33,15 @@ class PlotsController < ApplicationController
   end
 
   def plot_params
-    params.require(:plot).permit(:member_id, :number, :space, :cadastre, :ukrgosact)
+    params
+      .require(:plot)
+      .permit(
+        :member_id,
+        :number,
+        :space,
+        :cadastre,
+        :ukrgosact,
+        registers_attributes: [:id, :kind, :name, :number, :display, :seal]
+      )
   end
 end
