@@ -20,6 +20,7 @@ class Member < ApplicationRecord
   enum status: [:active, :deleted]
 
   has_many :plots, -> { order :number }
+  has_many :registers, through: :plots
 
   validates :fio, presence: true
   validates :status, presence: true

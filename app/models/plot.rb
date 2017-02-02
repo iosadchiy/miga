@@ -19,6 +19,8 @@
 
 class Plot < ApplicationRecord
   belongs_to :member, optional: true
+  has_many :registers, inverse_of: :plot
+  accepts_nested_attributes_for :registers, reject_if: :all_blank
 
   validates :number, presence: true, uniqueness: true
   validates :space, numericality: {allow_nil: true,

@@ -24,7 +24,11 @@ if ENV['FAKEDATA'] == "1"
   Plot.create!(
     member: vasya,
     number: "123",
-    space: 410
+    space: 410,
+    registers_attributes: [
+      {kind: :electricity, name: "Основной", number: "111111111", display: "123123", seal: "123"},
+      {kind: :water}
+    ]
   )
   Plot.create!(
     member: vasya,
