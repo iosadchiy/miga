@@ -4,6 +4,25 @@
   = f.input :space
   = f.input :cadastre
   = f.input :ukrgosact
+
+  h2= t 'plots.form.registers'
+  table.table
+    thead
+      th= Register.human_attribute_name("kind")
+      th= Register.human_attribute_name("name")
+      th= Register.human_attribute_name("number")
+      th= Register.human_attribute_name("display")
+      th= Register.human_attribute_name("seal")
+      th
+    = f.fields_for :registers do |ff|
+      tr
+        td= ff.text_field :kind, class: "form-control"
+        td= ff.text_field :name, class: "form-control string optional"
+        td= ff.text_field :number, class: "form-control string optional"
+        td= ff.text_field :display, class: "form-control string optional"
+        td= ff.text_field :seal, class: "form-control string optional"
+        td &times;
+
   = f.submit class: "btn btn-primary"
   - unless @plot.new_record?
     = link_to t('helpers.submit.delete'), @plot, method: :delete,

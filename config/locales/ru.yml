@@ -5,6 +5,7 @@ ru:
       member: "Пользователь"
       due: "Взнос"
       setting: "Настройки"
+      register: "Прибор учета"
     attributes:
       plot:
         number: "Номер"
@@ -30,6 +31,15 @@ ru:
       setting:
         price_electricity: "Электричество, цена за кВт·ч, рублей"
         price_water: "Вода, цена за м³, рублей"
+      register:
+        kind: "Тип"
+        name: "Название"
+        number: "Номер"
+        display: "Показания"
+        seal: "Номер пломбы"
+      register/kind:
+        electricity: "Электросчетчик"
+        water: "Водомер"
   helpers:
     submit:
       delete: "Удалить"
@@ -86,6 +96,8 @@ ru:
       title: "Участок %{number}"
     new:
       title: "Добавление участка"
+    form:
+      registers: "Приборы учета"
   dues:
     index:
       title: "Взносы"
