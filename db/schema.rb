@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20170201121404) do
     t.integer  "kind",       null: false
     t.string   "purpose",    null: false
     t.integer  "unit",       null: false
-    t.float    "price",      null: false
+    t.decimal  "price",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20170201121404) do
 
   create_table "payments", force: :cascade do |t|
     t.integer  "member_id"
+    t.decimal  "total",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["member_id"], name: "index_payments_on_member_id"
@@ -63,8 +64,8 @@ ActiveRecord::Schema.define(version: 20170201121404) do
   end
 
   create_table "settings", force: :cascade do |t|
-    t.float "price_electricity"
-    t.float "price_water"
+    t.decimal "price_electricity", null: false
+    t.decimal "price_water",       null: false
   end
 
 end

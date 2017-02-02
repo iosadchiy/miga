@@ -4,7 +4,7 @@ class CreateDues < ActiveRecord::Migration[5.0]
       t.integer :kind,    null: false
       t.string  :purpose, null: false
       t.integer :unit,    null: false
-      t.float   :price,   null: false
+      t.decimal :price,   null: false
 
       t.timestamps
     end

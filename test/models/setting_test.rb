@@ -3,8 +3,8 @@
 # Table name: settings
 #
 #  id                :integer          not null, primary key
-#  price_electricity :float
-#  price_water       :float
+#  price_electricity :decimal(, )      not null
+#  price_water       :decimal(, )      not null
 #
 
 require 'test_helper'

@@ -6,7 +6,7 @@
 #  kind       :integer          not null
 #  purpose    :string           not null
 #  unit       :integer          not null
-#  price      :float            not null
+#  price      :decimal(, )      not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
