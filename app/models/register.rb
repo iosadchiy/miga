@@ -22,4 +22,11 @@ class Register < ApplicationRecord
   belongs_to :plot
 
   validates :kind, presence: true
+
+  def human_name
+    [
+      self.class.human_attribute_name("kind.#{kind}"),
+      ("\"#{name}\"" if name.present?)
+    ].compact.join(" ")
+  end
 end

@@ -13,3 +13,15 @@
   .col-lg-6
     p #{t 'payments.new.membership_dues_debt'}: #{number_to_currency @member.membership_dues_debt}
     p #{t 'payments.new.other_dues_debt'}: #{number_to_currency @member.other_dues_debt}
+
+.row
+  table.table
+    thead
+      th= t 'payments.register'
+      th= t 'payments.previous_display'
+      th= t 'payments.current_display'
+      th= t 'payments.difference'
+      th= t 'payments.price_per_unit'
+      th= t 'payments.sum'
+    tbody
+      = render partial: 'register', collection: @member.registers
