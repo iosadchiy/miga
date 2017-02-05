@@ -15,3 +15,23 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+document.addEventListener("turbolinks:load", function() {
+
+  // Adds a new nested form
+  // Finds all links with data-form-prepend (which contains the form to add)
+  // changes name to timesstamp
+  // and appends it to the element from data-target
+  $('[data-form-prepend]').click( function(e) {
+      var obj = $( $(this).attr('data-form-prepend') );
+      obj.find('input, select, textarea').each( function() {
+        $(this).attr( 'name', function() {
+          return $(this).attr('name').replace( 'new_record', (new Date()).getTime() );
+        });
+      });
+      var target = $($(this).attr('data-target'));
+      target.append(obj);
+      return false;
+    });
+
+});

@@ -20,4 +20,6 @@
 class Register < ApplicationRecord
   enum kind: [:electricity, :water]
   belongs_to :plot
+
+  validates :kind, presence: true
 end

@@ -6,7 +6,7 @@
   = f.input :ukrgosact
 
   h2= t 'plots.form.registers'
-  table.table
+  table#registers-list.table
     thead
       th= Register.human_attribute_name("kind")
       th= Register.human_attribute_name("name")
@@ -14,14 +14,10 @@
       th= Register.human_attribute_name("display")
       th= Register.human_attribute_name("seal")
       th
-    = f.fields_for :registers do |ff|
-      tr
-        td= ff.select :kind, options_for_enum(Register, :kind), {}, class: "form-control"
-        td= ff.text_field :name, class: "form-control string optional"
-        td= ff.text_field :number, class: "form-control string optional"
-        td= ff.text_field :display, class: "form-control string optional"
-        td= ff.text_field :seal, class: "form-control string optional"
-        td &times;
+    tbody
+      = f.fields_for :registers do |ff|
+        = render 'register_fields', ff: ff
+  p= link_to_add_fields t('shared.form.add'), f, :registers, {}, {'data-target': '#registers-list tbody'}
 
   = f.submit class: "btn btn-primary"
   - unless @plot.new_record?
