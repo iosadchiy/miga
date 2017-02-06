@@ -51,7 +51,7 @@ gem 'responders'
 gem 'annotate'
 
 # Presenters/decorators
-gem 'draper'
+gem 'draper', github: 'drapergem/draper'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

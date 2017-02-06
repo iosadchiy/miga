@@ -1,3 +1,14 @@
+GIT
+  remote: https://github.com/drapergem/draper.git
+  revision: ab51bf06d111c6278bd3bc0ca781655ae61cc4b9
+  specs:
+    draper (3.0.0.pre1)
+      actionpack (~> 5.0)
+      activemodel (~> 5.0)
+      activemodel-serializers-xml (~> 1.0)
+      activesupport (~> 5.0)
+      request_store (~> 1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -29,6 +40,11 @@ GEM
       globalid (>= 0.3.6)
     activemodel (5.0.1)
       activesupport (= 5.0.1)
+    activemodel-serializers-xml (1.0.1)
+      activemodel (> 5.x)
+      activerecord (> 5.x)
+      activesupport (> 5.x)
+      builder (~> 3.1)
     activerecord (5.0.1)
       activemodel (= 5.0.1)
       activesupport (= 5.0.1)
@@ -58,11 +74,6 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.4)
     debug_inspector (0.0.2)
-    draper (2.1.0)
-      actionpack (>= 3.0)
-      activemodel (>= 3.0)
-      activesupport (>= 3.0)
-      request_store (~> 1.0)
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.17)
@@ -188,7 +199,7 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   coffee-rails (~> 4.2)
-  draper
+  draper!
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
