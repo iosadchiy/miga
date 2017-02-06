@@ -3,12 +3,6 @@ class MemberPresenter < SimpleDelegator
     collection.map{|m| new(m)}
   end
 
-  def self.active_plus_owner_of(plot)
-    res = from_collection(Member.active)
-    res << new(plot.member) if plot && plot.member && !plot.member.active?
-    res
-  end
-
   def plot_list
     plot_numbers.join(", ")
   end

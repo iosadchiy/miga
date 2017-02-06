@@ -25,6 +25,11 @@ class Member < ApplicationRecord
   validates :fio, presence: true
   validates :status, presence: true
 
+  default_scope { order :fio }
+  scope :active_plus_owner_of, ->(plot) {
+    where("status = ? OR id = ?", statuses[:active], plot.member_id)
+  }
+
   def self.owner_of(plot_number)
     Plot.find_by!(number: plot_number).member
   end
