@@ -10,7 +10,7 @@ class MemberPresenter < SimpleDelegator
   end
 
   def plot_list
-    plots.pluck(:number).join(", ")
+    plot_numbers.join(", ")
   end
 
   def space
