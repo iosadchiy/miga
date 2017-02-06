@@ -9,7 +9,7 @@ class PaymentsController < ApplicationController
 
   def new
     self.page_title = t('payments.new.title')
-    @payment = Payment.new(member: @member.__getobj__)
+    @payment = Payment.new(member: @member)
   end
 
   def create
@@ -19,9 +19,8 @@ class PaymentsController < ApplicationController
   def load_member
     plot = Plot.find_by(number: plot_number) or
       raise PlotNotValidError.new t('payments.no_such_plot')
-    member = plot.member or
+    @member = plot.member.decorate or
       raise PlotNotValidError.new t('payments.no_member')
-    @member = MemberPresenter.new(member)
   rescue PlotNotValidError => e
     redirect_back fallback_location: :payments, danger: e.message
   end

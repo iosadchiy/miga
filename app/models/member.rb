@@ -42,10 +42,6 @@ class Member < ApplicationRecord
     4321
   end
 
-  def plot_numbers
-    plots.pluck(:number)
-  end
-
   def destroy
     update(status: :deleted)
   end
