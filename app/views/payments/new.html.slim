@@ -16,4 +16,5 @@
 
 = simple_form_for @payment do |f|
   = render 'utility_transactions', form: f
+  = f.input :total
   p= f.submit
