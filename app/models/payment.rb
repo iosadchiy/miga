@@ -15,4 +15,16 @@
 
 class Payment < ApplicationRecord
   belongs_to :member
+  has_many :transactions
+
+  def new_utility_transactions
+    member.registers.map do |register|
+      Transaction.new(
+        kind: :utility,
+        register: register,
+        payment: self,
+        start_display: register.start_display
+      )
+    end
+  end
 end

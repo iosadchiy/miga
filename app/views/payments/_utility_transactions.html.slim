@@ -1,0 +1,20 @@
+- form
+
+table.table
+  thead
+    th= t 'payments.register'
+    th= t 'payments.previous_display'
+    th= t 'payments.current_display'
+    th= t 'payments.difference'
+    th= t 'payments.price_per_unit'
+    th= t 'payments.total'
+  tbody
+    - form.object.new_utility_transactions.each do |transaction|
+      = form.fields_for transaction do |ff|
+        tr
+          td= transaction.register.human_name
+          td= ff.text_field :start_display, disabled: !transaction.start_display_edit_allowed?
+          td= ff.text_field :end_display
+          td= ff.text_field :difference
+          td= number_to_currency Setting.config["price_#{transaction.register.kind}"]
+          td= ff.text_field :total

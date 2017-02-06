@@ -70,10 +70,12 @@ ActiveRecord::Schema.define(version: 20170206074531) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.decimal  "total"
+    t.integer  "kind",          null: false
+    t.decimal  "total",         null: false
     t.integer  "start_display"
     t.integer  "end_display"
-    t.text     "details"
+    t.integer  "difference"
+    t.text     "details",       null: false
     t.integer  "payment_id"
     t.integer  "register_id"
     t.datetime "created_at",    null: false

@@ -3,10 +3,12 @@
 # Table name: transactions
 #
 #  id            :integer          not null, primary key
-#  total         :decimal(, )
+#  kind          :integer          not null
+#  total         :decimal(, )      not null
 #  start_display :integer
 #  end_display   :integer
-#  details       :text
+#  difference    :integer
+#  details       :text             not null
 #  payment_id    :integer
 #  register_id   :integer
 #  created_at    :datetime         not null
