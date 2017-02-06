@@ -12,24 +12,6 @@ Requirements: ruby 2.4.0, execjs runtime
 
 To add some fake data: `rails db:seed FAKEDATA=1`
 
-## Resources:
-
-* members
-* plots
-* setting
-* payments
-* dues
-
-## Models
-
-* Transaction
-* Payment
-* Counter
-* CounterChecks
-* Due
-* Plot
-* Member
-* Setting
 
 ## Flows
 
