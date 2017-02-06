@@ -5,7 +5,6 @@ class CreateTransactions < ActiveRecord::Migration[5.0]
       t.integer :start_display
       t.integer :end_display
       t.text :details
-      t.references :member, foreign_key: true
       t.references :payment, foreign_key: true
       t.references :register, foreign_key: true
 

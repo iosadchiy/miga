@@ -74,12 +74,10 @@ ActiveRecord::Schema.define(version: 20170206074531) do
     t.integer  "start_display"
     t.integer  "end_display"
     t.text     "details"
-    t.integer  "member_id"
     t.integer  "payment_id"
     t.integer  "register_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["member_id"], name: "index_transactions_on_member_id"
     t.index ["payment_id"], name: "index_transactions_on_payment_id"
     t.index ["register_id"], name: "index_transactions_on_register_id"
   end
