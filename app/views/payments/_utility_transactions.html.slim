@@ -2,12 +2,12 @@
 
 table.table
   thead
-    th= t 'payments.register'
-    th= t 'payments.previous_display'
-    th= t 'payments.current_display'
-    th= t 'payments.difference'
-    th= t 'payments.price_per_unit'
-    th= t 'payments.total'
+    th= t 'payments.new.register'
+    th= t 'payments.new.previous_display'
+    th= t 'payments.new.current_display'
+    th= t 'payments.new.difference'
+    th= t 'payments.new.price_per_unit'
+    th= t 'payments.new.total'
   tbody
     - form.object.new_utility_transactions.each do |transaction|
       = form.fields_for transaction do |ff|

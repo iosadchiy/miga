@@ -7,6 +7,15 @@ ru:
       setting: "Настройки"
       register: "Прибор учета"
     attributes:
+      due:
+        kind: "Тип"
+        purpose: "Назначение"
+        unit: "Единица учета"
+        price: "Цена за единицу"
+      due/unit:
+        per_square_meter: "за м²"
+        per_plot: "за участок"
+        per_member: "за члена"
       plot:
         number: "Номер"
         member: "Хозяин"
@@ -19,18 +28,14 @@ ru:
         phone: "Телефон"
         email: "Почта"
         status: "Статус"
-      due:
-        kind: "Тип"
-        purpose: "Назначение"
-        unit: "Единица учета"
-        price: "Цена за единицу"
-      due/unit:
-        per_square_meter: "за м²"
-        per_plot: "за участок"
-        per_member: "за члена"
-      setting:
-        price_electricity: "Электричество, цена за кВт·ч, рублей"
-        price_water: "Вода, цена за м³, рублей"
+      payment:
+        total: "Итого"
+      plot:
+        number: "Номер"
+        member: "Хозяин"
+        space: "Площадь"
+        cadastre: "Кадастровый номер"
+        ukrgosact: "Укрогосакт"
       register:
         kind: "Тип"
         name: "Название"
@@ -40,6 +45,9 @@ ru:
       register/kind:
         electricity: "Электросчетчик"
         water: "Водомер"
+      setting:
+        price_electricity: "Электричество, цена за кВт·ч, рублей"
+        price_water: "Вода, цена за м³, рублей"
   helpers:
     submit:
       delete: "Удалить"
@@ -68,6 +76,12 @@ ru:
       space: "Площадь"
       membership_dues_debt: "Задолженность по членским взносам"
       other_dues_debt: "Задолженность по целевым платежам"
+      register: "Прибор учета"
+      previous_display: "Предыдущие показания"
+      current_display: "Текущие показания"
+      difference: "Разница"
+      price_per_unit: "Цена за единицу"
+      total: "Сумма"
   members:
     status:
       active: "Активен"
