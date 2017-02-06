@@ -20,6 +20,7 @@
 class Register < ApplicationRecord
   enum kind: [:electricity, :water]
   belongs_to :plot
+  has_many :transactions
 
   validates :kind, presence: true
 
@@ -28,5 +29,9 @@ class Register < ApplicationRecord
       self.class.human_attribute_name("kind.#{kind}"),
       ("\"#{name}\"" if name.present?)
     ].compact.join(" ")
+  end
+
+  def start_display
+    transactions.order('end_display DESC').pluck(:end_display).first || initial_display
   end
 end
