@@ -1,2 +1,0 @@
-class PaymentPresenter < SimpleDelegator
-end

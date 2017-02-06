@@ -13,7 +13,7 @@ class PaymentsController < ApplicationController
     member = plot.member or
       raise PlotNotValidError.new t('payments.no_member')
     @member = MemberPresenter.new(member)
-    @payment = PaymentPresenter.new(Payment.new(member: member))
+    @payment = Payment.new(member: member)
   rescue PlotNotValidError => e
     redirect_back fallback_location: :payments, danger: e.message
   end
