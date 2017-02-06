@@ -26,7 +26,7 @@ if ENV['FAKEDATA'] == "1"
     number: "123",
     space: 410,
     registers_attributes: [
-      {kind: :electricity, name: "Основной", number: "111111111", display: "123123", seal: "123"},
+      {kind: :electricity, name: "Основной", number: "111111111", initial_display: "123123", seal: "123"},
       {kind: :water}
     ]
   )

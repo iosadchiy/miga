@@ -5,7 +5,7 @@ class CreateRegisters < ActiveRecord::Migration[5.0]
       t.integer :kind, null: false
       t.string :name
       t.string :number
-      t.integer :display
+      t.integer :initial_display
       t.string :seal
 
       t.timestamps

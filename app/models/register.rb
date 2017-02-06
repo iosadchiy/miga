@@ -2,15 +2,15 @@
 #
 # Table name: registers
 #
-#  id         :integer          not null, primary key
-#  plot_id    :integer
-#  kind       :integer          not null
-#  name       :string
-#  number     :string
-#  display    :integer
-#  seal       :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id              :integer          not null, primary key
+#  plot_id         :integer
+#  kind            :integer          not null
+#  name            :string
+#  number          :string
+#  initial_display :integer
+#  seal            :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
 #
 # Indexes
 #

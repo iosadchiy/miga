@@ -12,17 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20170202121234) do
 
-  create_table "counters", force: :cascade do |t|
-    t.string   "type"
-    t.string   "number"
-    t.string   "seal"
-    t.integer  "display"
-    t.integer  "member_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["member_id"], name: "index_counters_on_member_id"
-  end
-
   create_table "dues", force: :cascade do |t|
     t.integer  "kind",       null: false
     t.string   "purpose",    null: false
@@ -65,13 +54,13 @@ ActiveRecord::Schema.define(version: 20170202121234) do
 
   create_table "registers", force: :cascade do |t|
     t.integer  "plot_id"
-    t.integer  "kind",       null: false
+    t.integer  "kind",            null: false
     t.string   "name"
     t.string   "number"
-    t.integer  "display"
+    t.integer  "initial_display"
     t.string   "seal"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.index ["plot_id"], name: "index_registers_on_plot_id"
   end
 
