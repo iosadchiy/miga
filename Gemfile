@@ -50,6 +50,9 @@ gem 'responders'
 # Annotate models
 gem 'annotate'
 
+# Presenters/decorators
+gem 'draper'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
