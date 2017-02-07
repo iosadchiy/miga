@@ -17,15 +17,25 @@ class PaymentsController < ApplicationController
   end
 
   def load_member
-    plot = Plot.find_by(number: plot_number) or
-      raise PlotNotValidError.new t('payments.no_such_plot')
-    @member = plot.member.decorate or
-      raise PlotNotValidError.new t('payments.no_member')
+    if params[:payment]
+      @member = Member.find(params[:payment][:member_id])
+    else
+      plot = Plot.find_by(number: params[:plot_number]) or
+        raise PlotNotValidError.new t('payments.no_such_plot')
+      @member = plot.member.decorate or
+        raise PlotNotValidError.new t('payments.no_member')
+    end
   rescue PlotNotValidError => e
     redirect_back fallback_location: :payments, danger: e.message
   end
 
-  def plot_number
-    params.require(:plot_number)
+  def payment_params
+    params
+      .require(:payment)
+      .permit(
+        :member_id,
+        :total,
+        transaction
+      )
   end
 end
