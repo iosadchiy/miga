@@ -5,6 +5,7 @@
 #  id            :integer          not null, primary key
 #  type          :string           not null
 #  total         :decimal(, )      not null
+#  price         :decimal(, )
 #  start_display :integer
 #  end_display   :integer
 #  difference    :integer
@@ -26,6 +27,16 @@ class Transaction < ApplicationRecord
 
   validates :total, presence: true, numericality: {greater_than: 0}
   validates :details, presence: true
+
+  serialize :details
+
+  before_validation do
+    self.details = (self.details || {}).merge({
+      payer: payment.member.attributes.merge(
+        plots: payment.member.plots.map(&:attributes)
+      )
+    })
+  end
 
   def start_display_edit_allowed?
     register.start_display.nil?

@@ -29,8 +29,13 @@ class UtilityTransaction < Transaction
   validates :price, presence:true, numericality: {greater_than: 0}
 
   before_validation do
-    self.start_display = register.start_display
+    self.start_display = register.start_display || self.start_display
     self.price = Setting.config["price_#{register.kind}"]
+    self.details = (self.details || {}).merge({
+      register: register.attributes.merge(
+        plot: register.plot.attributes
+      )
+    })
   end
 
   validate do
