@@ -24,7 +24,7 @@
 class Transaction < ApplicationRecord
   belongs_to :payment
 
-  validates :total, presence: true, numericality: true
+  validates :total, presence: true, numericality: {greater_than: 0}
   validates :details, presence: true
 
   def start_display_edit_allowed?

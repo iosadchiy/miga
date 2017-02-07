@@ -23,6 +23,15 @@ class Payment < ApplicationRecord
 
   validates :total, presence: true, numericality: {greater_than: 0}
 
+  validate do
+    sum = utility_transactions.reduce(0) { |sum, t|
+      sum + t.total
+    }
+    unless total == sum
+      errors.add :total, "mismatch"
+    end
+  end
+
   # Builds new UtilityTransaction instances
   # one for each register of the payer
   # and merges in corresponding attributes

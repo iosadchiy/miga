@@ -3,6 +3,7 @@ class CreateTransactions < ActiveRecord::Migration[5.0]
     create_table :transactions do |t|
       t.string :type, null: false, index: true
       t.decimal :total, null: false
+      t.decimal :price
       t.integer :start_display
       t.integer :end_display
       t.integer :difference

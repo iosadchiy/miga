@@ -5,6 +5,7 @@
 #  id            :integer          not null, primary key
 #  type          :string           not null
 #  total         :decimal(, )      not null
+#  price         :decimal(, )
 #  start_display :integer
 #  end_display   :integer
 #  difference    :integer

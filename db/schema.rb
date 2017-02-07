@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20170206074531) do
   create_table "transactions", force: :cascade do |t|
     t.string   "type",          null: false
     t.decimal  "total",         null: false
+    t.decimal  "price"
     t.integer  "start_display"
     t.integer  "end_display"
     t.integer  "difference"
