@@ -16,12 +16,12 @@
 class Payment < ApplicationRecord
   belongs_to :member
   has_many :transactions
-  has_many :utility_transactions
+  has_many :utility_transactions, inverse_of: :payment
   accepts_nested_attributes_for :utility_transactions, reject_if: ->(hash) do
     hash[:total].empty?
   end
 
-  validates :total, presence: true, numericality: true
+  validates :total, presence: true, numericality: {greater_than: 0}
 
   # Builds new UtilityTransaction instances
   # one for each register of the payer
