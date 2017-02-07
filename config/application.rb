@@ -13,6 +13,8 @@ module MigaBe
     # Use boostrap-compatile flash keys for responders
     config.responders.flash_keys = [ :success, :danger ]
 
+    config.autoload_paths += %W(#{config.root}/app/models/transactions)
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

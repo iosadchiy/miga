@@ -3,7 +3,7 @@
 # Table name: transactions
 #
 #  id            :integer          not null, primary key
-#  kind          :integer          not null
+#  type          :string           not null
 #  total         :decimal(, )      not null
 #  start_display :integer
 #  end_display   :integer
@@ -18,15 +18,13 @@
 #
 #  index_transactions_on_payment_id   (payment_id)
 #  index_transactions_on_register_id  (register_id)
+#  index_transactions_on_type         (type)
 #
 
 class Transaction < ApplicationRecord
-  enum kind: [:utility, :due]
   belongs_to :payment
-  belongs_to :register, optional: true
 
   validates :total, presence: true, numericality: true
-  validates :start_display, :end_display, :difference, numericality: {only_integer: true, allow_nil: true}
   validates :details, presence: true
 
   def start_display_edit_allowed?

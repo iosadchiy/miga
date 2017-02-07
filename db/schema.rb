@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 20170206074531) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.integer  "kind",          null: false
+    t.string   "type",          null: false
     t.decimal  "total",         null: false
     t.integer  "start_display"
     t.integer  "end_display"
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 20170206074531) do
     t.datetime "updated_at",    null: false
     t.index ["payment_id"], name: "index_transactions_on_payment_id"
     t.index ["register_id"], name: "index_transactions_on_register_id"
+    t.index ["type"], name: "index_transactions_on_type"
   end
 
 end

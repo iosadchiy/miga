@@ -19,8 +19,7 @@ class Payment < ApplicationRecord
 
   def new_utility_transactions
     member.registers.map do |register|
-      Transaction.new(
-        kind: :utility,
+      UtilityTransaction.new(
         register: register,
         payment: self,
         start_display: register.start_display

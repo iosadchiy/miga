@@ -3,7 +3,7 @@
 # Table name: transactions
 #
 #  id            :integer          not null, primary key
-#  kind          :integer          not null
+#  type          :string           not null
 #  total         :decimal(, )      not null
 #  start_display :integer
 #  end_display   :integer
@@ -18,6 +18,7 @@
 #
 #  index_transactions_on_payment_id   (payment_id)
 #  index_transactions_on_register_id  (register_id)
+#  index_transactions_on_type         (type)
 #
 
 require 'test_helper'
