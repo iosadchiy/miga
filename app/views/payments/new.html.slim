@@ -13,6 +13,10 @@
     p #{t 'payments.new.membership_dues_debt'}: #{number_to_currency @member.membership_dues_debt}
     p #{t 'payments.new.other_dues_debt'}: #{number_to_currency @member.other_dues_debt}
 
+- if @payment.errors.present?
+  - @payment.errors.full_messages.each do |msg|
+    .alert.alert-danger= msg
+
 = simple_form_for @payment do |f|
   = f.hidden_field :member_id
   = render 'utility_transactions', form: f
