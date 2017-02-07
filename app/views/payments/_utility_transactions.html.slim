@@ -9,8 +9,9 @@ table.table
     th= t 'payments.new.price_per_unit'
     th= t 'payments.new.total'
   tbody
-    - form.object.new_utility_transactions.each do |transaction|
-      = form.fields_for transaction do |ff|
+    - @utility_transactions.each do |transaction|
+      = form.fields_for :utility_transactions, transaction do |ff|
+        = ff.hidden_field :register_id
         tr
           td= transaction.register.human_name
           td= ff.text_field :start_display, disabled: !transaction.start_display_edit_allowed?

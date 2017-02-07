@@ -10,15 +10,20 @@ class PaymentsController < ApplicationController
   def new
     self.page_title = t('payments.new.title')
     @payment = Payment.new(member: @member)
+    @utility_transactions = @payment.new_utility_transactions
   end
 
   def create
     self.page_title = t('payments.new.title')
+    @payment = Payment.create(payment_params)
+    @utility_transactions = @payment
+      .new_utility_transactions(payment_params[:utility_transactions_attributes])
+    respond_with @payment
   end
 
   def load_member
     if params[:payment]
-      @member = Member.find(params[:payment][:member_id])
+      @member = Member.find(params[:payment][:member_id]).decorate
     else
       plot = Plot.find_by(number: params[:plot_number]) or
         raise PlotNotValidError.new t('payments.no_such_plot')
@@ -35,7 +40,8 @@ class PaymentsController < ApplicationController
       .permit(
         :member_id,
         :total,
-        transaction
+        utility_transactions_attributes: [
+          :register_id, :total, :start_display, :end_display, :difference]
       )
   end
 end
