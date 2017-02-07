@@ -2,7 +2,9 @@ class MemberDecorator < Draper::Decorator
   delegate_all
 
   def plot_list
-    plots.pluck(:number).join(", ")
+    h.safe_join plots.map{|plot|
+      h.link_to plot, [:edit, plot]
+    }, ", "
   end
 
   def space

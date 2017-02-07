@@ -25,4 +25,8 @@ class Plot < ApplicationRecord
   validates :number, presence: true, uniqueness: true
   validates :space, numericality: {allow_nil: true,
       greater_than_or_equal_to: 10, less_than_or_equal_to: 10000}
+
+  def to_s
+    number
+  end
 end
