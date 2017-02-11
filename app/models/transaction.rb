@@ -3,7 +3,7 @@
 # Table name: transactions
 #
 #  id            :integer          not null, primary key
-#  type          :string           not null
+#  kind          :integer          not null
 #  total         :decimal(, )      not null
 #  price         :decimal(, )
 #  start_display :integer
@@ -19,12 +19,15 @@
 #
 #  index_transactions_on_payment_id   (payment_id)
 #  index_transactions_on_register_id  (register_id)
-#  index_transactions_on_type         (type)
 #
 
 class Transaction < ApplicationRecord
+  include Transactions::UtilityTransaction
+  enum kind: [:utility, :due]
+
   belongs_to :payment
 
+  validates :kind, presence: true
   validates :total, presence: true, numericality: {greater_than: 0}
   validates :details, presence: true
 

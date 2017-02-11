@@ -10,7 +10,8 @@ table.table
     th= t 'payments.new.total'
   tbody
     - @utility_transactions.each do |transaction|
-      = form.fields_for :utility_transactions, transaction do |ff|
+      = form.fields_for :transactions, transaction do |ff|
+        = ff.hidden_field :kind
         = ff.hidden_field :register_id
         tr
           td= transaction.register.human_name

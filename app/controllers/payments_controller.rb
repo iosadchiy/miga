@@ -17,7 +17,7 @@ class PaymentsController < ApplicationController
     self.page_title = t('payments.new.title')
     @payment = Payment.create(payment_params)
     @utility_transactions = @payment
-      .new_utility_transactions(payment_params[:utility_transactions_attributes])
+      .new_utility_transactions(utility_transactions_params)
     respond_with @payment
   end
 
@@ -40,8 +40,14 @@ class PaymentsController < ApplicationController
       .permit(
         :member_id,
         :total,
-        utility_transactions_attributes: [
-          :register_id, :total, :start_display, :end_display, :difference]
+        transactions_attributes: [
+          :kind, :register_id, :total, :start_display, :end_display, :difference]
       )
+  end
+
+  def utility_transactions_params
+    payment_params[:transactions_attributes].select{|i,attrs|
+      attrs[:kind] == "utility"
+    }
   end
 end

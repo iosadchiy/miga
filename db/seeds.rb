@@ -1,4 +1,4 @@
-Setting.create! price_electricity: 2.75, price_water: 38
+Setting.create! price_electricity: 3, price_water: 20
 
 if ENV['FAKEDATA'] == "1"
   vasya = Member.create!(
