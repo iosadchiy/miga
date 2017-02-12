@@ -38,6 +38,7 @@ To add some fake data: `rails db:seed FAKEDATA=1`
 * accept due transactions (start with membership)
 * remove Transaction#status and create index/edit/destroy for transactions
 * add check that Transaction#id goes in series
+* dues should not automatically apply to all members
 
 ## Interested in feedback for
 
