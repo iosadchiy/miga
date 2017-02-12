@@ -12,17 +12,20 @@
 #  details       :text             not null
 #  payment_id    :integer
 #  register_id   :integer
+#  due_id        :integer
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #
 # Indexes
 #
+#  index_transactions_on_due_id       (due_id)
 #  index_transactions_on_payment_id   (payment_id)
 #  index_transactions_on_register_id  (register_id)
 #
 
 class Transaction < ApplicationRecord
   include Transactions::UtilityTransaction
+  include Transactions::DueTransaction
   enum kind: [:utility, :due]
 
   belongs_to :payment
@@ -32,6 +35,9 @@ class Transaction < ApplicationRecord
   validates :details, presence: true
 
   serialize :details
+  delegate :member, to: :payment
+
+  default_scope { joins(:payment).where(payments: {status: :finished}) }
 
   before_validation do
     self.details = (self.details || {}).merge({

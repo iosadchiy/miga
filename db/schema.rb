@@ -80,8 +80,10 @@ ActiveRecord::Schema.define(version: 20170206074531) do
     t.text     "details",       null: false
     t.integer  "payment_id"
     t.integer  "register_id"
+    t.integer  "due_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.index ["due_id"], name: "index_transactions_on_due_id"
     t.index ["payment_id"], name: "index_transactions_on_payment_id"
     t.index ["register_id"], name: "index_transactions_on_register_id"
   end

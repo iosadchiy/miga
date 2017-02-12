@@ -1,0 +1,20 @@
+- form
+
+table.table
+  thead
+    th
+    th= t 'payments.new.altogether'
+    th= t 'payments.new.paid_so_far'
+    th= t 'payments.new.left_to_pay'
+    th= t 'payments.new.paying_now'
+  tbody
+    - @entrance_transactions.each do |transaction|
+      = form.fields_for :transactions, transaction do |ff|
+        = ff.hidden_field :kind
+        = ff.hidden_field :due_id
+        tr
+          td= transaction.due.purpose
+          td= number_to_currency transaction.altogether
+          td= number_to_currency transaction.paid_so_far
+          td= number_to_currency transaction.left_to_pay
+          td= ff.input :total, label: false

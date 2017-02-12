@@ -10,6 +10,7 @@ class CreateTransactions < ActiveRecord::Migration[5.0]
       t.text :details, null: false
       t.references :payment, foreign_key: true
       t.references :register, foreign_key: true
+      t.references :due, foreign_key: true
 
       t.timestamps
     end

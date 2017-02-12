@@ -20,6 +20,10 @@
 = simple_form_for @payment do |f|
   = f.hidden_field :member_id
   = render 'utility_transactions', form: f
+
+  - if @entrance_transactions.present?
+    h2= t 'dues.index.entrance_dues'
+    = render 'entrance_transactions', form: f
   .row
     .col-lg-4
       = f.input :total
