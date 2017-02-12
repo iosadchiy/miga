@@ -11,7 +11,7 @@ class TransactionDecorator < Draper::Decorator
     created_at.strftime("%d")
   end
   def created_at_month
-    created_at.strftime("%m")
+    I18n.l created_at, format: "%B"
   end
   def created_at_year
     created_at.strftime("%Y")

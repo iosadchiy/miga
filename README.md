@@ -31,7 +31,6 @@ To add some fake data: `rails db:seed FAKEDATA=1`
 * Transaction#number should go in sequence, with only confirmed counted
 * split KPO rendering: separate method for each place (row, td)
 * add JS to autofill payment#new fields
-* change month representation on KPO
 * develop deployment system
 * add import of members
 * add import of registers
