@@ -2,7 +2,6 @@ class PaymentsController < ApplicationController
 
   class PlotNotValidError < RuntimeError; end
   before_action :load_payment, only: [:show, :confirm, :print]
-  before_action :load_member, only: [:new, :create]
 
   def index
     self.page_title = t('payments.title')
@@ -10,8 +9,10 @@ class PaymentsController < ApplicationController
 
   def new
     self.page_title = t('payments.new.title')
-    @payment = Payment.new(member: @member)
+    @payment = Payment.new(member: member)
     @utility_transactions = @payment.new_utility_transactions
+    @entrance_transactions = @payment.new_entrance_transactions
+    @member = member.decorate
   end
 
   def create
@@ -19,6 +20,7 @@ class PaymentsController < ApplicationController
     @payment = Payment.create(payment_params)
     @utility_transactions = @payment
       .new_utility_transactions(utility_transactions_params)
+    @member = member.decorate
     respond_with @payment, location: -> { @payment }
   end
 
@@ -49,15 +51,15 @@ class PaymentsController < ApplicationController
     @payment = Payment.find(params[:id])
   end
 
-  def load_member
-    if params[:payment]
-      @member = Member.find(params[:payment][:member_id]).decorate
-    else
-      plot = Plot.find_by(number: params[:plot_number]) or
-        raise PlotNotValidError.new t('payments.no_such_plot')
-      @member = plot.member.decorate or
-        raise PlotNotValidError.new t('payments.no_member')
-    end
+  def member
+    @_member_cache ||= if params[:payment]
+        Member.find(params[:payment][:member_id])
+      else
+        plot = Plot.find_by(number: params[:plot_number]) or
+          raise PlotNotValidError.new t('payments.no_such_plot')
+        plot.member or
+          raise PlotNotValidError.new t('payments.no_member')
+      end
   rescue PlotNotValidError => e
     redirect_back fallback_location: :payments, danger: e.message
   end
