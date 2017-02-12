@@ -27,7 +27,14 @@ class PaymentsController < ApplicationController
   end
 
   def print
-    render layout: false
+    respond_to do |format|
+      format.pdf do
+        render pdf: 'print',
+          orientation: 'Landscape',
+          page_size: 'A5',
+          layout: 'pdf'
+      end
+    end
   end
 
   def confirm

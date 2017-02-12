@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>КПО</title>
+    <link rel="icon" type="image/x-icon" href="<%= image_path('favicon.ico') %>" />
+    <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 19cm;
+      height: 12.8cm;
+      padding: 1px;
+      position: relative;
+      overflow: hidden;
+    }
+    #under_line {
+      font-size: 10px;
+      font-style: italic;
+    }
+    #underscore {
+      border-bottom: thin solid #000000;
+    }
+    #all_borders {
+      border: thin solid #000000;
+    }
+    #cap_border{
+      border-left: thin solid #000000;
+      border-top: thin solid #000000;
+      border-right: thin solid #000000;
+    }
+    #side_border{
+      border-left: thin solid #000000;
+      border-right: thin solid #000000;
+    }
+    table {
+      font-size: 10px;
+      border-spacing: 0;
+      margin: 0 auto;
+    }
+    </style>
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+</html>

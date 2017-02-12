@@ -1,34 +1,5 @@
-<!DOCTYPE html>
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title></title>
-    <style>
-    #under_line {
-      font-size: 10px;
-      font-style: italic;
-    }
-    #underscore {
-      border-bottom: thin solid #000000;
-    }
-    #all_borders {
-      border: thin solid #000000;
-    }
-    #cap_border{
-      border-left: thin solid #000000;
-      border-top: thin solid #000000;
-      border-right: thin solid #000000;
-    }
-    #side_border{
-      border-left: thin solid #000000;
-      border-right: thin solid #000000;
-    }
-    table {
-      font-size: 12px;
-      border-spacing: 0;
-    }
-    </style>
-  </head>
-  <body>
-    <table border="0" width="1050">
+  <div class="container">
+    <table border="0">
       <tbody><tr>
         <td colspan="32">&nbsp;</td>
         <td colspan="33">Унифицированная форма № КО-1</td><!-- 33 -->
@@ -227,7 +198,7 @@
         <td>&nbsp;</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
-        <td colspan="43" id="underscore"><%= kpo.ground %></td>
+        <td colspan="43" id="underscore" align="center"><%= kpo.ground %></td>
       </tr><!-- строка 15 -->
       <tr>
         <td colspan="6" align="center" id="side_border"></td>
@@ -416,7 +387,6 @@
         <td colspan="19" align="center"><span id="under_line">(расшифровка подписи)</span></td>
         
       </tr><!-- строка 33 -->
-    </tbody></table>
-  
-
-</body></html>
+    </tbody>
+  </table>
+</div>

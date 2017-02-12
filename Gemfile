@@ -56,6 +56,10 @@ gem 'draper', github: 'drapergem/draper'
 # Show numbers as words
 gem 'numbers_and_words'
 
+# PDF generation
+gem 'wicked_pdf'
+gem 'wkhtmltopdf_binary'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
