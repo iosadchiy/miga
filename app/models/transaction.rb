@@ -44,4 +44,9 @@ class Transaction < ApplicationRecord
   def start_display_edit_allowed?
     register.start_display.nil?
   end
+
+  def number
+    # TODO: should go in sequence, with only confirmed counted
+    id
+  end
 end

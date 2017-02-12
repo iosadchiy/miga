@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <style>
+    #under_line {
+      font-size: 10px;
+      font-style: italic;
+    }
+    #underscore {
+      border-bottom: thin solid #000000;
+    }
+    #all_borders {
+      border: thin solid #000000;
+    }
+    #cap_border{
+      border-left: thin solid #000000;
+      border-top: thin solid #000000;
+      border-right: thin solid #000000;
+    }
+    #side_border{
+      border-left: thin solid #000000;
+      border-right: thin solid #000000;
+    }
+    table {
+      font-size: 12px;
+      border-spacing: 0;
+    }
+    </style>
+  </head>
+  <body>
+    <table border="0" width="1050">
+      <tbody><tr>
+        <td colspan="32">&nbsp;</td>
+        <td colspan="33">Унифицированная форма № КО-1</td><!-- 33 -->
+        <td>&nbsp;</td><!-- !--66--! -->
+        <td colspan="5" align="center">&nbsp;Л</td>
+        <!-- <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td> -->
+        <td colspan="43">&nbsp;</td>
+      </tr><!-- строка 1 -->
+      <tr>
+        <td colspan="32">&nbsp;</td>
+        <td colspan="33">Утверждена постановлением Госкомстата</td><!-- 33 -->
+        <td>&nbsp;</td><!-- !--66--! -->
+        <td colspan="5">&nbsp;</td>
+        <!-- <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td> -->
+        <td colspan="43">&nbsp;</td>
+      </tr><!-- строка 2 -->
+      <tr>
+        <td colspan="32">&nbsp;</td>
+        <td colspan="33">России от 18.08.98 № 88</td><!-- 33 -->
+        <td>&nbsp;</td><!-- !--66--! -->
+        <td colspan="5" align="center">&nbsp;И</td>
+        <!-- <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td> -->
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td colspan="40" align="center" id="underscore">ТСН СТ "Импульс-1"</td>
+      </tr><!-- строка 3 -->
+      <tr>
+        <td colspan="32">&nbsp;</td>
+        <td colspan="33"></td><!-- 33 -->
+        <td>&nbsp;</td><!-- !--66--! -->
+        <td colspan="5" align="center">&nbsp;</td>
+        <!-- <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td> -->
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td colspan="40" align="center"><span id="under_line">(организация)</span></td>
+      </tr><!-- строка 4 -->
+      <tr>
+        <td colspan="32">&nbsp;</td>
+        <td colspan="18"></td>
+        <td colspan="15" align="center" id="all_borders">Код</td>
+        <td>&nbsp;</td>
+        <td colspan="5" align="center">&nbsp;Н</td>
+        <td colspan="43">&nbsp;</td>
+      </tr><!-- строка 5 -->
+      <tr>
+        <td colspan="32">&nbsp;</td>
+        <td colspan="18" align="right">Форма по ОКУД</td>
+        <td colspan="15" align="center" id="all_borders">0310001</td>
+        <td>&nbsp;</td>
+        <td colspan="5">&nbsp;</td>
+        <!-- <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td> -->
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td colspan="38" align="center"><span style="font-weight:bold;">КВИТАНЦИЯ</span></td>
+        <td>&nbsp;</td>
+      </tr><!-- строка 6 -->
+      <tr>
+        <td colspan="39" align="center" id="underscore">ТСН СТ "Импульс-1"</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td colspan="9" align="right">по ОКПО</td>
+        <td colspan="15" id="all_borders">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;И</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td colspan="43">&nbsp;</td>
+      </tr><!-- строка 7 -->
+      <tr>
+        <td colspan="39" align="center"><span id="under_line">(организация)</span></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td colspan="9">&nbsp;</td>
+        <td colspan="15">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td colspan="43">&nbsp;</td>
+      </tr><!-- строка 8 -->
+      <tr>
+        <td colspan="50" align="center" id="underscore">&nbsp;</td>
+        <td colspan="15">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;Я</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td colspan="37" align="right">к приходному кассовому ордеру №</td>
+        <td colspan="6" align="center" id="underscore"><%= kpo.number %><!-- order number --></td>
+      </tr><!-- строка 9 -->
+      <tr>
+        <td colspan="50" align="center"><span id="under_line">(структурное подразделение)</span></td>
+        <td colspan="15">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td colspan="19" align="right">от</td>
+        <td colspan="24" align="center" id="underscore"><%= kpo.created_at_date %><!-- order_date --></td>
+      </tr><!-- строка 10 -->
+      <tr>
+        <td colspan="42"></td>
+        <td colspan="11" align="center" id="cap_border">Номер</td>
+        <td colspan="11" align="center" id="cap_border">Дата</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td colspan="19"></td>
+        <td colspan="24"></td>
+      </tr><!-- строка 11 -->
+      <tr>
+        <td colspan="42"></td>
+        <td colspan="11" align="center" id="side_border">документа</td>
+        <td colspan="11" align="center" id="side_border">составления</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td colspan="12" align="right">Принято от</td>
+        <td colspan="31" id="underscore"></td>
+      </tr><!-- строка 12 -->
+      <tr>
+        <td colspan="42" align="center"><span style="font-weight:bold;">ПРИХОДНЫЙ КАССОВЫЙ ОРДЕР</span></td>
+        <td colspan="11" align="center" id="all_borders"><%= kpo.number %></td>
+        <td colspan="11" align="center" id="all_borders"><%= kpo.created_at_date %></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td colspan="41" id="underscore" align="center"><%= kpo.fio %></td>
+      </tr><!-- строка 13 -->
+      <tr>
+        <td colspan="42" align="center"></td>
+        <td colspan="11" align="center"></td>
+        <td colspan="11" align="center"></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td colspan="12" align="right">Основание</td>
+        <td colspan="31" id="underscore"></td>
+      </tr><!-- строка 14 -->
+      <tr>
+        <td colspan="6" align="center" id="cap_border">Дебет</td>
+        <td colspan="36" align="center" id="all_borders">Кредит</td>
+        <td colspan="9" align="center" id="cap_border">Сумма,</td>
+        <td colspan="13" align="center" id="cap_border">Код целевого</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td colspan="43" id="underscore"><%= kpo.ground %></td>
+      </tr><!-- строка 15 -->
+      <tr>
+        <td colspan="6" align="center" id="side_border"></td>
+        <td colspan="12" align="center" id="side_border">код струк-</td>
+        <td colspan="12" align="center" id="side_border">корреспон-</td>
+        <td colspan="12" align="center" id="side_border">код аналити-</td>
+        <td colspan="9" align="center" id="side_border">руб. коп.</td>
+        <td colspan="13" align="center" id="side_border">назначения</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td colspan="43" id="underscore"></td>
+      </tr><!-- строка 16 -->
+      <tr>
+        <td colspan="6" align="center" id="side_border"></td>
+        <td colspan="12" align="center" id="side_border">турного под-</td>
+        <td colspan="12" align="center" id="side_border">дирующий</td>
+        <td colspan="12" align="center" id="side_border">ческого учёта</td>
+        <td colspan="9" align="center" id="side_border"></td>
+        <td colspan="13" align="center" id="side_border"></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td colspan="43" id="underscore"></td>
+      </tr><!-- строка 17 -->
+      <tr>
+        <td colspan="6" align="center" id="side_border"></td>
+        <td colspan="12" align="center" id="side_border">разделения</td>
+        <td colspan="12" align="center" id="side_border">счёт, субсчёт</td>
+        <td colspan="12" align="center" id="side_border"></td>
+        <td colspan="9" align="center" id="side_border"></td>
+        <td colspan="13" align="center" id="side_border"></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td colspan="43"></td>
+      </tr><!-- строка 18 -->
+      <tr>
+        <td colspan="6" align="center" id="all_borders"></td>
+        <td colspan="12" align="center" id="all_borders"></td>
+        <td colspan="12" align="center" id="all_borders"></td>
+        <td colspan="12" align="center" id="all_borders"></td>
+        <td colspan="9" align="center" id="all_borders"><%= kpo.total %></td>
+        <td colspan="13" align="center" id="all_borders"></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td colspan="5">&nbsp;<!-- liniya_otryeza --></td>
+        <td colspan="6" align="right">Сумма</td>
+        <td colspan="18" id="underscore" align="center"><%= kpo.total_rub %><!-- sum_rubs --></td>
+        <td colspan="8">руб.</td>
+        <td colspan="8" id="underscore" align="center"><%= kpo.total_kop %><!-- sum_kops -->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td colspan="3">коп.</td>
+      </tr><!-- строка 19 -->
+      <tr>
+        <td colspan="6" align="center"></td>
+        <td colspan="2" align="center"></td>
+        <td colspan="10" align="center"></td>
+        <td colspan="10" align="center"></td>
+        <td colspan="12" align="center"></td>
+        <td colspan="9" align="center"></td>
+        <td colspan="13" align="center"></td>
+        <td colspan="2" align="center"></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td colspan="5"><!-- liniya_otryeza --></td>
+        <td colspan="10" align="right"></td>
+        <td colspan="18" align="center"><span id="under_line">(цифрами)</span></td>
+        <td colspan="15"></td>
+      </tr><!-- строка 20 -->
+      <tr>
+        <td colspan="6">Принято от</td>
+        <td colspan="60" id="underscore"><%= kpo.fio %></td>
+        <td colspan="5"><!-- liniya_otryeza --></td>
+        <td colspan="43" id="underscore" align="center"><%= kpo.total_rub_words%></td>
+      </tr><!-- строка 21 -->
+      <tr>
+        <td colspan="66"></td>
+        <td colspan="5"><!-- liniya_otryeza --></td>
+        <td colspan="43" align="center"><span id="under_line">(прописью)</span></td>
+      </tr><!-- строка 22 -->
+      <tr>
+        <td colspan="6">Основание:</td>
+        <td colspan="60" id="underscore"><%= kpo.ground %></td>
+        <td colspan="5" align="center"><!-- liniya_otryeza -->О</td>
+        <td colspan="43" id="underscore"></td>
+      </tr><!-- строка 23 -->
+      <tr>
+        <td colspan="66" id="underscore"></td>
+        <td colspan="5"><!-- liniya_otryeza --></td>
+        <td colspan="28" id="underscore"><!-- sum_rubs --></td>
+        <td colspan="4">руб.</td>
+        <td colspan="8" id="underscore" align="center"><%= kpo.total_kop %><!-- sum_kops --></td>
+        <td colspan="3">коп.</td>
+      </tr><!-- строка 24 -->
+      <tr>
+        <td colspan="6">Сумма</td>
+        <td colspan="60" id="underscore"><%= kpo.total_rub_words %></td>
+        <td colspan="5" align="center"><!-- liniya_otryeza -->Т</td>
+        <td colspan="14" align="right">В том числе</td>
+        <td colspan="29" id="underscore"></td>
+      </tr><!-- строка 25 -->
+      <tr>
+        <td colspan="10"></td>
+        <td colspan="56" align="center"><span id="under_line">(прописью)</span></td>
+        <td colspan="5"><!-- liniya_otryeza --></td>
+        <td colspan="43"></td>
+      </tr><!-- строка 26 -->
+      <tr>
+        <td colspan="51" id="underscore"></td>
+        <td colspan="2">руб.</td>
+        <td colspan="5" id="underscore" align="center"><%= kpo.total_kop %></td>
+        <td colspan="3">коп.</td>
+        <td colspan="5"></td>
+        <td colspan="5" align="center"><!-- liniya_otryeza -->Р</td>
+        <td colspan="8"></td>
+        <td>"</td>
+        <td colspan="2" id="underscore" align="center"><%= kpo.created_at_day %></td>
+        <td>"</td>
+        <td colspan="19" id="underscore" align="center"><%= kpo.created_at_month %></td>
+        <td colspan="4" id="underscore" align="center"><%= kpo.created_at_year %></td>
+        <td colspan="8" aligh="left">г.</td>
+      </tr><!-- строка 27 -->
+      <tr>
+        <td colspan="10">В том числе</td>
+        <td colspan="56" id="underscore"></td>
+        <td colspan="5"><!-- liniya_otryeza --></td>
+        <td colspan="43"></td>
+      </tr><!-- строка 28 -->
+      <tr>
+        <td colspan="10">Приложение</td>
+        <td colspan="56" id="underscore"></td>
+        <td colspan="5" align="center"><!-- liniya_otryeza -->Е</td>
+        <td colspan="14" align="right">М.П.(штампа)</td>
+        <td colspan="29"></td>
+        
+      </tr><!-- строка 29 -->
+      <tr>
+        <td colspan="14">Главный бухгалтер</td>
+        <td colspan="52" id="underscore"></td>
+        <td colspan="5"><!-- liniya_otryeza --></td>
+        <td colspan="14" align="right">Главный бухгалтер</td>
+        <td colspan="29" id="underscore"></td>
+        
+      </tr><!-- строка 30 -->
+      <tr>
+        <td colspan="18"></td>
+        <td colspan="10" align="center"><span id="under_line">(подпись)</span></td>
+        <td colspan="8"></td>
+        <td colspan="18" align="center"><span id="under_line">(расшифровка подписи)</span></td>
+        <td colspan="12"></td>
+        <td colspan="5" align="center"><!-- liniya_otryeza -->З</td>
+        <td colspan="14"></td>
+        <td colspan="10" align="center"><span id="under_line">(подпись)</span></td>
+        <td colspan="19" align="center"><span id="under_line">(расшифровка подписи)</span></td>
+        
+      </tr><!-- строка 31 -->
+      <tr>
+        <td colspan="14">Получил кассир</td>
+        <td colspan="52" id="underscore"></td>
+        <td colspan="5"><!-- liniya_otryeza --></td>
+        <td colspan="14" align="right">Кассир</td>
+        <td colspan="29" id="underscore"></td>
+        
+      </tr><!-- строка 32 -->
+      <tr>
+        <td colspan="18"></td>
+        <td colspan="10" align="center"><span id="under_line">(подпись)</span></td>
+        <td colspan="8"></td>
+        <td colspan="18" align="center"><span id="under_line">(расшифровка подписи)</span></td>
+        <td colspan="12"></td>
+        <td colspan="5" align="center"><!-- liniya_otryeza -->А</td>
+        <td colspan="14"></td>
+        <td colspan="10" align="center"><span id="under_line">(подпись)</span></td>
+        <td colspan="19" align="center"><span id="under_line">(расшифровка подписи)</span></td>
+        
+      </tr><!-- строка 33 -->
+    </tbody></table>
+  
+
+</body></html>

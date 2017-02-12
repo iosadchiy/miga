@@ -1,6 +1,7 @@
 class PaymentsController < ApplicationController
 
   class PlotNotValidError < RuntimeError; end
+  before_action :load_payment, only: [:show, :confirm, :print]
   before_action :load_member, only: [:new, :create]
 
   def index
@@ -23,13 +24,19 @@ class PaymentsController < ApplicationController
 
   def show
     self.page_title = t('payments.show.title')
-    @payment = Payment.find(params[:id])
+  end
+
+  def print
+    render layout: false
   end
 
   def confirm
-    @payment = Payment.find(params[:id])
     @payment.update_attribute :status, :finished
     respond_with @payment, notice: t('.notice')
+  end
+
+  def load_payment
+    @payment = Payment.find(params[:id])
   end
 
   def load_member

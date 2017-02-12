@@ -53,6 +53,9 @@ gem 'annotate'
 # Presenters/decorators
 gem 'draper', github: 'drapergem/draper'
 
+# Show numbers as words
+gem 'numbers_and_words'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -1,5 +1,12 @@
 # MIGA rails app
 
+## TODO
+
+* Transaction#number should go in sequence, with only confirmed counted
+* show Transaction#ground in KPO
+* split KPO rendering: separate method for each place (row, td)
+* convert KPOs to PDF
+
 ## Installation
 
 Requirements: ruby 2.4.0, execjs runtime
