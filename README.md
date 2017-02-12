@@ -32,9 +32,12 @@ To add some fake data: `rails db:seed FAKEDATA=1`
 * split KPO rendering: separate method for each place (row, td)
 * add JS to autofill payment#new fields
 * develop deployment system
+* add backups and recover plan
 * add import of members
 * add import of registers
 * accept due transactions (start with membership)
+* remove Transaction#status and create index/edit/destroy for transactions
+* add check that Transaction#id goes in series
 
 ## Interested in feedback for
 
