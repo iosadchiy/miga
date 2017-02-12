@@ -1,11 +1,5 @@
 # MIGA rails app
 
-## TODO
-
-* Transaction#number should go in sequence, with only confirmed counted
-* show Transaction#ground in KPO
-* split KPO rendering: separate method for each place (row, td)
-
 ## Installation
 
 Requirements: ruby 2.4.0, execjs runtime
@@ -30,3 +24,20 @@ To add some fake data: `rails db:seed FAKEDATA=1`
     And the payment confirmation page opens
     And a Transaction is created
     With old/new display values, price, sum, name, plot
+
+
+## TODO
+
+* Transaction#number should go in sequence, with only confirmed counted
+* show Transaction#ground in KPO
+* split KPO rendering: separate method for each place (row, td)
+* add JS to autofill payment#new fields
+* change month representation on KPO
+* develop deployment system
+* add import of members
+* add import of registers
+* accept due transactions (start with membership)
+
+## Interested in feedback for
+
+* transaction printed, but cancelled. What to do with KPO number
