@@ -29,7 +29,7 @@ class PaymentsController < ApplicationController
   def confirm
     @payment = Payment.find(params[:id])
     @payment.update_attribute :status, :finished
-    respond_with @payment
+    respond_with @payment, notice: t('.notice')
   end
 
   def load_member
