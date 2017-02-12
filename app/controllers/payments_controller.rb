@@ -28,6 +28,9 @@ class PaymentsController < ApplicationController
 
   def print
     respond_to do |format|
+      format.html do
+        render layout: 'pdf'
+      end
       format.pdf do
         render pdf: 'print',
           orientation: 'Landscape',
