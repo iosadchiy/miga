@@ -135,3 +135,7 @@ ru:
     only_one_allowed: "Останется только один"
     edited: "Настройки обновлены"
     cannot_edit: "Не удалось сохранить настройки"
+  transactions:
+    ground:
+      electricity: "Оплата за электричество: %{difference} кВт·ч по %{price}"
+      water: "Оплата за воду: %{difference} м³ по %{price}"

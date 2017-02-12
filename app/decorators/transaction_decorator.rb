@@ -39,6 +39,12 @@ class TransactionDecorator < Draper::Decorator
   end
 
   def ground
-    "Оплата за TODO"
+    self.send "ground_#{kind}"
+  end
+
+  def ground_utility
+    I18n.t "transactions.ground.#{register.kind}",
+      difference: difference,
+      price: h.number_to_currency(Setting.config["price_#{register.kind}"])
   end
 end
