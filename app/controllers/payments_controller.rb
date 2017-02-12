@@ -26,6 +26,12 @@ class PaymentsController < ApplicationController
     @payment = Payment.find(params[:id])
   end
 
+  def confirm
+    @payment = Payment.find(params[:id])
+    @payment.update_attribute :status, :finished
+    respond_with @payment
+  end
+
   def load_member
     if params[:payment]
       @member = Member.find(params[:payment][:member_id]).decorate

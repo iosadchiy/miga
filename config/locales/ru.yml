@@ -85,6 +85,7 @@ ru:
     show:
       title: "Подтверждение платежа"
       total: "Сумма к оплате"
+      confirm: "Деньги получены"
   members:
     status:
       active: "Активен"

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root 'payments#index'
   resources :members, except: :show
-  resources :payments, only: [:index, :new, :create, :show]
+  resources :payments, only: [:index, :new, :create, :show] do
+    patch :confirm, on: :member
+  end
   resources :plots, except: :show
   resources :dues, except: :show
   resource :setting, only: [:edit, :update]

@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20170206074531) do
 
   create_table "payments", force: :cascade do |t|
     t.integer  "member_id"
+    t.integer  "status",     null: false
     t.decimal  "total",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
