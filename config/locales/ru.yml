@@ -1,4 +1,7 @@
 ru:
+  errors:
+    messages:
+      mismatch: "не совпадает"
   activerecord:
     models:
       plot: "Участок"

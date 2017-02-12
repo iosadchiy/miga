@@ -34,7 +34,7 @@ class Payment < ApplicationRecord
       sum + t.total
     }
     unless total == sum
-      errors.add :total, "mismatch"
+      errors.add :total, I18n.t('errors.messages.mismatch')
     end
   end
 
