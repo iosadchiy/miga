@@ -82,6 +82,9 @@ ru:
       difference: "Разница"
       price_per_unit: "Цена за единицу"
       total: "Сумма"
+    show:
+      title: "Подтверждение платежа"
+      total: "Сумма к оплате"
   members:
     status:
       active: "Активен"

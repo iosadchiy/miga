@@ -1,0 +1,8 @@
+.jumbotron.text-center
+  h2= t 'payments.show.total'
+  p: strong= number_to_currency @payment.total
+  p
+    button.btn.btn-primary.btn-lg autofocus=true type='button' Подтвердить
+    | &nbsp;
+    button.btn.btn-warning type='button' Отменить
+

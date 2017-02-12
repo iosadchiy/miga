@@ -18,7 +18,12 @@ class PaymentsController < ApplicationController
     @payment = Payment.create(payment_params)
     @utility_transactions = @payment
       .new_utility_transactions(utility_transactions_params)
-    respond_with @payment
+    respond_with @payment, location: -> { @payment }
+  end
+
+  def show
+    self.page_title = t('payments.show.title')
+    @payment = Payment.find(params[:id])
   end
 
   def load_member
