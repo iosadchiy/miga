@@ -34,6 +34,10 @@ class Member < ApplicationRecord
     Plot.find_by!(number: plot_number).member
   end
 
+  def space
+    plots.pluck(:space).sum
+  end
+
   def membership_dues_debt
     1234
   end

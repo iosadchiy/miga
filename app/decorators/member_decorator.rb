@@ -9,7 +9,7 @@ class MemberDecorator < Draper::Decorator
 
   def space
     [
-      plots.pluck(:space).sum.to_s,
+      object.space.to_s,
       I18n.t('shared.square_meters'),
       ("= " + plots.pluck(:space).join(" + ") unless plots.size <= 1)
     ].compact.join(" ")
