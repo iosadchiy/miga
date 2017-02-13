@@ -55,4 +55,8 @@ class Transaction < ApplicationRecord
     # TODO: should go in sequence, with only confirmed counted
     id
   end
+
+  def due_kind
+    due.kind
+  end
 end

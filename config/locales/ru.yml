@@ -139,3 +139,4 @@ ru:
     ground:
       electricity: "Оплата за электричество: %{difference} кВт·ч по %{price} за кВт·ч"
       water: "Оплата за воду: %{difference} м³ по %{price} за м³"
+      entrance: "Оплата вступительного взноса '%{purpose}'"
