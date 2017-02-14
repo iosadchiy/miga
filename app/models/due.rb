@@ -15,7 +15,7 @@ class Due < ApplicationRecord
   enum kind: [:entrance, :membership, :target]
   enum unit: [:per_square_meter, :per_plot, :per_member]
 
-  has_many :transactions, inverse_of: :due do
+  has_many :transactions, inverse_of: :payable, as: :payable do
     def by_member(member)
       joins(:payment).where(payments: {member: member})
     end

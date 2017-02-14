@@ -20,7 +20,8 @@ class PaymentsController < ApplicationController
     @payment = Payment.create(payment_params)
     @utility_transactions = @payment
       .new_utility_transactions(utility_transactions_params)
-    @entrance_transactions = @payment.new_entrance_transactions(entrance_transactions_params)
+    @entrance_transactions = @payment
+      .new_entrance_transactions(entrance_transactions_params)
     @member = member.decorate
     respond_with @payment, location: -> { @payment }
   end
@@ -72,7 +73,7 @@ class PaymentsController < ApplicationController
         :member_id,
         :total,
         transactions_attributes: [
-          :kind, :register_id, :due_id, :total, :start_display, :end_display, :difference]
+          :kind, :payable_id, :payable_type, :total, :start_display, :end_display, :difference]
       )
   end
 
@@ -84,7 +85,7 @@ class PaymentsController < ApplicationController
 
   def entrance_transactions_params
     payment_params[:transactions_attributes].select{|i,attrs|
-      attrs[:kind] == "due" && Due.find(attrs[:due_id]).entrance?
+      attrs[:kind] == "due" && Due.find(attrs[:payable_id]).entrance?
     }
   end
 end

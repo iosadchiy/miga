@@ -20,7 +20,7 @@
 class Register < ApplicationRecord
   enum kind: [:electricity, :water]
   belongs_to :plot
-  has_many :transactions
+  has_many :transactions, inverse_of: :payable, as: :payable
 
   validates :kind, presence: true
 

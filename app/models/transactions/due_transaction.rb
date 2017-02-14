@@ -2,8 +2,6 @@ module Transactions::DueTransaction
   extend ActiveSupport::Concern
 
   included do
-    belongs_to :due, optional: true
-
     before_validation do
       if due?
         self.details = (self.details || {}).merge({
@@ -11,6 +9,10 @@ module Transactions::DueTransaction
         })
       end
     end
+  end
+
+  def due
+    payable
   end
 
   def altogether

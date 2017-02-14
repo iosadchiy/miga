@@ -2,8 +2,6 @@ module Transactions::UtilityTransaction
   extend ActiveSupport::Concern
 
   included do
-    belongs_to :register, optional: true
-
     before_validation do
       if utility?
         self.start_display = register.start_display || self.start_display
@@ -29,5 +27,9 @@ module Transactions::UtilityTransaction
     validates :start_display, :end_display, :difference,
       presence: true, numericality: {only_integer: true, allow_nil: true}, if: -> { utility? }
     validates :price, presence:true, numericality: {greater_than: 0}, if: -> { utility? }
+  end
+
+  def register
+    payable
   end
 end

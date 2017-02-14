@@ -9,8 +9,10 @@ class CreateTransactions < ActiveRecord::Migration[5.0]
       t.integer :difference
       t.text :details, null: false
       t.references :payment, foreign_key: true
-      t.references :register, foreign_key: true
-      t.references :due, foreign_key: true
+      t.integer :payable_id, null: false
+      t.string :payable_type, null: false
+
+      t.index [:payable_type, :payable_id]
 
       t.timestamps
     end

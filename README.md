@@ -41,7 +41,6 @@ To add some fake data: `rails db:seed FAKEDATA=1`
 * dues should not automatically apply to all members
 * bug: not possible to print pending KPOs
 * open KPOs in a new window on payment create
-* refactor: transaction#due and transaction#register into a polymorphic association
 * refactor: payments#new, #create transaction uniform loading
 
 ## Interested in feedback for

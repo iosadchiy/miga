@@ -58,19 +58,21 @@ class Payment < ApplicationRecord
     source_class = source_collection.first.class
     kind = {Register => :utility, Due => :due}[source_class] or
       raise "unsupported source_collection"
-    group_by = {utility: "register_id", due: "due_id"}[kind]
-    reference_key = source_class.to_s.downcase + "_id"
 
     hash = attributes.to_h.values.reduce({}) { |res, v|
-      res.merge v[group_by].to_i => v
+      type = v["payable_type"].constantize
+      id = v["payable_id"].to_i
+      res[type] ||= {}
+      res[type][id] = v
+      res
     }
     source_collection.map { |source|
       Transaction.new(
         payment: self,
         kind: kind
       ).tap do |t|
-        t.write_attribute(reference_key, source.id)
-        t.attributes = hash[source.id] if hash[source.id]
+        t.payable = source
+        t.attributes = hash[source.class][source.id] if hash[source.class][source.id]
         yield(t, source) if block
       end
     }

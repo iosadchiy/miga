@@ -11,7 +11,8 @@ table.table
     - @entrance_transactions.each do |transaction|
       = form.fields_for :transactions, transaction do |ff|
         = ff.hidden_field :kind
-        = ff.hidden_field :due_id
+        = ff.hidden_field :payable_id
+        = ff.hidden_field :payable_type
         tr
           td
             p= transaction.due.purpose

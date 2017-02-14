@@ -11,16 +11,15 @@
 #  difference    :integer
 #  details       :text             not null
 #  payment_id    :integer
-#  register_id   :integer
-#  due_id        :integer
+#  payable_id    :integer          not null
+#  payable_type  :string           not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #
 # Indexes
 #
-#  index_transactions_on_due_id       (due_id)
-#  index_transactions_on_payment_id   (payment_id)
-#  index_transactions_on_register_id  (register_id)
+#  index_transactions_on_payable_type_and_payable_id  (payable_type,payable_id)
+#  index_transactions_on_payment_id                   (payment_id)
 #
 
 require 'test_helper'
