@@ -36,7 +36,7 @@ To add some fake data: `rails db:seed FAKEDATA=1`
 * add import of members
 * add import of registers
 * accept due transactions (start with membership)
-* remove Transaction#status and create index/edit/destroy for transactions
+* create index/edit/destroy for transactions
 * add check that Transaction#id goes in series
 * dues should not automatically apply to all members
 * bug: not possible to print pending KPOs
