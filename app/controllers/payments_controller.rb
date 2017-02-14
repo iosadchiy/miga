@@ -1,6 +1,11 @@
 class PaymentsController < ApplicationController
 
   class PlotNotValidError < RuntimeError; end
+
+  rescue_from PlotNotValidError do |e|
+    redirect_back fallback_location: :payments, danger: e.message
+  end
+
   before_action :load_payment, only: [:show, :confirm, :print]
 
   def index
@@ -58,8 +63,6 @@ class PaymentsController < ApplicationController
         plot.member or
           raise PlotNotValidError.new t('payments.no_member')
       end
-  rescue PlotNotValidError => e
-    redirect_back fallback_location: :payments, danger: e.message
   end
 
   def payment_params
