@@ -53,7 +53,7 @@ class Payment < ApplicationRecord
       res
     }
 
-    (member.registers + Due.entrance).map { |payable| 
+    (member.registers + Due.all).map { |payable|
       Transaction.new(
         (hash[payable.class][payable.id] rescue {}).merge(
           payment: self,

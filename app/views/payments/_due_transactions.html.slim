@@ -1,0 +1,28 @@
+- form
+- transactions
+
+- if transactions.present?
+  h2= t "dues.index.#{transactions.first.due.kind}_dues"
+  table.table
+    thead
+      th
+      th= t 'payments.new.altogether'
+      th= t 'payments.new.paid_so_far'
+      th= t 'payments.new.left_to_pay'
+      th= t 'payments.new.paying_now'
+    tbody
+      - transactions.each do |transaction|
+        = form.fields_for :transactions, transaction do |ff|
+          = ff.hidden_field :kind
+          = ff.hidden_field :payable_id
+          = ff.hidden_field :payable_type
+          tr
+            td
+              p= transaction.due.purpose
+              p
+                => number_to_currency transaction.due.price
+                = Due.human_attribute_name "unit.#{transaction.due.unit}"
+            td= number_to_currency transaction.altogether
+            td= number_to_currency transaction.paid_so_far
+            td= number_to_currency transaction.left_to_pay
+            td= ff.input :total, label: false

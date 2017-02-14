@@ -79,16 +79,4 @@ class PaymentsController < ApplicationController
   def transactions_params
     payment_params[:transactions_attributes]
   end
-
-  def utility_transactions_params
-    payment_params[:transactions_attributes].select{|i,attrs|
-      attrs[:kind] == "utility"
-    }
-  end
-
-  def entrance_transactions_params
-    payment_params[:transactions_attributes].select{|i,attrs|
-      attrs[:kind] == "due" && Due.find(attrs[:payable_id]).entrance?
-    }
-  end
 end

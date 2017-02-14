@@ -21,9 +21,9 @@
   = f.hidden_field :member_id
   = render 'utility_transactions', form: f
 
-  - if @transactions[:entrance].present?
-    h2= t 'dues.index.entrance_dues'
-    = render 'entrance_transactions', form: f
+  - Due.kinds.keys.map(&:to_sym).each do |kind|
+    = render 'due_transactions', form: f, transactions: @transactions[kind]
+
   .row
     .col-lg-4
       = f.input :total
