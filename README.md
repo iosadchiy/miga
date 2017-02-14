@@ -40,6 +40,8 @@ To add some fake data: `rails db:seed FAKEDATA=1`
 * dues should not automatically apply to all members
 * bug: not possible to print pending KPOs
 * open KPOs in a new window on payment create
+* show fully paid dues separately at the bottom
+* show transaction history for members
 
 ## Interested in feedback for
 
