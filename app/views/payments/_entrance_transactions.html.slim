@@ -13,7 +13,11 @@ table.table
         = ff.hidden_field :kind
         = ff.hidden_field :due_id
         tr
-          td= transaction.due.purpose
+          td
+            p= transaction.due.purpose
+            p
+              => number_to_currency transaction.due.price
+              = Due.human_attribute_name "unit.#{transaction.due.unit}"
           td= number_to_currency transaction.altogether
           td= number_to_currency transaction.paid_so_far
           td= number_to_currency transaction.left_to_pay
