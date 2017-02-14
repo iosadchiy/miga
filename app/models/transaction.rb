@@ -47,6 +47,13 @@ class Transaction < ApplicationRecord
     })
   end
 
+  def initialize(attributes)
+    super
+    self.kind = {Register => :utility, Due => :due}[payable.class] or
+      raise "Unsupported #payable class"
+    self.start_display = register.start_display if utility?
+  end
+
   def start_display_edit_allowed?
     register.start_display.nil?
   end

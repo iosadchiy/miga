@@ -8,7 +8,7 @@ table.table
     th= t 'payments.new.left_to_pay'
     th= t 'payments.new.paying_now'
   tbody
-    - @entrance_transactions.each do |transaction|
+    - @transactions[:entrance].each do |transaction|
       = form.fields_for :transactions, transaction do |ff|
         = ff.hidden_field :kind
         = ff.hidden_field :payable_id

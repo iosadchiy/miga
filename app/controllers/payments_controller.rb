@@ -10,18 +10,14 @@ class PaymentsController < ApplicationController
   def new
     self.page_title = t('payments.new.title')
     @payment = Payment.new(member: member)
-    @utility_transactions = @payment.new_utility_transactions
-    @entrance_transactions = @payment.new_entrance_transactions
+    @transactions = @payment.new_transactions
     @member = member.decorate
   end
 
   def create
     self.page_title = t('payments.new.title')
     @payment = Payment.create(payment_params)
-    @utility_transactions = @payment
-      .new_utility_transactions(utility_transactions_params)
-    @entrance_transactions = @payment
-      .new_entrance_transactions(entrance_transactions_params)
+    @transactions = @payment.new_transactions(transactions_params)
     @member = member.decorate
     respond_with @payment, location: -> { @payment }
   end
@@ -75,6 +71,10 @@ class PaymentsController < ApplicationController
         transactions_attributes: [
           :kind, :payable_id, :payable_type, :total, :start_display, :end_display, :difference]
       )
+  end
+
+  def transactions_params
+    payment_params[:transactions_attributes]
   end
 
   def utility_transactions_params

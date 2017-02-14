@@ -21,7 +21,7 @@
   = f.hidden_field :member_id
   = render 'utility_transactions', form: f
 
-  - if @entrance_transactions.present?
+  - if @transactions[:entrance].present?
     h2= t 'dues.index.entrance_dues'
     = render 'entrance_transactions', form: f
   .row

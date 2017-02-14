@@ -9,16 +9,17 @@ table.table
     th= t 'payments.new.price_per_unit'
     th= t 'payments.new.total'
   tbody
-    - @utility_transactions.each do |transaction|
-      = form.fields_for :transactions, transaction do |ff|
-        = ff.hidden_field :kind
-        = ff.hidden_field :payable_id
-        = ff.hidden_field :payable_type
-        tr
-          td= transaction.register.human_name
-          td= ff.input :start_display, disabled: !transaction.start_display_edit_allowed?,
-            label: false
-          td= ff.input :end_display, label: false
-          td= ff.input :difference, label: false
-          td= number_to_currency Setting.config["price_#{transaction.register.kind}"]
-          td= ff.input :total, label: false
+    - [:electricity, :water].each do |kind|
+      - @transactions[kind].each do |transaction|
+        = form.fields_for :transactions, transaction do |ff|
+          = ff.hidden_field :kind
+          = ff.hidden_field :payable_id
+          = ff.hidden_field :payable_type
+          tr
+            td= transaction.register.human_name
+            td= ff.input :start_display, disabled: !transaction.start_display_edit_allowed?,
+              label: false
+            td= ff.input :end_display, label: false
+            td= ff.input :difference, label: false
+            td= number_to_currency Setting.config["price_#{transaction.register.kind}"]
+            td= ff.input :total, label: false

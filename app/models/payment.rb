@@ -38,27 +38,13 @@ class Payment < ApplicationRecord
     end
   end
 
-  # Builds a new utility transaction
-  # one for each register of the payer
+  # Builds an array of new transactions,
+  # one for each register or due of the payer
   # and merges in corresponding attributes
   # Usage:
-  #   @utility_transactions = @payment
-  #     .new_utility_transactions(payment_params[:transactions_attributes])
-  def new_utility_transactions(attributes = {})
-    new_transactions(attributes, member.registers) do |transaction, register|
-      transaction.start_display = register.start_display
-    end
-  end
-
-  def new_entrance_transactions(attributes = {})
-    new_transactions(attributes, Due.entrance)
-  end
-
-  def new_transactions(attributes, source_collection, &block)
-    source_class = source_collection.first.class
-    kind = {Register => :utility, Due => :due}[source_class] or
-      raise "unsupported source_collection"
-
+  #   @transactions = @payment
+  #     .new_transactions(payment_params[:transactions_attributes])
+  def new_transactions(attributes={}, &block)
     hash = attributes.to_h.values.reduce({}) { |res, v|
       type = v["payable_type"].constantize
       id = v["payable_id"].to_i
@@ -66,14 +52,18 @@ class Payment < ApplicationRecord
       res[type][id] = v
       res
     }
-    source_collection.map { |source|
+
+    (member.registers + Due.entrance).map { |payable| 
       Transaction.new(
-        payment: self,
-        kind: kind
-      ).tap do |t|
-        t.payable = source
-        t.attributes = hash[source.class][source.id] if hash[source.class][source.id]
-        yield(t, source) if block
+        hash[payable.class][payable.id].merge(
+          payment: self,
+          payable: payable
+        )
+      )
+    }.reduce({}) { |res, t|
+      res.tap do |r|
+        r[t.payable.kind.to_sym] ||= []
+        r[t.payable.kind.to_sym].push t
       end
     }
   end
