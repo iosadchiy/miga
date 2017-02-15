@@ -18,7 +18,7 @@ To add some fake data: `rails db:seed FAKEDATA=1`
 
 ```
 pacman -Sy archlinux-keyring && pacman -Syyu
-pacman -S rsync vim zsh wget git nodejs monit nginx
+pacman -S rsync vim zsh wget git nodejs monit nginx certbot certbot-nginx ufw
 
 # from local machine:
 vim ~/.ssh/config # add the new_server
@@ -70,9 +70,22 @@ gem i bundler
 
 sudo systemctl start monit
 sudo systemctl enable monit
+
+# Setup firewall
+ufw default deny
+ufw allow SSH
+ufw allow WWW\ Full
+ufw allow proto tcp from 178.219.244.252 to any port 2812
+ufw allow proto tcp from 178.16.92.213 to any port 2812
+ufw enable
+systemctl enable ufw
+
+systemctl enable nginx
+
 ```
 
-* edit nginx config to include /etc/nginx/sites-enabled
+* generate/get ssl certificate
+* edit nginx config to include /etc/nginx/sites-enabled and to redirect to https always
 * copy nginx config with `cap production puma:nginx_config`
 * edit /etc/monitrc to include /etc/monit.d
 * copy monit config with `cap production puma:monit:config`
@@ -97,7 +110,6 @@ sudo systemctl enable monit
 * Transaction#number should go in sequence, with only confirmed counted
 * split KPO rendering: separate method for each place (row, td)
 * add JS to autofill payment#new fields
-* develop deployment system
 * add backups and recover plan
 * add import of members
 * add import of registers
@@ -109,6 +121,7 @@ sudo systemctl enable monit
 * show fully paid dues separately at the bottom
 * show transaction history for members
 * add new/edit/delete for dues (delete only those with no transactions)
+* setup certs via certbot (blocker: dns)
 
 ## Interested in feedback for
 

@@ -50,3 +50,4 @@ set :migration_role, :app
 # capistrano3-puma
 set :nginx_server_name, "miga.impuls1.ru"
 set :puma_monit_conf_dir, "/etc/monit.d/miga.conf"
+set :nginx_use_ssl, true
