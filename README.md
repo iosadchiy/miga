@@ -108,6 +108,7 @@ sudo systemctl enable monit
 * open KPOs in a new window on payment create
 * show fully paid dues separately at the bottom
 * show transaction history for members
+* add new/edit/delete for dues (delete only those with no transactions)
 
 ## Interested in feedback for
 
