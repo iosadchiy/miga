@@ -1,6 +1,8 @@
 require "application_responder"
 
 class ApplicationController < ActionController::Base
+  http_basic_authenticate_with name: "tester", password: ENV['HTTP_BASIC_AUTH_PASSWORD']
+
   self.responder = ApplicationResponder
   respond_to :html
 
