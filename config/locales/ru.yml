@@ -88,6 +88,10 @@ ru:
       difference: "Разница"
       price_per_unit: "Цена за единицу"
       total: "Сумма"
+      altogether: "Всего"
+      paid_so_far: "Оплачено"
+      left_to_pay: "Осталось"
+      paying_now: "Оплачиваем в этот раз"
     show:
       title: "Подтверждение платежа"
       total: "Сумма к оплате"
