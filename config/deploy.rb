@@ -21,10 +21,10 @@ set :deploy_to, "/home/deploy/miga"
 # set :pty, true
 
 # Default value for :linked_files is []
-append :linked_files, "db/production.sqlite3"
+append :linked_files, "db/production.sqlite3", ".env.#{fetch :stage}"
 
 # Default value for linked_dirs is []
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets"
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/uploads"
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -40,4 +40,13 @@ set :rbenv_ruby, File.read('.ruby-version').strip
 # set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 # set :rbenv_roles, :all # default value
 
+# capistrano-bundler
 after 'deploy:published', 'bundler:clean'
+
+# capistrano-rails
+set :keep_assets, 2
+set :migration_role, :app
+
+# capistrano3-puma
+set :nginx_server_name, "miga.impuls1.ru"
+set :puma_monit_conf_dir, "/etc/monit.d/miga.conf"
