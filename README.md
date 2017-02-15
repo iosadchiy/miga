@@ -12,6 +12,72 @@ Requirements: ruby 2.4.0, execjs runtime
 
 To add some fake data: `rails db:seed FAKEDATA=1`
 
+## Deployment
+
+### Setting up a new Arch linux server
+
+```
+pacman -Sy archlinux-keyring && pacman -Syyu
+pacman -S rsync vim zsh wget git nodejs monit nginx
+
+# from local machine:
+vim ~/.ssh/config # add the new_server
+vim ~/bin/copy-terminfo
+scp ~/.zshrc new_server
+
+chsh /bin/zsh root
+vim /etc/ssh/sshd_config #disable password auth
+useradd -m -g users -G wheel -s /bin/zsh deploy
+passwd deploy
+sudo -u deploy mkdir ~deploy/.ssh
+cp .ssh/authorized_keys ~deploy/.ssh/
+vim /etc/sudoers #allow passwordless sudo for %wheel
+
+# from local machine:
+scp .zshrc deploy@new_server:
+copy-terminfo deploy@new_server
+
+pacman -S --needed base-devel
+vim /etc/makepkg.conf # edit MAKEFLAGS to j8
+
+sudo -u deploy -i
+wget https://aur.archlinux.org/cgit/aur.git/snapshot/package-query.tar.gz
+tar zxvf package-query.tar.gz
+cd package-query
+makepkg -si
+wget https://aur.archlinux.org/cgit/aur.git/snapshot/yaourt.tar.gz
+tar zxvf yaourt.tar.gz
+cd yaourt
+makepkg -si
+
+fallocate -l 512M /swapfile\n
+chmod 600 /swapfile
+mkswap /swapfile
+swapon /swapfile
+vim /etc/fstab # /swapfile none swap defaults 0 0
+
+^D
+reboot
+
+ssh deploy@new_server
+vim /etc/yaourtrc # set EDITFILES=0
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+# make sure rbenv is in .zshrc and relogin
+CONFIGURE_OPTS="--disable-install-rdoc" rbenv install 2.4.0
+echo "gem: --no-ri --no-rdoc" >> ~/.gemrc
+gem i bundler
+
+sudo systemctl start monit
+sudo systemctl enable monit
+```
+
+* edit nginx config to include /etc/nginx/sites-enabled
+* copy nginx config with `cap production puma:nginx_config`
+* edit /etc/monitrc to include /etc/monit.d
+* copy monit config with `cap production puma:monit:config`
+* create `shared/.env.production` and set vars there (check .env for reference)
+
 
 ## Flows
 
