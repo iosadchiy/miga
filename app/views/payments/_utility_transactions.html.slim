@@ -10,7 +10,7 @@ table.table
     th= t 'payments.new.total'
   tbody
     - [:electricity, :water].each do |kind|
-      - @transactions[kind].each do |transaction|
+      - (@transactions[kind] || []).each do |transaction|
         = form.fields_for :transactions, transaction do |ff|
           = ff.hidden_field :kind
           = ff.hidden_field :payable_id

@@ -123,7 +123,6 @@ RAILS_ENV=production bundle exec rake db:seed
 * add new/edit/delete for dues (delete only those with no transactions)
 * migrate from dotenv to rbenv-vars
 * don't store payment#total (but use for validation)
-* bug: when no registers present payment#new errors 500
 * rescue from RoutingError, show 404
 * bug: `display` doesn't exist for registers when creating
 * add integration tests for common flows
