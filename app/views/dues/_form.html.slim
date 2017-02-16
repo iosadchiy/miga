@@ -1,0 +1,6 @@
+= simple_form_for @due do |f|
+  = f.input :kind, collection: options_for_enum(Due, :kind)
+  = f.input :purpose
+  = f.input :unit, collection: options_for_enum(Due, :unit)
+  = f.input :price
+  = f.submit class: "btn btn-primary"

@@ -1,3 +1,5 @@
+p= link_to t('shared.form.add'), new_due_path
+
 = render 'list', dues: @entrance_dues, kind: :entrance
 = render 'list', dues: @target_dues, kind: :target
 = render 'list', dues: @membership_dues, kind: :membership

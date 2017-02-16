@@ -16,6 +16,10 @@ ru:
         purpose: "Назначение"
         unit: "Единица учета"
         price: "Цена за единицу"
+      due/kind:
+        entrance: "Вступительный"
+        membership: "Членский"
+        target: "Целевой"
       due/unit:
         per_square_meter: "за м²"
         per_plot: "за участок"
@@ -134,6 +138,10 @@ ru:
       entrance_dues: "Вступительные взносы"
       target_dues: "Целевые взносы"
       membership_dues: "Членские взносы"
+    new:
+      title: "Добавление взноса"
+    edit:
+      title: "Редактирование взноса"
   settings:
     title: "Настройки"
     only_one_allowed: "Останется только один"
