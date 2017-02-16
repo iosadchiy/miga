@@ -32,4 +32,8 @@ module ApplicationHelper
 
     content_tag(:a, name, html_options, &block)
   end
+
+  def app_version
+    "Revision: " + File.mtime('REVISION').to_s(:short) rescue nil
+  end
 end
