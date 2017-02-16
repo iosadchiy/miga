@@ -108,12 +108,12 @@ RAILS_ENV=production bundle exec rake db:seed
 
 ## TODO
 
-* Transaction#number should go in sequence, with only confirmed counted
-* split KPO rendering: separate method for each place (row, td)
 * add JS to autofill payment#new fields
 * add backups and recover plan
-* add import of members
-* add import of registers
+* import members
+* import plots
+* import registers
+* import dues
 * create index/edit/destroy for transactions
 * add check that Transaction#id goes in series
 * dues should not automatically apply to all members (show members for due and dues for member)
@@ -122,7 +122,6 @@ RAILS_ENV=production bundle exec rake db:seed
 * show fully paid dues separately at the bottom
 * show transaction history for members
 * add new/edit/delete for dues (delete only those with no transactions)
-* setup certs via certbot (blocker: dns)
 * migrate from dotenv to rbenv-vars
 * don't store payment#total (but use for validation)
 * bug: when no registers present payment#new errors 500
@@ -130,6 +129,11 @@ RAILS_ENV=production bundle exec rake db:seed
 * bug: `display` doesn't exist for registers when creating
 * add integration tests for common flows
 * configure server with chef
+
+backlog:
+* split KPO rendering: separate method for each place (row, td)
+* setup certs via certbot (blocker: dns)
+
 
 ## Interested in feedback for
 
