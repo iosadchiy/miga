@@ -29,6 +29,12 @@ class DuesController < ApplicationController
     respond_with @due
   end
 
+  def destroy
+    @due = Due.find(params[:id])
+    @due.destroy
+    respond_with @due
+  end
+
   def due_params
     params.require(:due).permit(:kind, :purpose, :unit, :price)
   end

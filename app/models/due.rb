@@ -23,6 +23,10 @@ class Due < ApplicationRecord
 
   validates :kind, :purpose, :unit, :price, presence: true
 
+  before_destroy do
+    throw :abort unless can_be_destroyed?
+  end
+
   def altogether_for(member)
     send "calc_altogether_#{unit}", member
   end
@@ -42,5 +46,9 @@ class Due < ApplicationRecord
 
   def left_to_pay_by(member)
     altogether_for(member) - paid_so_far_by(member)
+  end
+
+  def can_be_destroyed?
+    Transaction.unscoped { transactions.empty? }
   end
 end

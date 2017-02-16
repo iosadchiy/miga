@@ -2,3 +2,9 @@ tr
   td= link_to due.purpose, [:edit, due]
   td= Due.human_attribute_name "unit.#{due.unit}"
   td= number_to_currency due.price
+  td
+    - if due.can_be_destroyed?
+      = link_to '&times;'.html_safe, due,
+        method: :delete,
+        data: {confirm: t('helpers.confirm_delete')},
+        class: "btn btn-default"

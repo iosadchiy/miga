@@ -120,7 +120,6 @@ RAILS_ENV=production bundle exec rake db:seed
 * open KPOs in a new window on payment create
 * show fully paid dues separately at the bottom
 * show transaction history for members
-* add new/edit/delete for dues (delete only those with no transactions)
 * migrate from dotenv to rbenv-vars
 * don't store payment#total (but use for validation)
 * add integration tests for common flows
