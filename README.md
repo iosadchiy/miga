@@ -123,7 +123,6 @@ RAILS_ENV=production bundle exec rake db:seed
 * add new/edit/delete for dues (delete only those with no transactions)
 * migrate from dotenv to rbenv-vars
 * don't store payment#total (but use for validation)
-* rescue from RoutingError, show 404
 * add integration tests for common flows
 * configure server with chef
 
