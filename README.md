@@ -82,6 +82,8 @@ systemctl enable ufw
 
 systemctl enable nginx
 
+RAILS_ENV=production bundle exec rake db:seed
+
 ```
 
 * generate/get ssl certificate
@@ -115,13 +117,20 @@ systemctl enable nginx
 * add import of registers
 * create index/edit/destroy for transactions
 * add check that Transaction#id goes in series
-* dues should not automatically apply to all members
+* dues should not automatically apply to all members (show members for due and dues for member)
 * bug: not possible to print pending KPOs
 * open KPOs in a new window on payment create
 * show fully paid dues separately at the bottom
 * show transaction history for members
 * add new/edit/delete for dues (delete only those with no transactions)
 * setup certs via certbot (blocker: dns)
+* migrate from dotenv to rbenv-vars
+* don't store payment#total (but use for validation)
+* bug: when no registers present payment#new errors 500
+* rescue from RoutingError, show 404
+* bug: `display` doesn't exist for registers when creating
+* add integration tests for common flows
+* configure server with chef
 
 ## Interested in feedback for
 
