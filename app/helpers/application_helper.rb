@@ -34,6 +34,6 @@ module ApplicationHelper
   end
 
   def app_version
-    "Revision: " + File.mtime('REVISION').to_s(:short) rescue nil
+    @_version ||= "Revision: " + File.mtime('REVISION').to_s(:short) rescue nil
   end
 end
