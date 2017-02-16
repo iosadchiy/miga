@@ -75,8 +75,6 @@ sudo systemctl enable monit
 ufw default deny
 ufw allow SSH
 ufw allow WWW\ Full
-ufw allow proto tcp from 178.219.244.252 to any port 2812
-ufw allow proto tcp from 178.16.92.213 to any port 2812
 ufw enable
 systemctl enable ufw
 
@@ -89,6 +87,7 @@ RAILS_ENV=production bundle exec rake db:seed
 * generate/get ssl certificate
 * edit nginx config to include /etc/nginx/sites-enabled and to redirect to https always
 * copy nginx config with `cap production puma:nginx_config`
+* add monit to nginx config
 * edit /etc/monitrc to include /etc/monit.d
 * copy monit config with `cap production puma:monit:config`
 * create `shared/.env.production` and set vars there (check .env for reference)
