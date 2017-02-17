@@ -9,7 +9,8 @@
   = f.input :email
   = f.input :select_all_dues, as: :boolean
   = f.association :dues, as: :check_boxes, label: false,
-    collection: Due.where.not(kind: :entrance), label_method: :purpose
+    collection: Due.where.not(kind: :entrance).order(:kind, created_at: :desc),
+    label_method: :purpose
 
   = f.submit class: "btn btn-primary"
   - if @member.persisted? && @member.active?

@@ -116,7 +116,6 @@ RAILS_ENV=production bundle exec rake db:seed
 * import dues
 * create index/edit/destroy for transactions
 * add check that Transaction#id goes in series
-* dues should not automatically apply to all members (show members for due and dues for member)
 * open KPOs in a new window on payment create
 * show fully paid dues separately at the bottom
 * show transaction history for members
