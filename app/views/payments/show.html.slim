@@ -4,4 +4,11 @@
   p
     = form_tag [:confirm, @payment], method: :patch
       button.btn.btn-primary.btn-lg autofocus=true type='submit' = t('payments.show.confirm')
+  p= link_to t('.print'), print_payment_path(@payment, format: :pdf), target: "_blank"
 
+javascript:
+  window.open(
+    $('a[target="_blank"]').attr("href"),
+    'Print',
+    'fullscreen=1'
+  )
