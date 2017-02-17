@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170206074531) do
+ActiveRecord::Schema.define(version: 20170217161458) do
 
   create_table "dues", force: :cascade do |t|
     t.integer  "kind",       null: false
@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(version: 20170206074531) do
     t.decimal  "price",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "dues_members", id: false, force: :cascade do |t|
+    t.integer "due_id"
+    t.integer "member_id"
+    t.index ["due_id"], name: "index_dues_members_on_due_id"
+    t.index ["member_id"], name: "index_dues_members_on_member_id"
   end
 
   create_table "members", force: :cascade do |t|

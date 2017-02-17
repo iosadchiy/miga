@@ -21,6 +21,7 @@ class Member < ApplicationRecord
 
   has_many :plots, -> { order :number }
   has_many :registers, through: :plots
+  has_and_belongs_to_many :dues
 
   validates :fio, presence: true
   validates :status, presence: true

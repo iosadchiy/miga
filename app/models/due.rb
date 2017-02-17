@@ -20,8 +20,13 @@ class Due < ApplicationRecord
       joins(:payment).where(payments: {member: member})
     end
   end
+  has_and_belongs_to_many :members
+  attr_accessor :select_all_members
 
   validates :kind, :purpose, :unit, :price, presence: true
+  validates_each :members do |record, attr, value|
+    record.errors.add(attr, 'only active allowed') unless record.members.all?(&:active?)
+  end
 
   before_destroy do
     throw :abort unless can_be_destroyed?

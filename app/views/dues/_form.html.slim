@@ -3,4 +3,7 @@
   = f.input :purpose
   = f.input :unit, collection: options_for_enum(Due, :unit)
   = f.input :price
+  - unless @due.entrance?
+    = f.input :select_all_members, as: :boolean, include_hidden: false
+    = f.association :members, as: :check_boxes, collection: Member.active.decorate, label: false
   = f.submit class: "btn btn-primary"

@@ -16,6 +16,8 @@ ru:
         purpose: "Назначение"
         unit: "Единица учета"
         price: "Цена за единицу"
+        members: "Члены"
+        select_all_members: "Выбрать всех"
       due/kind:
         entrance: "Вступительный"
         membership: "Членский"

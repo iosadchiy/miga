@@ -8,7 +8,7 @@ class DuesController < ApplicationController
 
   def new
     self.page_title = t 'dues.new.title'
-    @due = Due.new(kind: params[:kind])
+    @due = Due.new(kind: params[:kind], member_ids: Member.active.ids)
   end
 
   def create
@@ -36,6 +36,6 @@ class DuesController < ApplicationController
   end
 
   def due_params
-    params.require(:due).permit(:kind, :purpose, :unit, :price)
+    params.require(:due).permit(:kind, :purpose, :unit, :price, member_ids: [])
   end
 end

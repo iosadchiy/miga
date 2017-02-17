@@ -7,6 +7,10 @@ class MemberDecorator < Draper::Decorator
     }, ", "
   end
 
+  def plot_list_text
+    plots.map(&:number).join(", ")
+  end
+
   def space
     [
       object.space.to_s,
@@ -18,7 +22,8 @@ class MemberDecorator < Draper::Decorator
   def to_s
     [
       fio,
-      ("(#{I18n.t('members.status.deleted')})" unless active?)
+      ("(#{I18n.t('members.status.deleted')})" unless active?),
+      ("(#{plot_list_text})" if plots.present?)
     ].compact.join(" ")
   end
 
