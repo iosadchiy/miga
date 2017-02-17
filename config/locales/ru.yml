@@ -38,6 +38,8 @@ ru:
         phone: "Телефон"
         email: "Почта"
         status: "Статус"
+        dues: "Взносы"
+        select_all_dues: "Выбрать все"
       payment:
         total: "Итого"
       plot:

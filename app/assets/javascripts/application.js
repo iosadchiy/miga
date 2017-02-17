@@ -35,6 +35,7 @@ document.addEventListener("turbolinks:load", function() {
     });
 
   selectAll('#due_select_all_members', '[type="checkbox"][name="due[member_ids][]"]');
+  selectAll('#member_select_all_dues', '[type="checkbox"][name="member[due_ids][]"]');
 
   // Given a number of checkboxes identified with checkboxes_selector exist
   // and a 'select all' checkbox (select_all_selector) exist
