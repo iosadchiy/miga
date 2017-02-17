@@ -42,7 +42,7 @@ document.addEventListener("turbolinks:load", function() {
   // track checkboxes state and check/uncheck
   function selectAll(select_all_selector, checkboxes_selector) {
     function checkSelectAll() {
-      let select_all_checked = $(checkboxes_selector).length ==
+      var select_all_checked = $(checkboxes_selector).length ==
         $(checkboxes_selector + ':checked').length;
       $(select_all_selector).prop('checked', select_all_checked);
     }
