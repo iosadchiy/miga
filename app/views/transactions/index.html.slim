@@ -18,8 +18,5 @@ table.table
         td= Payment.human_attribute_name("status.#{transaction.payment.status}")
         td= l transaction.created_at, format: :long
         td
-          => link_to t('.edit'), [:edit, transaction], class: "btn btn-default"
-          => link_to t('payments.show.print'),
-            print_payment_path(transaction.payment,
-              format: :pdf, transaction_id: transaction.id),
-            target: "_blank", class: "btn btn-default"
+          => link_to t('.edit'), [:edit, transaction], class: "btn btn-link"
+          => link_to t('.payment'), transaction.payment, class: "btn btn-link"
