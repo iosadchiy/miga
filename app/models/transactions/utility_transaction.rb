@@ -4,7 +4,7 @@ module Transactions::UtilityTransaction
   included do
     before_validation do
       if utility?
-        self.start_display = register.start_display || self.start_display
+        self.start_display = register.start_display || self.start_display || 0
         self.price = Setting.config["price_#{register.kind}"]
         self.details = (self.details || {}).merge({
           register: register.attributes.merge(
