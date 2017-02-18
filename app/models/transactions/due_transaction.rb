@@ -26,4 +26,8 @@ module Transactions::DueTransaction
   def left_to_pay
     due.left_to_pay_by(member)
   end
+
+  def fully_paid?
+    left_to_pay == 0
+  end
 end

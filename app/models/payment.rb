@@ -60,6 +60,8 @@ class Payment < ApplicationRecord
           payable: payable
         )
       )
+    }.reject { |transaction|
+      transaction.due? && transaction.fully_paid?
     }.reduce({}) { |res, t|
       res.tap do |r|
         r[t.payable.kind.to_sym] ||= []

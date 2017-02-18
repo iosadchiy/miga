@@ -114,7 +114,6 @@ RAILS_ENV=production bundle exec rake db:seed
 * import plots
 * import registers
 * import dues
-* show fully paid dues separately at the bottom
 * show transaction history for members
 * migrate from dotenv to rbenv-vars
 * don't store payment#total (but use for validation)
