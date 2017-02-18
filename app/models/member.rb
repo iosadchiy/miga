@@ -40,12 +40,8 @@ class Member < ApplicationRecord
     plots.pluck(:space).sum
   end
 
-  def membership_dues_debt
-    1234
-  end
-
-  def other_dues_debt
-    4321
+  def dues_debt
+    dues.map{|d| d.left_to_pay_by(self)}.sum
   end
 
   def destroy

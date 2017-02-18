@@ -10,8 +10,7 @@
       #{@member.phone}<br>
       #{@member.email}<br>
   .col-lg-6
-    p #{t 'payments.new.membership_dues_debt'}: #{number_to_currency @member.membership_dues_debt}
-    p #{t 'payments.new.other_dues_debt'}: #{number_to_currency @member.other_dues_debt}
+    p #{t 'payments.new.dues_debt'}: #{number_to_currency @member.dues_debt}
 
 - if @payment.errors.present?
   - @payment.errors.full_messages.each do |msg|
