@@ -32,7 +32,7 @@ class PaymentsController < ApplicationController
   end
 
   def print
-    @transactions = Transaction.unscoped { @payment.transactions.decorate }
+    @transactions = @payment.transactions
     respond_to do |format|
       format.html do
         render layout: 'pdf'

@@ -37,7 +37,7 @@ class Transaction < ApplicationRecord
   serialize :details
   delegate :member, to: :payment
 
-  default_scope { joins(:payment).where(payments: {status: :finished}) }
+  scope :finished, -> { joins(:payment).where(payments: {status: :finished}) }
 
   before_validation do
     self.details = (self.details || {}).merge({

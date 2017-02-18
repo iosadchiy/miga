@@ -54,6 +54,6 @@ class Due < ApplicationRecord
   end
 
   def can_be_destroyed?
-    Transaction.unscoped { transactions.empty? }
+    transactions.empty?
   end
 end
