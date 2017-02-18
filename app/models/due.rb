@@ -16,6 +16,9 @@ class Due < ApplicationRecord
   enum unit: [:per_square_meter, :per_plot, :per_member]
 
   has_many :transactions, inverse_of: :payable, as: :payable do
+    def finished
+      joins(:payment).where(payments: {status: :finished})
+    end
     def by_member(member)
       joins(:payment).where(payments: {member: member})
     end
@@ -46,7 +49,7 @@ class Due < ApplicationRecord
   end
 
   def paid_so_far_by(member)
-    transactions.by_member(member).pluck(:total).sum
+    transactions.finished.by_member(member).pluck(:total).sum
   end
 
   def left_to_pay_by(member)
