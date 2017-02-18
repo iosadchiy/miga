@@ -10,6 +10,7 @@ ru:
       setting: "Настройки"
       register: "Прибор учета"
       payment: "Платеж"
+      transaction: "Транзакция"
     attributes:
       due:
         kind: "Тип"
@@ -60,6 +61,12 @@ ru:
       setting:
         price_electricity: "Электричество, цена за кВт·ч, рублей"
         price_water: "Вода, цена за м³, рублей"
+      transaction:
+        id: "Номер"
+        kind: "Тип"
+        total: "Сумма"
+        member: "Плательщик"
+        created_at: "Дата создания"
   helpers:
     submit:
       delete: "Удалить"
@@ -77,6 +84,7 @@ ru:
     plot_list: "Реестр участков"
     dues: "Взносы"
     settings: "Настройки"
+    transactions: "Транзакции"
   payments:
     title: "Платежи"
     plot_number: "Номер участка"
@@ -159,3 +167,8 @@ ru:
       entrance: "Оплата вступительного взноса '%{purpose}'"
       membership: "Оплата членских взносов %{purpose}"
       target: "Оплата целевого взноса %{purpose}"
+    index:
+      title: "Транзакции"
+      edit: "Изменить"
+    edit:
+      title: "Редактирование транзакции"

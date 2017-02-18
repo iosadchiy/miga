@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :plots, except: :show
   resources :dues, except: :show
   resource :setting, only: [:edit, :update]
+  resources :transactions, except: :show
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -33,6 +33,11 @@ class PaymentsController < ApplicationController
 
   def print
     @transactions = @payment.transactions
+    if params[:transaction_id]
+      @transactions = @transactions.where(transactions: {id: params[:transaction_id]})
+    end
+    @transactions = @transactions.decorate
+
     respond_to do |format|
       format.html do
         render layout: 'pdf'

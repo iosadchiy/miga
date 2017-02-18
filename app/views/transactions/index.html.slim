@@ -1,0 +1,24 @@
+table.table
+  thead
+    tr
+      th= Transaction.human_attribute_name(:id)
+      th= Transaction.human_attribute_name(:member)
+      th= Transaction.human_attribute_name(:kind)
+      th= Transaction.human_attribute_name(:total)
+      th= Transaction.human_attribute_name(:created_at)
+      th
+  - @transactions.each do |transaction|
+    tbody
+      tr
+        td= transaction.id
+        td= transaction.member.decorate
+        /td= transaction.payable.kind
+        td= transaction.payable.class.human_attribute_name("kind.#{transaction.payable.kind}")
+        td= number_to_currency transaction.total
+        td= l transaction.created_at, format: :long
+        td
+          => link_to t('.edit'), [:edit, transaction], class: "btn btn-default"
+          => link_to t('payments.show.print'),
+            print_payment_path(transaction.payment,
+              format: :pdf, transaction_id: transaction.id),
+            target: "_blank", class: "btn btn-default"
