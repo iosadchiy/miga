@@ -47,11 +47,16 @@ class Transaction < ApplicationRecord
     })
   end
 
+  def self.id_in_series?
+    min_id = order(:id).first.id
+    max_id = order(:id).last.id
+    count == max_id - min_id + 1
+  end
+
   def initialize(attributes)
     super
     self.kind = {Register => :utility, Due => :due}[payable.class] or
       raise "Unsupported #payable class"
-    self.start_display = register.start_display if utility?
   end
 
   def start_display_edit_allowed?

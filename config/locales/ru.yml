@@ -2,6 +2,7 @@ ru:
   errors:
     messages:
       mismatch: "не совпадает"
+      transaction_id_not_in_series: "Номера КПО идут не подряд"
   activerecord:
     models:
       plot: "Участок"

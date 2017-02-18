@@ -1,3 +1,5 @@
+- unless Transaction.id_in_series?
+  .alert.alert-warning= t 'errors.messages.transaction_id_not_in_series'
 form action=new_payment_path
   .input-group
     input.form-control[type="text" id="plot_number" name="plot_number" autofocus="true"
