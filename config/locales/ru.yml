@@ -28,12 +28,6 @@ ru:
         per_square_meter: "за м²"
         per_plot: "за участок"
         per_member: "за члена"
-      plot:
-        number: "Номер"
-        member: "Хозяин"
-        space: "Площадь"
-        cadastre: "Кадастровый номер"
-        ukrgosact: "Укрогосакт"
       member:
         fio: "ФИО"
         address: "Адрес"
@@ -44,6 +38,10 @@ ru:
         select_all_dues: "Выбрать все"
       payment:
         total: "Итого"
+        status: "Статус"
+      payment/status:
+        pending: "Ожидает оплаты"
+        finished: "Оплачено"
       plot:
         number: "Номер"
         member: "Хозяин"

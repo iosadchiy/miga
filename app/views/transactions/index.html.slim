@@ -5,6 +5,7 @@ table.table
       th= Transaction.human_attribute_name(:member)
       th= Transaction.human_attribute_name(:kind)
       th= Transaction.human_attribute_name(:total)
+      th= Payment.human_attribute_name(:status)
       th= Transaction.human_attribute_name(:created_at)
       th
   - @transactions.each do |transaction|
@@ -12,9 +13,9 @@ table.table
       tr
         td= transaction.id
         td= transaction.member.decorate
-        /td= transaction.payable.kind
         td= transaction.payable.class.human_attribute_name("kind.#{transaction.payable.kind}")
         td= number_to_currency transaction.total
+        td= Payment.human_attribute_name("status.#{transaction.payment.status}")
         td= l transaction.created_at, format: :long
         td
           => link_to t('.edit'), [:edit, transaction], class: "btn btn-default"
