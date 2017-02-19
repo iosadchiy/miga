@@ -114,9 +114,9 @@ RAILS_ENV=production bundle exec rake db:seed
 * import plots
 * import registers
 * import dues
-* migrate from dotenv to rbenv-vars
 * add integration tests for common flows
 * configure server with chef
+* migrate from dotenv to /etc/environment? (depends: chef)
 
 backlog:
 * split KPO rendering: separate method for each place (row, td)
