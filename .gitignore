@@ -22,3 +22,5 @@
 
 # dotenv - check in .env, but ignore .env.<stage>
 .env.*
+
+.~*
