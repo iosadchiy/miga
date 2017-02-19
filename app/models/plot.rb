@@ -23,8 +23,8 @@ class Plot < ApplicationRecord
   accepts_nested_attributes_for :registers, reject_if: :all_blank
 
   validates :number, presence: true, uniqueness: true
-  validates :space, numericality: {allow_nil: true,
-      greater_than_or_equal_to: 10, less_than_or_equal_to: 10000}
+  validates :space, presence: true, numericality: {
+      less_than_or_equal_to: 10000}
 
   def to_s
     number
