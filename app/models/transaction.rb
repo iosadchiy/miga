@@ -35,9 +35,7 @@ class Transaction < ApplicationRecord
   validates :details, presence: true
 
   serialize :details
-  delegate :member, :status, to: :payment
-
-  scope :finished, -> { joins(:payment).where(payments: {status: :finished}) }
+  delegate :member, to: :payment
 
   before_validation do
     self.details = (self.details || {}).merge({
@@ -48,9 +46,8 @@ class Transaction < ApplicationRecord
   end
 
   def self.id_in_series?
-    min_id = order(:id).first.id
-    max_id = order(:id).last.id
-    count == max_id - min_id + 1
+    all.empty? ||
+      order(:id).last.id - order(:id).first.id + 1 == count
   end
 
   def initialize(attributes)

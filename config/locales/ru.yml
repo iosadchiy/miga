@@ -38,10 +38,6 @@ ru:
         select_all_dues: "Выбрать все"
       payment:
         total: "Итого"
-        status: "Статус"
-      payment/status:
-        pending: "Ожидает оплаты"
-        finished: "Оплачено"
       plot:
         number: "Номер"
         member: "Хозяин"
@@ -113,6 +109,7 @@ ru:
       print: "Распечатать КПО"
     history:
       title: "История платежей"
+      print: "Распечатать КПО"
   members:
     status:
       active: "Активен"

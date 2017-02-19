@@ -52,7 +52,7 @@ class PaymentsController < ApplicationController
   end
 
   def confirm
-    @payment.update_attribute :status, :finished
+    @payment.touch
     respond_with @payment, notice: t('.notice')
   end
 

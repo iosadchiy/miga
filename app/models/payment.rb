@@ -4,7 +4,6 @@
 #
 #  id         :integer          not null, primary key
 #  member_id  :integer
-#  status     :integer          not null
 #  total      :decimal(, )      not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -15,19 +14,13 @@
 #
 
 class Payment < ApplicationRecord
-  enum status: [:pending, :finished]
   belongs_to :member
   has_many :transactions, inverse_of: :payment
   accepts_nested_attributes_for :transactions, reject_if: ->(hash) do
     hash[:total].empty?
   end
 
-  before_validation do
-    self.status = :pending
-  end
-
   validates :total, presence: true, numericality: {greater_than: 0}
-  validates :status, presence: true
 
   validate do
     sum = transactions.reduce(0) { |sum, t|

@@ -119,7 +119,6 @@ RAILS_ENV=production bundle exec rake db:seed
 * add integration tests for common flows
 * configure server with chef
 * bug: on entrance due create don't assign any members
-* get rid of Payment#status
 
 backlog:
 * split KPO rendering: separate method for each place (row, td)
