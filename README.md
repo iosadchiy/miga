@@ -115,7 +115,6 @@ RAILS_ENV=production bundle exec rake db:seed
 * import registers
 * import dues
 * migrate from dotenv to rbenv-vars
-* don't store payment#total (but use for validation)
 * add integration tests for common flows
 * configure server with chef
 
