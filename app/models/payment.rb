@@ -23,9 +23,7 @@ class Payment < ApplicationRecord
   validates :total, presence: true, numericality: {greater_than: 0}
 
   validate do
-    sum = transactions.reduce(0) { |sum, t|
-      sum + t.total
-    }
+    sum = transactions.map(&:total).sum
     unless total == sum
       errors.add :total, I18n.t('errors.messages.mismatch')
     end
