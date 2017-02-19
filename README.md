@@ -114,11 +114,12 @@ RAILS_ENV=production bundle exec rake db:seed
 * import plots
 * import registers
 * import dues
-* show transaction history for members
 * migrate from dotenv to rbenv-vars
 * don't store payment#total (but use for validation)
 * add integration tests for common flows
 * configure server with chef
+* bug: on entrance due create don't assign any members
+* get rid of Payment#status
 
 backlog:
 * split KPO rendering: separate method for each place (row, td)

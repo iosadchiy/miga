@@ -35,7 +35,7 @@ class Transaction < ApplicationRecord
   validates :details, presence: true
 
   serialize :details
-  delegate :member, to: :payment
+  delegate :member, :status, to: :payment
 
   scope :finished, -> { joins(:payment).where(payments: {status: :finished}) }
 

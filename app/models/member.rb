@@ -21,6 +21,7 @@ class Member < ApplicationRecord
 
   has_many :plots, -> { order :number }
   has_many :registers, through: :plots
+  has_many :payments, -> { order created_at: :desc }
   has_and_belongs_to_many :dues
   attr_accessor :select_all_dues
 

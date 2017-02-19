@@ -111,6 +111,8 @@ ru:
       total: "Сумма к оплате"
       confirm: "Деньги получены"
       print: "Распечатать КПО"
+    history:
+      title: "История платежей"
   members:
     status:
       active: "Активен"
