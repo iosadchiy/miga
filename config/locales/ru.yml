@@ -43,7 +43,7 @@ ru:
         member: "Хозяин"
         space: "Площадь"
         cadastre: "Кадастровый номер"
-        ukrgosact: "Укрогосакт"
+        ukrgosact: "Укргосакт"
       register:
         kind: "Тип"
         name: "Название"

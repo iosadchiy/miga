@@ -16,7 +16,7 @@ ru:
         number: "Номер"
         space: "Площадь"
         cadastre: "Кадастровый номер"
-        ukrgosact: "Укрогосакт"
+        ukrgosact: "Укргосакт"
     # Examples
     # labels:
     #   defaults:
