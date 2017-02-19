@@ -58,7 +58,7 @@ gem 'numbers_and_words'
 
 # PDF generation
 gem 'wicked_pdf'
-gem 'wkhtmltopdf_binary'
+gem 'wkhtmltopdf-binary'
 
 # Env vars
 gem 'dotenv-rails'

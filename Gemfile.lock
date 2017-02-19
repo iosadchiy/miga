@@ -225,7 +225,7 @@ GEM
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
     wicked_pdf (1.1.0)
-    wkhtmltopdf_binary (0.12.3.2)
+    wkhtmltopdf-binary (0.12.3.1)
 
 PLATFORMS
   ruby
@@ -260,7 +260,7 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
   wicked_pdf
-  wkhtmltopdf_binary
+  wkhtmltopdf-binary
 
 BUNDLED WITH
    1.14.3
