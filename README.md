@@ -118,7 +118,6 @@ RAILS_ENV=production bundle exec rake db:seed
 * don't store payment#total (but use for validation)
 * add integration tests for common flows
 * configure server with chef
-* bug: on entrance due create don't assign any members
 
 backlog:
 * split KPO rendering: separate method for each place (row, td)
