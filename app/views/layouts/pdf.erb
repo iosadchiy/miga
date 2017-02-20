@@ -5,9 +5,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>КПО</title>
     <link rel="icon" type="image/x-icon" href="<%= image_path('favicon.ico') %>" />
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <style>
+    @font-face {
+      font-family: Arsenal;
+      src: url(<%= asset_url 'arsenal-regular.woff' %>);
+    }
     body {
+      font-family: Arsenal;
       margin: 0;
       padding: 0;
     }
