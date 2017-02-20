@@ -7,11 +7,32 @@
     <link rel="icon" type="image/x-icon" href="<%= image_path('favicon.ico') %>" />
     <style>
     @font-face {
-      font-family: Heuristica;
-      src: url(<%= asset_url 'heuristica-regular.woff' %>);
+      font-family: DroidSerif;
+      src: url(<%= asset_url 'droidserif-regular.woff' %>);
+      font-weight: normal;
+      font-style: normal;
     }
+    @font-face {
+      font-family: DroidSerif;
+      src: url(<%= asset_url 'droidserif-bold.woff' %>);
+      font-weight: bold;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: DroidSerif;
+      src: url(<%= asset_url 'droidserif-italic.woff' %>);
+      font-weight: normal;
+      font-style: italic;
+    }
+    @font-face {
+      font-family: DroidSerif;
+      src: url(<%= asset_url 'droidserif-bolditalic.woff' %>);
+      font-weight: bold;
+      font-style: italic;
+    }
+
     body {
-      font-family: Heuristica;
+      font-family: DroidSerif;
       margin: 0;
       padding: 0;
     }
@@ -23,7 +44,7 @@
       overflow: hidden;
     }
     #under_line {
-      font-size: 10px;
+      font-size: 9px;
       font-style: italic;
     }
     #underscore {
