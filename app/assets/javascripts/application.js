@@ -54,4 +54,14 @@ document.addEventListener("turbolinks:load", function() {
       checkSelectAll();
     });
   }
+
+  // Open KPO in a new window for printing
+  if ($('#print_payment_link').length > 0) {
+    window.open(
+      $('#print_payment_link').attr("href"),
+      'Print',
+      'fullscreen=1'
+    )
+  }
+
 });
