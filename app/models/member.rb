@@ -31,6 +31,7 @@ class Member < ApplicationRecord
   default_scope { order :fio }
   scope :active_plus_owner_of, ->(plot) {
     where("status = ? OR id = ?", statuses[:active], plot.member_id)
+      .includes(:plots)
   }
 
   def self.owner_of(plot_number)
