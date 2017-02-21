@@ -52,4 +52,8 @@ class TransactionDecorator < Draper::Decorator
     I18n.t "transactions.ground.#{due.kind}",
       purpose: due.purpose
   end
+
+  def cashier
+    Setting.config[:cashier]
+  end
 end

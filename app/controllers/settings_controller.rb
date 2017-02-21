@@ -16,6 +16,6 @@ class SettingsController < ApplicationController
   end
 
   def setting_params
-    params.require(:setting).permit(:price_electricity, :price_water)
+    params.require(:setting).permit(:price_electricity, :price_water, :cashier)
   end
 end
