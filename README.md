@@ -110,7 +110,6 @@ RAILS_ENV=production bundle exec rake db:seed
 
 * add JS to autofill payment#new fields
 * add backups and recover plan
-* import registers
 * import dues
 * add integration tests for common flows
 * configure server with chef
