@@ -41,12 +41,14 @@ namespace :import do
 
   desc "Create a water and an electricity register for each member"
   task :create_registers => :environment do
-    Member.active.each do |member|
-      plot = member.plots.first
-      plot.registers.create!([
-        {kind: :electricity, name: plot.number},
-        {kind: :water, name: plot.number}
-      ])
-    end
+    Member.active
+      .select{|m| m.registers.empty? }
+      .each do |member|
+        plot = member.plots.first
+        plot.registers.create!([
+          {kind: :electricity, name: plot.number},
+          {kind: :water, name: plot.number}
+        ])
+      end
   end
 end
