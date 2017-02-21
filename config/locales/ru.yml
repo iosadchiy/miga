@@ -71,6 +71,7 @@ ru:
     confirm_delete: "Удалить?"
   shared:
     square_meters: 'м²'
+    fio_and_plots: '%{fio}, уч. №%{plots}'
     form:
       add: "добавить"
       edit: "изменить"

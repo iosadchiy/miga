@@ -34,7 +34,7 @@ class MemberDecorator < Draper::Decorator
   end
 
   def to_s_kpo
-    "#{fio_short}, уч. №#{plot_list_text}"
+    I18n.t 'shared.fio_and_plots', fio: fio_short, plots: plot_list_text
   end
 
 
