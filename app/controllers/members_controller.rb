@@ -3,7 +3,7 @@ class MembersController < ApplicationController
 
   def index
     self.page_title = t('members.index.title')
-    @members = Member.active.decorate
+    @members = Member.active.includes(:plots).decorate
     @deleted_members = Member.deleted.decorate
   end
 
