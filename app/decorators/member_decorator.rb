@@ -27,6 +27,16 @@ class MemberDecorator < Draper::Decorator
     ].compact.join(" ")
   end
 
+  # Returns surname and initials
+  def fio_short
+    ar = fio.split(/\s+/)
+    ar.first + " " + ar[1..-1].map{|x| x.first + "."}.join
+  end
+
+  def to_s_kpo
+    "#{fio_short}, уч. №#{plot_list_text}"
+  end
+
 
   # Define presentation-specific methods here. Helpers are accessed through
   # `helpers` (aka `h`). You can override attributes, for example:

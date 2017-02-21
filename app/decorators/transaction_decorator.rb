@@ -35,7 +35,7 @@ class TransactionDecorator < Draper::Decorator
   end
 
   def fio
-    object.payment.member.fio
+    object.payment.member.decorate.to_s_kpo
   end
 
   def ground
