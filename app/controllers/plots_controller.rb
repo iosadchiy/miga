@@ -3,7 +3,7 @@ class PlotsController < ApplicationController
 
   def index
     self.page_title = t 'plots.index.title'
-    @plots = Plot.order('cast(number as integer), number')
+    @plots = Plot.order('cast(number as integer), number').includes(:member)
   end
 
   def edit
