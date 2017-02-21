@@ -76,7 +76,6 @@ class PaymentsController < ApplicationController
       .require(:payment)
       .permit(
         :member_id,
-        :total,
         transactions_attributes: [
           :kind, :payable_id, :payable_type, :total, :start_display, :end_display, :difference]
       )

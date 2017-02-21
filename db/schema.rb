@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170221142620) do
+ActiveRecord::Schema.define(version: 20170221191434) do
 
   create_table "dues", force: :cascade do |t|
     t.integer  "kind",       null: false
@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 20170221142620) do
 
   create_table "payments", force: :cascade do |t|
     t.integer  "member_id"
-    t.decimal  "total",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["member_id"], name: "index_payments_on_member_id"

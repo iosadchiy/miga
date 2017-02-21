@@ -4,7 +4,6 @@
 #
 #  id         :integer          not null, primary key
 #  member_id  :integer
-#  total      :decimal(, )      not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -19,14 +18,10 @@ class Payment < ApplicationRecord
   accepts_nested_attributes_for :transactions, reject_if: ->(hash) do
     hash[:total].empty?
   end
+  default_scope { includes(:transactions) }
 
-  validates :total, presence: true, numericality: {greater_than: 0}
-
-  validate do
-    sum = transactions.map(&:total).sum
-    unless total == sum
-      errors.add :total, I18n.t('errors.messages.mismatch')
-    end
+  def total
+    transactions.map(&:total).sum
   end
 
   # Builds an array of new transactions,

@@ -24,8 +24,5 @@
     = render 'due_transactions', form: f, transactions: @transactions[kind]
 
   .row
-    .col-lg-4
-      = f.input :total
-  .row
     p.col-lg-12
       = f.submit class: "btn btn-primary"
