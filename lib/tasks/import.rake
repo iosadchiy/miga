@@ -1,15 +1,20 @@
 require "csv"
 
 namespace :import do
+  desc "Import plots and members from fixtures"
+  task :default do
+    Rake::Task["import:plots"].invoke("test/fixtures/plots.csv")
+    Rake::Task["import:members"].invoke("test/fixtures/members.csv")
+  end
+
   desc "Import plots from a CSV file (passed as an argument)"
   # see example: test/fixtures/plots.csv
   task :plots, [:csv_file] => [:environment] do |task, args|
-    CSV.foreach(args.csv_file, headers: :first_row) do |row|
+    CSV.foreach(args.csv_file) do |row|
       plot = Plot.create!(
         number: row[0],
-        space: row[1],
-        cadastre: row[2],
-        ukrgosact: row[3]
+        cadastre: row[1],
+        space: row[2]
       )
       puts "Created: #{plot.inspect}"
     end
@@ -18,17 +23,17 @@ namespace :import do
   desc "Import members from a CSV file"
   # see example: test/fixtures/members.csv
   task :members, [:csv_file] => [:environment] do |task, args|
-    CSV.foreach(args.csv_file, headers: :first_row) do |row|
-      plot_numbers = row[0].split(/\s*,\s*/)
-      plots = Plot.where(number: plot_numbers)
-      raise "cannot find all the plots: #{row[0]}" unless plots.count == plot_numbers.size
+    CSV.foreach(args.csv_file) do |row|
+      plot_numbers = row[1].split(/\s*,\s*/)
+      plots = plot_numbers.map { |number|
+        Plot.find_by(number: number) || Plot.create(number: number, space: 0)
+      }
       member = Member.create!(
         status: :active,
         plots: plots,
-        fio: row[1],
-        address: row[2],
-        phone: row[3],
-        email: row[4]
+        fio: row[2],
+        address: row[3],
+        phone: row[4..6].compact.reject(&:empty?).join(", ")
       )
       puts "Created: #{member.inspect}"
     end
