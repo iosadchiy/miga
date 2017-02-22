@@ -3,3 +3,5 @@
   = f.input :total
 
   = f.submit class: "btn btn-primary"
+  = link_to t('helpers.submit.delete'), @transaction, method: :delete,
+    class: "btn btn-danger pull-right", data: {confirm: t('helpers.confirm_delete')}

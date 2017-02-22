@@ -17,6 +17,12 @@ class TransactionsController < ApplicationController
     respond_with @transaction
   end
 
+  def destroy
+    @transaction = Transaction.find(params[:id])
+    @transaction.destroy
+    respond_with @transaction
+  end
+
   def transaction_params
     params.require(:transaction).permit(:number, :total)
   end
