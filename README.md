@@ -18,7 +18,7 @@ To add some fake data: `rails db:seed FAKEDATA=1`
 
 ```
 pacman -Sy archlinux-keyring && pacman -Syyu
-pacman -S rsync vim zsh wget git nodejs monit nginx certbot certbot-nginx ufw
+pacman -S rsync vim zsh wget git nodejs monit nginx certbot certbot-nginx ufw cronie
 
 # from local machine:
 vim ~/.ssh/config # add the new_server
@@ -93,6 +93,14 @@ RAILS_ENV=production bundle exec rake db:seed
 * create `shared/.env.production` and set vars there (check .env for reference)
 
 
+## Recovering options
+
+* ~/backups-miga
+* miga_all: all the releases, shared, etc (excluding tmp stuff)
+* miga_db: sqlite database only
+* simplecloud's full server backup
+
+
 ## Flows
 
 ### Member pays for electricity
@@ -109,7 +117,6 @@ RAILS_ENV=production bundle exec rake db:seed
 ## TODO
 
 * add JS to autofill payment#new fields
-* add backups and recover plan
 * add integration tests for common flows
 * configure server with chef
 * migrate from dotenv to /etc/environment? (depends: chef)
