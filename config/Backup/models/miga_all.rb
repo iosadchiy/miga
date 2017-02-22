@@ -1,4 +1,4 @@
-Backup::Model.new(:miga, 'OMG MIGA') do
+Backup::Model.new(:miga_all, 'OMG MIGA') do
   # ROOT = File.absolute_path(File.join(File.dirname(Config.config_file), "..", ".."))
   ROOT = '~/miga'
 
