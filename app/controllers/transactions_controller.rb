@@ -1,7 +1,7 @@
 class TransactionsController < ApplicationController
   def index
     self.page_title = t('transactions.index.title')
-    @transactions = Transaction.order(id: :desc)
+    @transactions = Transaction.order(number: :desc)
   end
 
   def edit

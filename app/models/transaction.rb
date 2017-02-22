@@ -40,7 +40,7 @@ class Transaction < ApplicationRecord
   delegate :member, to: :payment
 
   before_validation do
-    self.number = payment.next_transaction_number
+    self.number ||= payment.next_transaction_number
     self.details = (self.details || {}).merge({
       payer: payment.member.attributes.merge(
         plots: payment.member.plots.map(&:attributes)

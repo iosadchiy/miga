@@ -1,7 +1,7 @@
 table.table
   thead
     tr
-      th= Transaction.human_attribute_name(:id)
+      th= Transaction.human_attribute_name(:number)
       th= Transaction.human_attribute_name(:member)
       th= Member.human_attribute_name(:plots)
       th= Transaction.human_attribute_name(:kind)
@@ -11,7 +11,7 @@ table.table
   - @transactions.each do |transaction|
     tbody
       tr
-        td= transaction.id
+        td= transaction.number
         td= link_to transaction.member.fio, [:edit, transaction.member]
         td= transaction.member.decorate.plot_list
         td= transaction.payable.class.human_attribute_name("kind.#{transaction.payable.kind}")
