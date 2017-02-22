@@ -5,7 +5,7 @@ class TransactionDecorator < Draper::Decorator
     object.created_at.localtime
   end
   def created_at_date
-    created_at.to_s(:date)
+    I18n.l created_at, format: "%d.%m.%y"
   end
   def created_at_day
     created_at.strftime("%d")
