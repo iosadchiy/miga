@@ -59,7 +59,7 @@ ru:
         price_water: "Вода, цена за м³, рублей"
         cashier: "Кассир"
       transaction:
-        id: "Номер"
+        id: "#"
         kind: "Тип"
         total: "Сумма"
         member: "Плательщик"
