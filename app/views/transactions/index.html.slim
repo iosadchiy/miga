@@ -3,6 +3,7 @@ table.table
     tr
       th= Transaction.human_attribute_name(:id)
       th= Transaction.human_attribute_name(:member)
+      th= Member.human_attribute_name(:plots)
       th= Transaction.human_attribute_name(:kind)
       th= Transaction.human_attribute_name(:total)
       th= Transaction.human_attribute_name(:created_at)
@@ -11,7 +12,8 @@ table.table
     tbody
       tr
         td= transaction.id
-        td= transaction.member.decorate
+        td= link_to transaction.member.fio, [:edit, transaction.member]
+        td= transaction.member.decorate.plot_list
         td= transaction.payable.class.human_attribute_name("kind.#{transaction.payable.kind}")
         td= number_to_currency transaction.total
         td= l transaction.created_at, format: :long

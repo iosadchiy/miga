@@ -36,6 +36,7 @@ ru:
         status: "Статус"
         dues: "Взносы"
         select_all_dues: "Выбрать все"
+        plots: "Участки"
       payment:
         total: "Итого"
       plot:
