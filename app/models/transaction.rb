@@ -48,19 +48,12 @@ class Transaction < ApplicationRecord
     })
   end
 
-  after_save do
-    Setting.first.update(next_transaction_number: self.class.max_number + 1)
-  end
-
   def self.next_number
-    [
-      Setting.config[:next_transaction_number].to_i,
-      (max_number + 1)
-    ].max
+    max_number + 1
   end
 
   def self.max_number
-    Transaction.order(number: :desc).first.number
+    all.empty? ? 0 : Transaction.order(number: :desc).first.number
   end
 
   def self.number_in_series?

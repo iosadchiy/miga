@@ -2,11 +2,10 @@
 #
 # Table name: settings
 #
-#  id                      :integer          not null, primary key
-#  price_electricity       :decimal(, )      not null
-#  price_water             :decimal(, )      not null
-#  cashier                 :string
-#  next_transaction_number :integer
+#  id                :integer          not null, primary key
+#  price_electricity :decimal(, )      not null
+#  price_water       :decimal(, )      not null
+#  cashier           :string
 #
 
 class Setting < ApplicationRecord

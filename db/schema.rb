@@ -71,10 +71,9 @@ ActiveRecord::Schema.define(version: 20170222153707) do
   end
 
   create_table "settings", force: :cascade do |t|
-    t.decimal "price_electricity",       null: false
-    t.decimal "price_water",             null: false
+    t.decimal "price_electricity", null: false
+    t.decimal "price_water",       null: false
     t.string  "cashier"
-    t.integer "next_transaction_number"
   end
 
   create_table "transactions", force: :cascade do |t|
