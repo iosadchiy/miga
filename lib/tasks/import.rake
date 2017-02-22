@@ -107,7 +107,7 @@ namespace :import do
       end
       if debt > due.altogether_for(member)
         puts "WARNING: Member's debt is larger than the full due. Member: #{member.fio};\
-          plots: #{member.plots.pluck(:numbers).join(",")}\
+          plots: #{member.plots.pluck(:number).join(",")}\
           space: #{member.space}
           debt: #{debt};
           full due: #{due.altogether_for(member)}"
