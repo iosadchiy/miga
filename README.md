@@ -114,6 +114,7 @@ RAILS_ENV=production bundle exec rake db:seed
 * add integration tests for common flows
 * configure server with chef
 * migrate from dotenv to /etc/environment? (depends: chef)
+* bug: can assign a paid due to the member again
 
 backlog:
 * split KPO rendering: separate method for each place (row, td)
