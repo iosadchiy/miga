@@ -2,7 +2,8 @@ Setting.create! price_electricity: 3, price_water: 20
 
 Due.create!([
   {kind: :membership, purpose: "2017", unit: :per_square_meter, price: 9.18},
-  {kind: :membership, purpose: "2016", unit: :per_square_meter, price: 6}
+  {kind: :membership, purpose: "2016", unit: :per_square_meter, price: 6},
+  {kind: :target, purpose: "Земельный налог 2016", unit: :per_square_meter, price: 0.032}
 ])
 
 if ENV['FAKEDATA'] == "1"
