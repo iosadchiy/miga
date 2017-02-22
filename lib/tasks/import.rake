@@ -6,6 +6,7 @@ namespace :import do
     Rake::Task["import:plots"].invoke("test/fixtures/plots.csv")
     Rake::Task["import:members"].invoke("test/fixtures/members.csv")
     Rake::Task["import:create_registers"].invoke
+    Rake::Task["import:membership_2016"].invoke("test/fixtures/membership_2016.csv")
   end
 
   desc "Import plots from a CSV file (passed as an argument)"
@@ -52,5 +53,44 @@ namespace :import do
         ])
         puts "Created: #{registers.inspect}"
       end
+  end
+
+  desc "Import debts for membership dues 2016"
+  task :membership_2016, [:csv_file] => [:environment] do |task, args|
+    due = Due.find_by!(kind: :membership, purpose: "2016")
+    CSV.foreach(args.csv_file, headers: :first_row) do |row|
+      plot_numbers = row[0].split(",").map(&:strip)
+      debt = row[2].to_f
+
+      member = Member.owner_of(plot_numbers.first)
+      if member.plots.pluck(:number).sort != plot_numbers.sort
+        raise "Invalid plots specified for member #{member.inspect};
+          specified: #{plot_numbers.sort.inspect};
+          member has: #{member.plots.pluck(:number).sort.inspect}"
+      end
+      member.dues << due
+      if member.space == 0
+        space = (debt / due.price).round
+        puts "Updating member's space"
+        member.plots.first.update(space: space)
+      end
+      if debt > due.altogether_for(member)
+        raise "Member's debt is larger than the full due. Member: #{member.inspect};
+          debt: #{debt};
+          full due: #{due.altogether_for(member)}"
+      end
+      if debt < due.altogether_for(member)
+        member.payments.create!(
+          transactions: [
+            Transaction.new(
+              kind: :due,
+              payable: due,
+              total: due.altogether_for(member) - debt,
+              details: {purpose: "Adjustment on import"}
+            )
+          ]
+        )
+      end
+    end
   end
 end
