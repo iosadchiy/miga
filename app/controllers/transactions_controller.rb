@@ -17,6 +17,6 @@ class TransactionsController < ApplicationController
   end
 
   def transaction_params
-    params.require(:transaction).permit(:id)
+    params.require(:transaction).permit(:id, :total)
   end
 end
