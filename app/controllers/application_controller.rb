@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   respond_to :html
 
   protect_from_forgery with: :exception
-  before_action :set_locale
+  before_action :set_locale, :process_params
   add_flash_types :danger, :warning, :info, :success
 
   attr_accessor :page_title
@@ -20,6 +20,20 @@ class ApplicationController < ActionController::Base
 
   def set_locale
     I18n.locale = :ru
+  end
+
+  # Find all scalars which appear to be numbers
+  # and replace "," with a "."
+  def process_params(hash = nil)
+    hash ||= params
+    hash.each do |k,v|
+      puts hash.class.inspect
+      if v.is_a?(String) && v.match(/^\d+,\d+$/)
+        hash[k] = v.sub(",", ".")
+      elsif v.is_a?(ActionController::Parameters)
+        process_params(hash[k])
+      end
+    end
   end
 
   # Guess model class from controller name
