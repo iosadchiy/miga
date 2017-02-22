@@ -5,6 +5,7 @@ namespace :import do
   task :default do
     Rake::Task["import:plots"].invoke("test/fixtures/plots.csv")
     Rake::Task["import:members"].invoke("test/fixtures/members.csv")
+    Rake::Task["import:create_registers"].invoke
   end
 
   desc "Import plots from a CSV file (passed as an argument)"
@@ -45,10 +46,11 @@ namespace :import do
       .select{|m| m.registers.empty? }
       .each do |member|
         plot = member.plots.first
-        plot.registers.create!([
+        registers = plot.registers.create!([
           {kind: :electricity, name: plot.number},
           {kind: :water, name: plot.number}
         ])
+        puts "Created: #{registers.inspect}"
       end
   end
 end
