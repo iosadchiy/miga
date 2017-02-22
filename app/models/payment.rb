@@ -24,6 +24,14 @@ class Payment < ApplicationRecord
     transactions.map(&:total).sum
   end
 
+  def next_transaction_number
+    @next_transaction_number = if @next_transaction_number.nil?
+       Transaction.next_number
+    else
+      @next_transaction_number + 1
+    end
+  end
+
   # Builds an array of new transactions,
   # one for each register or due of the payer
   # and merges in corresponding attributes
@@ -41,9 +49,9 @@ class Payment < ApplicationRecord
 
     (member.registers + member.dues).map { |payable|
       Transaction.new(
-        (hash[payable.class][payable.id] rescue {}).merge(
+        (hash[payable.class][payable.id] || {} rescue {}).merge(
           payment: self,
-          payable: payable
+          payable: payable,
         )
       )
     }.reject { |transaction|

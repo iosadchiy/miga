@@ -15,6 +15,7 @@
 #  payable_type  :string           not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  number        :integer
 #
 # Indexes
 #
@@ -33,11 +34,13 @@ class Transaction < ApplicationRecord
   validates :kind, presence: true
   validates :total, presence: true, numericality: {greater_than: 0}
   validates :details, presence: true
+  validates :number, presence: true, uniqueness: true
 
   serialize :details
   delegate :member, to: :payment
 
   before_validation do
+    self.number = payment.next_transaction_number
     self.details = (self.details || {}).merge({
       payer: payment.member.attributes.merge(
         plots: payment.member.plots.map(&:attributes)
@@ -45,9 +48,25 @@ class Transaction < ApplicationRecord
     })
   end
 
-  def self.id_in_series?
+  after_save do
+    Setting.first.update(next_transaction_number: self.class.max_number + 1)
+  end
+
+  def self.next_number
+    [
+      Setting.config[:next_transaction_number].to_i,
+      (max_number + 1)
+    ].max
+  end
+
+  def self.max_number
+    Transaction.order(number: :desc).first.number
+  end
+
+  def self.number_in_series?
     all.empty? ||
-      order(:id).last.id - order(:id).first.id + 1 == count
+      order(:number).last.number -
+        order(:number).first.number + 1 == count
   end
 
   def initialize(attributes)
@@ -59,11 +78,6 @@ class Transaction < ApplicationRecord
 
   def start_display_edit_allowed?
     register.start_display.nil?
-  end
-
-  def number
-    # TODO: should go in sequence, with only confirmed counted
-    id
   end
 
   def due_kind

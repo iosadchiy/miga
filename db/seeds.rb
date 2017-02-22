@@ -1,4 +1,7 @@
-Setting.create! price_electricity: 3.5, price_water: 33, cashier: 'Великодворский П.С.'
+Setting.create! price_electricity: 3.5,
+  price_water: 33,
+  cashier: 'Великодворский П.С.',
+  next_transaction_number: 1
 
 Due.create!([
   {kind: :membership, purpose: "2017", unit: :per_square_meter, price: 9.18},
