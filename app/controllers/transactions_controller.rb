@@ -2,6 +2,7 @@ class TransactionsController < ApplicationController
   def index
     self.page_title = t('transactions.index.title')
     @transactions = Transaction.order(number: :desc)
+      .includes(:payable, payment: :member)
   end
 
   def edit
