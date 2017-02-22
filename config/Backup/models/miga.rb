@@ -14,7 +14,7 @@ Backup::Model.new(:miga, 'OMG MIGA') do
 
   store_with Local do |local|
     local.path = "~/backups-miga"
-    local.keep = 20
+    local.keep = 3
   end
 
 end
