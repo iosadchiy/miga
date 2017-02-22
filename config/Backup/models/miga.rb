@@ -7,6 +7,7 @@ Backup::Model.new(:miga, 'OMG MIGA') do
     # archive.use_sudo
     archive.root ROOT
     archive.add "."
+    archive.exclude "shared/tmp"
   end
 
   compress_with Bzip2
