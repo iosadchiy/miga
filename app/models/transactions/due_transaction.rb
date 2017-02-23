@@ -11,9 +11,9 @@ module Transactions::DueTransaction
     end
 
     validate do
-      if due?
+      if due? && new_record?
         if paid_so_far + total - altogether >= 0.01
-          # errors.add :total, "overpaying"
+          errors.add :total, "overpaying"
         end
       end
     end
