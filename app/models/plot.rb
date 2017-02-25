@@ -26,6 +26,10 @@ class Plot < ApplicationRecord
   validates :space, presence: true, numericality: {
       less_than_or_equal_to: 10000}
 
+  before_validation do
+    self.number = number.upcase
+  end
+
   def to_s
     number
   end

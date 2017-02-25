@@ -64,7 +64,7 @@ class PaymentsController < ApplicationController
     @_member_cache ||= if params[:payment]
         Member.find(params[:payment][:member_id])
       else
-        plot = Plot.find_by(number: params[:plot_number]) or
+        plot = Plot.find_by(number: params[:plot_number].upcase) or
           raise PlotNotValidError.new t('payments.no_such_plot')
         plot.member or
           raise PlotNotValidError.new t('payments.no_member')
