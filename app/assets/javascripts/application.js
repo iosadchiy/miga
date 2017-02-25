@@ -26,7 +26,7 @@ document.addEventListener("turbolinks:load", function() {
       var obj = $( $(this).attr('data-form-prepend') );
       obj.find('input, select, textarea').each( function() {
         $(this).attr( 'name', function() {
-          return $(this).attr('name').replace( 'new_record', (new Date()).getTime() );
+          return $(this).attr('name').replace( 'new_record', Math.floor((new Date()).getTime()/10) );
         });
       });
       var target = $($(this).attr('data-target'));
