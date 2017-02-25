@@ -17,7 +17,8 @@
     tbody
       = f.fields_for :registers do |ff|
         = render 'register_fields', ff: ff
-  p= link_to_add_fields t('shared.form.add'), f, :registers, {}, {'data-target': '#registers-list tbody'}
+  p= link_to_add_fields t('shared.form.add'), f, :registers,
+    {}, {'data-target': '#registers-list tbody'}
 
   = f.submit class: "btn btn-primary"
   - unless @plot.new_record?
