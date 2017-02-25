@@ -9,7 +9,8 @@ module ApplicationHelper
   end
 
   # Adds a new nested fields form
-  def link_to_add_fields(name=nil, ff=nil, association=nil, options=nil, html_options=nil, &block)
+  def link_to_add_fields(name=nil, ff=nil, association=nil, options=nil,
+    html_options=nil, attributes={}, &block)
     # If a block is provided there is no name attribute and the arguments are
     # shifted with one position to the left. This re-assigns those values.
     f, association, options, html_options = name, ff, association, options if block_given?
@@ -21,7 +22,7 @@ module ApplicationHelper
     partial = options[:partial] || association.to_s.singularize + '_fields'
 
     # Render the form fields from a file with the association name provided
-    new_object = ff.object.class.reflect_on_association(association).klass.new
+    new_object = ff.object.class.reflect_on_association(association).klass.new(attributes)
     fields = ff.fields_for(association, new_object, child_index: 'new_record') do |builder|
       render(partial, locals.merge!( ff: builder))
     end
