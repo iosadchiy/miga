@@ -17,7 +17,15 @@ class Setting < ApplicationRecord
   end
   validates :price_electricity, :price_water, numericality: true
 
+  def self.instance
+    first || Setting.create!
+  end
+
   def self.config
     HashWithIndifferentAccess.new(first.attributes).except(:id)
+  end
+
+  def self.set!(key, value)
+    instance.update!(key => value)
   end
 end
