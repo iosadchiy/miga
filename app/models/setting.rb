@@ -6,7 +6,7 @@
 #  price_electricity :decimal(, )      not null
 #  price_water       :decimal(, )      not null
 #  cashier           :string
-#  service_due_id    :integer
+#  custom_due_id     :integer
 #
 
 class Setting < ApplicationRecord

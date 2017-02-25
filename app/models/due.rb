@@ -12,7 +12,7 @@
 #
 
 class Due < ApplicationRecord
-  enum kind: [:entrance, :membership, :target]
+  enum kind: [:entrance, :membership, :target, :custom]
   enum unit: [:per_square_meter, :per_plot, :per_member]
 
   has_many :transactions, inverse_of: :payable, as: :payable do
@@ -32,19 +32,19 @@ class Due < ApplicationRecord
     throw :abort unless can_be_destroyed?
   end
 
-  # Returns a service due which collects all non-standard transactions
-  def self.service
-    find_by(id: Setting.config[:service_due_id]) || create_service_due!
+  # Returns a custom due which collects all non-standard transactions
+  def self.custom
+    find_by(id: Setting.config[:custom_due_id]) || create_custom_due!
   end
 
-  def self.create_service_due!
+  def self.create_custom_due!
     create!(
-      kind: :target,
-      purpose: I18n.t('dues.service.purpose'),
+      kind: :custom,
+      purpose: I18n.t('dues.custom.purpose'),
       unit: :per_member,
       price: 0
     ).tap do |due|
-      Setting.set!(:service_due_id, due.id)
+      Setting.set!(:custom_due_id, due.id)
     end
   end
 
