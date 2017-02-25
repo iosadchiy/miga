@@ -11,7 +11,7 @@ table.table.table-striped
   - @plots.each do |plot|
     tr
       td= link_to plot.number, [:edit, plot]
-      td= link_to plot.member.try(:fio), [:edit, plot.member]
+      td= plot.member && link_to(plot.member.try(:fio), [:edit, plot.member])
       td= plot.space
       td= plot.cadastre
       td= plot.ukrgosact
