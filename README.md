@@ -123,6 +123,7 @@ RAILS_ENV=production bundle exec rake db:seed
 * revise transaction history for member: less space
 * add link to pay all on payments#new
 * add 'other' payments
+* add warnings for those who don't pay for water/electricity for too long
 
 backlog:
 * split KPO rendering: separate method for each place (row, td)
