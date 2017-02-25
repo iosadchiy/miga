@@ -41,7 +41,7 @@ class PlotsController < ApplicationController
         :space,
         :cadastre,
         :ukrgosact,
-        registers_attributes: [:id, :kind, :name, :number, :display, :seal]
+        registers_attributes: [:id, :kind, :name, :number, :initial_display, :seal]
       )
   end
 end
