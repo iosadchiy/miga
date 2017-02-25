@@ -8,6 +8,7 @@ class PlotsController < ApplicationController
 
   def edit
     self.page_title = t 'plots.edit.title', number: @plot.number
+    self.page_title_link = [t('shared.to_payments'), [:new, :payment, plot_number: @plot.number]]
   end
 
   def new

@@ -73,6 +73,7 @@ ru:
   shared:
     square_meters: 'м²'
     fio_and_plots: '%{fio}, уч. №%{plots}'
+    to_payments: 'к оплате'
     form:
       add: "добавить"
       edit: "изменить"

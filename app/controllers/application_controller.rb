@@ -12,6 +12,8 @@ class ApplicationController < ActionController::Base
 
   attr_accessor :page_title
   helper_method :page_title
+  attr_accessor :page_title_link
+  helper_method :page_title_link
 
   helper_method :referer
   def referer(fallback = nil)

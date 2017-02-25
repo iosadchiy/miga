@@ -20,6 +20,9 @@ class MembersController < ApplicationController
 
   def edit
     self.page_title = t('members.edit.title', fio: @member.fio)
+    self.page_title_link = [t('shared.to_payments'),
+      [:new, :payment, plot_number: @member.plots.first.number]] unless
+        @member.plots.empty?
   end
 
   def update
