@@ -26,12 +26,12 @@ class ApplicationController < ActionController::Base
 
   # Find all scalars which appear to be numbers
   # and replace "," with a "."
+  # and also remove spaces
   def process_params(hash = nil)
     hash ||= params
     hash.each do |k,v|
-      puts hash.class.inspect
-      if v.is_a?(String) && v.match(/^\d+,\d+$/)
-        hash[k] = v.sub(",", ".")
+      if v.is_a?(String) && v.match(/^-?[\d ]+,\d+$/)
+        hash[k] = v.sub(",", ".").sub(" ", "")
       elsif v.is_a?(ActionController::Parameters)
         process_params(hash[k])
       end
