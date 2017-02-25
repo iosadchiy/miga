@@ -158,7 +158,7 @@ ru:
       title: "Добавление взноса"
     edit:
       title: "Редактирование взноса"
-    service:
+    custom:
       purpose: "Разное"
   settings:
     title: "Настройки"

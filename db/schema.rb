@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222153707) do
+ActiveRecord::Schema.define(version: 20170225144611) do
 
   create_table "dues", force: :cascade do |t|
     t.integer  "kind",       null: false
@@ -74,22 +74,24 @@ ActiveRecord::Schema.define(version: 20170222153707) do
     t.decimal "price_electricity", null: false
     t.decimal "price_water",       null: false
     t.string  "cashier"
+    t.integer "custom_due_id"
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.integer  "kind",          null: false
-    t.decimal  "total",         null: false
+    t.integer  "kind",                       null: false
+    t.decimal  "total",                      null: false
     t.decimal  "price"
     t.integer  "start_display"
     t.integer  "end_display"
     t.integer  "difference"
-    t.text     "details",       null: false
+    t.text     "details",                    null: false
     t.integer  "payment_id"
-    t.integer  "payable_id",    null: false
-    t.string   "payable_type",  null: false
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "payable_id",                 null: false
+    t.string   "payable_type",               null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "number"
+    t.string   "purpose",       default: "", null: false
     t.index ["payable_type", "payable_id"], name: "index_transactions_on_payable_type_and_payable_id"
     t.index ["payment_id"], name: "index_transactions_on_payment_id"
   end

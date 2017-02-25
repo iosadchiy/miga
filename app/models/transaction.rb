@@ -16,6 +16,7 @@
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  number        :integer
+#  purpose       :string           default(""), not null
 #
 # Indexes
 #
