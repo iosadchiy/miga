@@ -107,6 +107,7 @@ ru:
       left_to_pay: "Осталось"
       paying_now: "Оплачиваем в этот раз"
       purpose: "Назначение платежа"
+      custom_transactions: "Прочее"
     show:
       title: "Подтверждение платежа"
       total: "Сумма к оплате"
@@ -157,6 +158,8 @@ ru:
       title: "Добавление взноса"
     edit:
       title: "Редактирование взноса"
+    service:
+      purpose: "Разное"
   settings:
     title: "Настройки"
     only_one_allowed: "Останется только один"
