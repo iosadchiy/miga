@@ -120,6 +120,9 @@ RAILS_ENV=production bundle exec rake db:seed
 * add integration tests for common flows
 * configure server with chef
 * migrate from dotenv to /etc/environment? (depends: chef)
+* revise transaction history for member: less space
+* add link to pay all on payments#new
+* add 'other' payments
 
 backlog:
 * split KPO rendering: separate method for each place (row, td)
