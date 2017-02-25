@@ -16,7 +16,7 @@ class Payment < ApplicationRecord
   belongs_to :member
   has_many :transactions, inverse_of: :payment
   accepts_nested_attributes_for :transactions, reject_if: ->(hash) do
-    hash[:total].empty?
+    hash[:total].blank?
   end
   default_scope { includes(:transactions) }
 
