@@ -32,6 +32,22 @@ class Due < ApplicationRecord
     throw :abort unless can_be_destroyed?
   end
 
+  # Returns a service due which collects all non-standard transactions
+  def self.service
+    find_by(id: Setting.config[:service_due_id]) || create_service_due!
+  end
+
+  def self.create_service_due!
+    create!(
+      kind: :target,
+      purpose: I18n.t('dues.service.purpose'),
+      unit: :per_member,
+      price: 0
+    ).tap do |due|
+      Setting.set!(:service_due_id, due.id)
+    end
+  end
+
   def altogether_for(member)
     send "calc_altogether_#{unit}", member
   end
