@@ -1,5 +1,6 @@
 - unless Transaction.number_in_series?
-  .alert.alert-warning= t 'errors.messages.transaction_id_not_in_series'
+  .alert.alert-warning= t 'errors.messages.transaction_id_not_in_series',
+    missing: Transaction.missing_numbers.first(3).join(", ")
 form action=new_payment_path
   .input-group
     input.form-control[type="text" id="plot_number" name="plot_number" autofocus="true"

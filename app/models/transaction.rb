@@ -65,6 +65,11 @@ class Transaction < ApplicationRecord
         order(:number).first.number + 1 == count
   end
 
+  def self.missing_numbers
+    (order(:number).first.number..order(:number).last.number).to_a -
+      pluck(:number)
+  end
+
   def initialize(attributes)
     super
     self.kind = {Register => :utility, Due => :due}[payable.class] or
