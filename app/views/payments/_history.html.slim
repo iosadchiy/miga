@@ -10,13 +10,13 @@ h2= t 'payments.history.title'
     table.table
       thead
         tr
-          th= Transaction.human_attribute_name(:id)
+          th= Transaction.human_attribute_name(:number)
           th= Transaction.human_attribute_name(:kind)
           th= Transaction.human_attribute_name(:total)
           th
       - p.transactions.each do |t|
         tr
-          td= t.id
+          td= t.number
           td= t.payable.class.human_attribute_name("kind.#{t.payable.kind}")
           td= number_to_currency t.total
           td= link_to t('.print'),
