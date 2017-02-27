@@ -37,6 +37,10 @@ class Due < ApplicationRecord
     find_by(id: Setting.config[:custom_due_id]) || create_custom_due!
   end
 
+  def custom?
+    id == Setting.config[:custom_due_id]
+  end
+
   def self.create_custom_due!
     create!(
       kind: :custom,

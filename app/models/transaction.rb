@@ -32,6 +32,8 @@ class Transaction < ApplicationRecord
   belongs_to :payment
   belongs_to :payable, polymorphic: true # either Due or Register
 
+  accepts_nested_attributes_for :payment
+
   validates :kind, presence: true
   validates :total, presence: true, numericality: {greater_than: 0}
   validates :details, presence: true

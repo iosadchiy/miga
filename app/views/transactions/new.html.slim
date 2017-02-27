@@ -1,0 +1,7 @@
+= simple_form_for @transaction do |f|
+  = f.input :number
+  = f.fields_for :payment, @transaction.payment do |ff|
+    = ff.association :member, collection: Member.active.decorate
+  = f.input :total
+  = f.input :purpose
+  = f.submit class: "btn btn-primary"

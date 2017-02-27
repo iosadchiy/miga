@@ -11,7 +11,7 @@ module Transactions::DueTransaction
     end
 
     validate do
-      if due? && new_record?
+      if due? && new_record? && !custom?
         if paid_so_far + total - altogether >= 0.01
           errors.add :total, "overpaying"
         end
@@ -37,5 +37,9 @@ module Transactions::DueTransaction
 
   def fully_paid?
     left_to_pay <= 0
+  end
+
+  def custom?
+    payable.custom?
   end
 end

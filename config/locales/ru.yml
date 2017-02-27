@@ -24,6 +24,7 @@ ru:
         entrance: "Вступительный"
         membership: "Членский"
         target: "Целевой"
+        custom: "Особый"
       due/unit:
         per_square_meter: "за м²"
         per_plot: "за участок"
@@ -39,6 +40,7 @@ ru:
         plots: "Участки"
       payment:
         total: "Итого"
+        member: "Плательщик"
       plot:
         number: "Номер"
         member: "Хозяин"
@@ -64,6 +66,7 @@ ru:
         total: "Сумма"
         member: "Плательщик"
         created_at: "Дата создания"
+        purpose: "Назначение"
   helpers:
     submit:
       delete: "Удалить"
@@ -178,3 +181,5 @@ ru:
       payment: "платеж"
     edit:
       title: "Редактирование транзакции"
+    new:
+      title: "Создание особой транзакции"
