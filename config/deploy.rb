@@ -51,3 +51,7 @@ set :migration_role, :app
 set :nginx_server_name, "miga.impuls1.ru"
 set :puma_monit_conf_dir, "/etc/monit.d/miga.conf"
 set :nginx_use_ssl, true
+
+set :default_environment, {
+  'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
+}

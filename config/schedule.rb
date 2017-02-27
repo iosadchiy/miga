@@ -24,9 +24,9 @@ ROOT = "/home/deploy/miga"
 set :output, "#{ROOT}/shared/log/cron.log"
 
 every 1.week do
-  command "cd #{ROOT}/current && bundle exec backup -c config/Backup/config.rb -t miga_all"
+  command "cd #{ROOT}/current && ~/.rbenv/bin/rbenv exec bundle exec backup perform -c config/Backup/config.rb -t miga_all"
 end
 
 every 1.day do
-  command "cd #{ROOT}/current && bundle exec backup -c config/Backup/config.rb -t miga_db"
+  command "cd #{ROOT}/current && ~/.rbenv/bin/rbenv exec bundle exec backup perform -c config/Backup/config.rb -t miga_db"
 end
