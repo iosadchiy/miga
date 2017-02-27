@@ -49,8 +49,9 @@ class TransactionDecorator < Draper::Decorator
   end
 
   def ground_due
+    purpose = due.custom? ? self.purpose : due.purpose
     I18n.t "transactions.ground.#{due.kind}",
-      purpose: due.purpose
+      purpose: purpose
   end
 
   def cashier
