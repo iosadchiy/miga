@@ -111,6 +111,7 @@ ru:
       paying_now: "Оплачиваем в этот раз"
       purpose: "Назначение платежа"
       custom_transactions: "Прочее"
+      create_custom_transaction: "Создать особую транзакцию"
     show:
       title: "Подтверждение платежа"
       total: "Сумма к оплате"

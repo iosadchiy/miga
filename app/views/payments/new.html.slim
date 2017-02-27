@@ -23,6 +23,6 @@
   - Due.kinds.keys.map(&:to_sym).each do |kind|
     = render 'due_transactions', form: f, transactions: @transactions[kind]
 
-  .row
-    p.col-lg-12
-      = f.submit class: "btn btn-primary"
+  p= f.submit class: "btn btn-primary"
+  p= link_to t('payments.new.create_custom_transaction'),
+    [:new, :transaction, member_id: @payment.member_id]

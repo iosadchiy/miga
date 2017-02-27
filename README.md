@@ -122,7 +122,6 @@ RAILS_ENV=production bundle exec rake db:seed
 * migrate from dotenv to /etc/environment? (depends: chef)
 * revise transaction history for member: less space
 * add link to pay all on payments#new
-* add 'other' payments
 * add warnings for those who don't pay for water/electricity for too long
 
 backlog:
