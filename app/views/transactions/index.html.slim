@@ -6,19 +6,17 @@ table.table
       th= Transaction.human_attribute_name(:number)
       th= Transaction.human_attribute_name(:member)
       th= Member.human_attribute_name(:plots)
-      th= Transaction.human_attribute_name(:kind)
+      th= Transaction.human_attribute_name(:purpose)
       th= Transaction.human_attribute_name(:total)
       th= Transaction.human_attribute_name(:created_at)
       th
   - @transactions.each do |transaction|
     tbody
       tr
-        td= transaction.number
+        td= link_to transaction.number, [:edit, transaction]
         td= link_to transaction.member.fio, [:edit, transaction.member]
         td= transaction.member.decorate.plot_list
-        td= transaction.payable.class.human_attribute_name("kind.#{transaction.payable.kind}")
+        td= transaction.decorate.ground
         td= number_to_currency transaction.total
-        td= l transaction.created_at, format: :long
-        td
-          => link_to t('.edit'), [:edit, transaction], class: "btn btn-link"
-          => link_to t('.payment'), transaction.payment, class: "btn btn-link"
+        td= l transaction.created_at, format: '%d.%m.%y'
+        td= link_to t('.payment'), transaction.payment, class: "btn btn-link"

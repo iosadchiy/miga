@@ -176,6 +176,7 @@ ru:
       entrance: "Оплата вступительного взноса '%{purpose}'"
       membership: "Оплата членских взносов %{purpose}"
       target: "Оплата целевого взноса %{purpose}"
+      custom: "%{purpose}"
     index:
       title: "Транзакции"
       edit: "изменить"
