@@ -7,6 +7,7 @@ namespace :import do
     Rake::Task["import:create_registers"].invoke
     Rake::Task["import:membership_2016"].invoke("test/fixtures/membership_2016.csv")
     Rake::Task["import:nalog_2016"].invoke("test/fixtures/nalog_2016.csv")
+    Rake::Task["import:registers_electricity"].invoke("test/fixtures/registers_electricity.csv")
   end
 
   desc "Import plots from a CSV file (passed as an argument)"
