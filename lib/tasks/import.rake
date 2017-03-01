@@ -153,4 +153,26 @@ namespace :import do
       member.dues << due
     end
   end
+
+  desc "Import registers' display for electricity"
+  task :registers_electricity, [:csv_file] => [:environment] do |task, args|
+    puts "Importing register displays"
+    CSV.foreach(args.csv_file, headers: :first_row) do |row|
+      plot_numbers = row[0].split(",").map(&:strip)
+      fio = row[1]
+      displays = row[2..9].in_groups_of(2)
+
+      plot = Plot.find_by! number: plot_numbers.first
+      if member = plot.member
+        registers = member.registers
+
+        displays.each.with_index do |pair, i|
+          date = pair.first
+          display = pair.last
+          register = registers[i] || Register.create!(kind: :electricity, plot: plot, name: plot.number)
+          register.update(initial_display: display) if register.start_display.blank?
+        end
+      end
+    end
+  end
 end
