@@ -164,7 +164,7 @@ namespace :import do
 
       plot = Plot.find_by! number: plot_numbers.first
       if member = plot.member
-        registers = member.registers
+        registers = member.registers.electricity
 
         displays.each.with_index do |pair, i|
           date = pair.first
