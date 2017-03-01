@@ -161,7 +161,7 @@ namespace :import do
     CSV.foreach(args.csv_file, headers: :first_row) do |row|
       plot_numbers = row[0].split(",").map(&:strip)
       fio = row[1]
-      displays = row[2..9].in_groups_of(2)
+      displays = row[2..9].in_groups_of(2).select{|p| p.last.present?}
 
       plot = Plot.find_by! number: plot_numbers.first
       if member = plot.member
