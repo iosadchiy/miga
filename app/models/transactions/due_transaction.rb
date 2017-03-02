@@ -36,7 +36,7 @@ module Transactions::DueTransaction
   end
 
   def fully_paid?
-    left_to_pay <= 0
+    left_to_pay < 0.01
   end
 
   def custom?
