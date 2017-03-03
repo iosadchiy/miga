@@ -63,9 +63,8 @@ gem 'wkhtmltopdf-binary'
 # Env vars
 gem 'dotenv-rails'
 
-# DB Backups to dropbox
+# DB Backups and crontab
 gem 'backup', require: false
-gem 'dropbox-sdk', '= 1.5.1', require: false
 gem 'whenever', require: false
 
 group :development, :test do
