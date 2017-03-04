@@ -9,7 +9,7 @@ class MembersController < ApplicationController
 
   def new
     self.page_title = t('members.new.title')
-    @member = Member.new
+    @member = Member.new(dues: Due.entrance)
   end
 
   def create
