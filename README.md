@@ -126,6 +126,7 @@ RAILS_ENV=production bundle exec rake db:seed
 * allow to edit utility_transaction fields
 * add comment to transactions (editable via transactions#edit)
 * show sum for the day
+* setup staging environment
 
 backlog:
 * split KPO rendering: separate method for each place (row, td)
