@@ -45,6 +45,7 @@ class TransactionsController < ApplicationController
       :number,
       :total,
       :purpose,
+      :created_at,
       payment_attributes: [:member_id]
     )
   end

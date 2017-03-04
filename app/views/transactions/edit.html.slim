@@ -1,6 +1,7 @@
 = simple_form_for @transaction do |f|
   = f.input :number
   = f.input :total
+  = f.input :created_at
 
   = f.submit class: "btn btn-primary"
   = link_to t('helpers.submit.delete'), @transaction, method: :delete,
