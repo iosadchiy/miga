@@ -35,6 +35,7 @@ ru:
         phone: "Телефон"
         email: "Почта"
         status: "Статус"
+        notes: "Заметки"
         dues: "Взносы"
         select_all_dues: "Выбрать все"
         plots: "Участки"

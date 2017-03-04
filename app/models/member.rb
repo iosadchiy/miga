@@ -10,6 +10,7 @@
 #  status     :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  notes      :text             default(""), not null
 #
 # Indexes
 #

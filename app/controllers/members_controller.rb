@@ -40,6 +40,6 @@ class MembersController < ApplicationController
   end
 
   def member_params
-    params.require(:member).permit(:fio, :address, :phone, :email, due_ids: [])
+    params.require(:member).permit(:fio, :address, :phone, :email, :notes, due_ids: [])
   end
 end

@@ -12,6 +12,10 @@
   .col-lg-6
     p #{t 'payments.new.dues_debt'}: #{number_to_currency @member.dues_debt}
 
+- if @member.notes.present?
+  pre.panel.panel-default= @member.notes
+
+
 - if @payment.errors.present?
   - @payment.errors.full_messages.each do |msg|
     .alert.alert-danger= msg

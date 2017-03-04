@@ -7,6 +7,7 @@
   = f.input :address
   = f.input :phone
   = f.input :email
+  = f.input :notes
   = f.input :select_all_dues, as: :boolean
   = f.association :dues, as: :check_boxes, label: false,
     collection: Due.order(:kind, created_at: :desc),
