@@ -1,4 +1,6 @@
-p= link_to t('shared.form.add'), [:new, :transaction]
+.row
+  p.col-lg-6= link_to t('shared.form.add'), [:new, :transaction]
+  p.col-lg-6= t 'transactions.index.paid_today', sum: number_to_currency(Transaction.paid_today)
 
 table.table
   thead

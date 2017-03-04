@@ -70,6 +70,10 @@ class Transaction < ApplicationRecord
       pluck(:number)
   end
 
+  def self.paid_today
+    where("transactions.created_at > ?", Time.zone.today).pluck(:total).sum
+  end
+
   def initialize(attributes)
     super
     self.kind = {Register => :utility, Due => :due}[payable.class] or
