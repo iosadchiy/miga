@@ -127,6 +127,7 @@ RAILS_ENV=production bundle exec rake db:seed
 * add comment to transactions (editable via transactions#edit)
 * show sum for the day
 * setup staging environment
+* add notes for member, show them on payments#new
 
 backlog:
 * split KPO rendering: separate method for each place (row, td)
