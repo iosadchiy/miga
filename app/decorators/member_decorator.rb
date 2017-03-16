@@ -33,7 +33,7 @@ class MemberDecorator < Draper::Decorator
     ar.first + " " + ar[1..-1].map{|x| x.first + "."}.join
   end
 
-  def to_s_kpo
+  def to_s_pko
     I18n.t 'shared.fio_and_plots', fio: fio_short, plots: plot_list_text
   end
 

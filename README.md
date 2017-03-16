@@ -130,10 +130,10 @@ RAILS_ENV=production bundle exec rake db:seed
 * add register display to pko
 
 backlog:
-* split KPO rendering: separate method for each place (row, td)
+* split PKO rendering: separate method for each place (row, td)
 * setup certs via certbot (blocker: dns)
 
 
 ## Interested in feedback for
 
-* transaction printed, but cancelled. What to do with KPO number
+* transaction printed, but cancelled. What to do with PKO number

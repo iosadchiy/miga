@@ -55,7 +55,7 @@ document.addEventListener("turbolinks:load", function() {
     });
   }
 
-  // Open KPO in a new window for printing
+  // Open PKO in a new window for printing
   if ($('#print_payment_link').length > 0) {
     window.open(
       $('#print_payment_link').attr("href"),
