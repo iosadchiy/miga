@@ -44,6 +44,8 @@ class TransactionDecorator < Draper::Decorator
 
   def ground_utility
     I18n.t "transactions.ground.#{register.kind}",
+      start_display: start_display,
+      end_display: end_display,
       difference: difference,
       price: h.number_to_currency(Setting.config["price_#{register.kind}"])
   end

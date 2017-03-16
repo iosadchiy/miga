@@ -172,8 +172,8 @@ ru:
     cannot_edit: "Не удалось сохранить настройки"
   transactions:
     ground:
-      electricity: "Оплата за электричество: %{difference} кВт·ч по %{price} за кВт·ч"
-      water: "Оплата за воду: %{difference} м³ по %{price} за м³"
+      electricity: "Электроэнергия: %{end_display}-%{start_display}=%{difference} кВт·ч по %{price}"
+      water: "Вода: %{end_display}-%{start_display}=%{difference} м³ по %{price}"
       entrance: "Оплата вступительного взноса '%{purpose}'"
       membership: "Оплата членских взносов %{purpose}"
       target: "Оплата целевого взноса %{purpose}"
