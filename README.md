@@ -126,6 +126,8 @@ RAILS_ENV=production bundle exec rake db:seed
 * allow to edit utility_transaction fields
 * add comment to transactions (editable via transactions#edit)
 * setup staging environment
+* payments#new make panel more visible
+* add register display to pko
 
 backlog:
 * split KPO rendering: separate method for each place (row, td)
