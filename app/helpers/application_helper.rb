@@ -37,4 +37,17 @@ module ApplicationHelper
   def app_version
     @_version ||= "Revision: " + File.mtime('REVISION').to_s(:short) rescue nil
   end
+
+  # Get a row out of the text, splitting it by specified columns
+  def row(string, start_col, end_col)
+    res = []
+    i = 0
+    string.split(/\s/).each do |word|
+      i += word.length + 1
+      if i.between?(start_col, end_col)
+        res << word
+      end
+    end
+    res.join(" ")
+  end
 end

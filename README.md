@@ -130,7 +130,6 @@ RAILS_ENV=production bundle exec rake db:seed
 * add register display to pko
 
 backlog:
-* split PKO rendering: separate method for each place (row, td)
 * setup certs via certbot (blocker: dns)
 
 
