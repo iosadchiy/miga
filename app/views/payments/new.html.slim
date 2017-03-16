@@ -15,7 +15,9 @@
 - if @member.notes.present?
   pre.alert.alert-info
     = @member.notes
-
+    = button_to t('payments.new.clear_notes'),
+      [@member, member: {notes: nil}, back: request.original_url],
+      method: :patch, class: 'pull-right'
 
 - if @payment.errors.present?
   - @payment.errors.full_messages.each do |msg|

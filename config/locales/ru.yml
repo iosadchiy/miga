@@ -113,6 +113,7 @@ ru:
       purpose: "Назначение платежа"
       custom_transactions: "Прочее"
       create_custom_transaction: "Создать особую транзакцию"
+      clear_notes: "Очистить"
     show:
       title: "Подтверждение платежа"
       total: "Сумма к оплате"
