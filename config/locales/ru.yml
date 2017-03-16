@@ -2,7 +2,7 @@ ru:
   errors:
     messages:
       mismatch: "не совпадает"
-      transaction_id_not_in_series: "Номера КПО идут не подряд. Не хватает: %{missing}"
+      transaction_id_not_in_series: "Номера ПКО идут не подряд. Не хватает: %{missing}"
   activerecord:
     models:
       plot: "Участок"
@@ -117,10 +117,10 @@ ru:
       title: "Подтверждение платежа"
       total: "Сумма к оплате"
       confirm: "Деньги получены"
-      print: "Распечатать КПО"
+      print: "Распечатать ПКО"
     history:
       title: "История платежей"
-      print: "Распечатать КПО"
+      print: "Распечатать ПКО"
   members:
     status:
       active: "Активен"
