@@ -51,6 +51,8 @@ class Transaction < ApplicationRecord
     })
   end
 
+  scope :today, -> { where("transactions.created_at >= ?", Time.zone.today) }
+
   def self.next_number
     max_number + 1
   end
@@ -71,7 +73,7 @@ class Transaction < ApplicationRecord
   end
 
   def self.paid_today
-    where("transactions.created_at > ?", Time.zone.today).pluck(:total).sum
+    today.pluck(:total).sum
   end
 
   def initialize(attributes)

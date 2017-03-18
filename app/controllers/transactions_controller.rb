@@ -9,7 +9,7 @@ class TransactionsController < ApplicationController
 
   def today_csv
     csv_string = CSV.generate do |csv|
-      Transaction.where("transactions.created_at > ?", Time.zone.today).each do |t|
+      Transaction.today.order(number: :desc).each do |t|
         csv << [t.number, t.member.fio, t.member.decorate.plot_list_text,
           t.decorate.ground, t.total]
       end
