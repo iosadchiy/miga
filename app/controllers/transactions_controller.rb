@@ -14,7 +14,8 @@ class TransactionsController < ApplicationController
           t.decorate.ground, t.total]
       end
     end
-    render text: csv_string, content_type: 'text/csv'
+    headers['Content-Disposition'] = 'attachment; filename="' + Time.zone.today.to_s + '.csv"'
+    render text: csv_string, content_type: 'text/csv; charset=UTF-8'
   end
 
   def new
