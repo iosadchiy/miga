@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   resources :plots, except: :show
   resources :dues, except: :show
   resource :setting, only: [:edit, :update]
-  resources :transactions, except: :show
+  resources :transactions, except: :show do
+    get :today_csv, on: :collection
+  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

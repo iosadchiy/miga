@@ -1,8 +1,20 @@
+require 'csv'
+
 class TransactionsController < ApplicationController
   def index
     self.page_title = t('transactions.index.title')
     @transactions = Transaction.order(number: :desc)
       .includes(:payable, payment: :member)
+  end
+
+  def today_csv
+    csv_string = CSV.generate do |csv|
+      Transaction.where("transactions.created_at > ?", Time.zone.today).each do |t|
+        csv << [t.number, t.member.fio, t.member.decorate.plot_list_text,
+          t.decorate.ground, t.total]
+      end
+    end
+    render text: csv_string, content_type: 'text/csv'
   end
 
   def new
