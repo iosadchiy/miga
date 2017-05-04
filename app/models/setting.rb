@@ -19,7 +19,7 @@ class Setting < ApplicationRecord
   validates :price_electricity, :price_water, numericality: true
 
   def self.instance
-    @instance ||= first || Setting.create!
+    first || Setting.create!
   end
 
   def self.config
