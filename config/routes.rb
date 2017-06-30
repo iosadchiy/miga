@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :transactions, except: :show do
     get :today_csv, on: :collection
   end
+  resource :db, only: :show
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
