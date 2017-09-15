@@ -63,9 +63,4 @@ document.addEventListener("turbolinks:load", function() {
       'fullscreen=1'
     )
   }
-
-  // Members.index - filter by due_id
-  $('#didnt_pay_due_id').change(function(e) {
-    window.location = '/members?didnt_pay_due_id='+e.target.value
-  })
 });

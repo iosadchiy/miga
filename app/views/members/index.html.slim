@@ -1,7 +1,9 @@
 p= link_to t('members.index.new'), new_member_path
 p
-  = t('members.index.filter_by_due') + ": "
-  = select_tag :didnt_pay_due_id, options_from_collection_for_select(Due.all, :id, :purpose, params[:didnt_pay_due_id]), include_blank: true
+  = form_for :debtors, method: :get do |f|
+    = t('members.index.filter_by_due') + ": "
+    = select_tag :didnt_pay_due_id, options_from_collection_for_select(Due.all, :id, :purpose, params[:didnt_pay_due_id]), include_blank: true
+    = f.submit "OK"
 
 = render 'list', members: @members
 
