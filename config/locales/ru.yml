@@ -134,6 +134,7 @@ ru:
       fio: "ФИО"
       phone: "Телефон"
       inactive: "Исключенные"
+      filter_by_due: "Неплатильщики"
     new:
       title: "Добавление пользователя"
     edit:

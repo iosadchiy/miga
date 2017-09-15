@@ -3,8 +3,10 @@ class MembersController < ApplicationController
 
   def index
     self.page_title = t('members.index.title')
-    @members = Member.active.includes(:plots).decorate
-    @deleted_members = Member.deleted.decorate
+    @members = Member.active.includes(:plots)
+      .didnt_pay_due(clean_params[:didnt_pay_due_id]).decorate
+    @deleted_members = Member.deleted
+      .didnt_pay_due(clean_params[:didnt_pay_due_id]).decorate
   end
 
   def new
@@ -41,5 +43,9 @@ class MembersController < ApplicationController
 
   def member_params
     params.require(:member).permit(:fio, :address, :phone, :email, :notes, due_ids: [])
+  end
+
+  def clean_params
+    params.permit('didnt_pay_due_id')
   end
 end

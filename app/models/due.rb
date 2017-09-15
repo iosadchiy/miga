@@ -50,6 +50,7 @@ class Due < ApplicationRecord
   end
 
   def altogether_for(member)
+    return 0 unless member.dues.include?(self)
     send "calc_altogether_#{unit}", member
   end
   def calc_altogether_per_square_meter(member)

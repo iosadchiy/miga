@@ -34,6 +34,15 @@ class Member < ApplicationRecord
     where("status = ? OR id = ?", statuses[:active], plot.member_id)
       .includes(:plots)
   }
+  scope :didnt_pay_due, ->(due_id) {
+    due = Due.find_by(id: due_id.to_i)
+    if due.nil?
+      all
+    else
+      members = Member.all.find_all { |m| due.left_to_pay_by(m) > 0 }
+      where("id IN (?)", members.map(&:id))
+    end
+  }
 
   def self.owner_of(plot_number)
     Plot.find_by!(number: plot_number).member
