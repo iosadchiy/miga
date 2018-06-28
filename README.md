@@ -136,3 +136,9 @@ backlog:
 ## Interested in feedback for
 
 * transaction printed, but cancelled. What to do with PKO number
+
+
+# Troubleshooting
+
+* "Нет суммы"
+  * Transaction.find_by(number); посмотреть Transaction.difference
