@@ -2,7 +2,8 @@
   p.col-lg-6= link_to t('shared.form.add'), [:new, :transaction]
   p.col-lg-6
     => t 'transactions.index.paid_today', sum: number_to_currency(Transaction.paid_today)
-    = link_to 'CSV', today_csv_transactions_path, target: '_blank'
+    => link_to 'CSV', today_csv_transactions_path, target: '_blank'
+    = link_to t('transactions.index.show_all'), '?all=true'
 
 table.table
   thead
