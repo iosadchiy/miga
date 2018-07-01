@@ -58,7 +58,8 @@ class Transaction < ApplicationRecord
   end
 
   def self.max_number
-    all.empty? ? 0 : Transaction.order(number: :desc).first.number
+    txns = Transaction.where("created_at >= ?", Time.zone.now.beginning_of_year).order(number: :desc)
+    txns.empty? ? 0 : txns.first.number
   end
 
   def self.number_in_series?
