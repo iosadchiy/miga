@@ -37,7 +37,7 @@ class Transaction < ApplicationRecord
   validates :kind, presence: true
   validates :total, presence: true, numericality: {greater_than: 0}
   validates :details, presence: true
-  validates :number, presence: true, uniqueness: true
+  validates :number, presence: true
 
   serialize :details
   delegate :member, to: :payment
@@ -52,13 +52,14 @@ class Transaction < ApplicationRecord
   end
 
   scope :today, -> { where("transactions.created_at >= ?", Time.zone.today) }
+  scope :this_year, -> { where("transactions.created_at >= ?", Time.zone.now.beginning_of_year) }
 
   def self.next_number
     max_number + 1
   end
 
   def self.max_number
-    txns = Transaction.where("created_at >= ?", Time.zone.now.beginning_of_year).order(number: :desc)
+    txns = Transaction.this_year.order(number: :desc)
     txns.empty? ? 0 : txns.first.number
   end
 

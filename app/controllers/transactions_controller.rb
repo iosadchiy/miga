@@ -5,6 +5,7 @@ class TransactionsController < ApplicationController
     self.page_title = t('transactions.index.title')
     @transactions = Transaction.order(number: :desc)
       .includes(:payable, payment: :member)
+    @transactions = @transactions.this_year unless params[:all]
   end
 
   def today_csv
