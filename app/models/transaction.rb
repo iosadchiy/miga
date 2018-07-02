@@ -38,6 +38,11 @@ class Transaction < ApplicationRecord
   validates :total, presence: true, numericality: {greater_than: 0}
   validates :details, presence: true
   validates :number, presence: true
+  validate do |txn|
+    unless self.class.this_year.where(number: txn.number).empty?
+      txn.errors[:number] << "should be unique"
+    end
+  end
 
   serialize :details
   delegate :member, to: :payment
