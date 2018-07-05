@@ -6,7 +6,7 @@ class SettingsController < ApplicationController
 
   def update
     self.page_title = t 'settings.title'
-    @setting = Setting.first
+    @setting = Setting.instance
     if @setting.update(setting_params)
       redirect_to [:edit, :setting], success: t('settings.edited') and return
     else
