@@ -39,7 +39,7 @@ class Transaction < ApplicationRecord
   validates :details, presence: true
   validates :number, presence: true
   validate do |txn|
-    unless self.class.this_year.where(number: txn.number).empty?
+    unless self.class.this_year.where(number: txn.number).where.not(id: txn.id).empty?
       txn.errors[:number] << "should be unique"
     end
   end
