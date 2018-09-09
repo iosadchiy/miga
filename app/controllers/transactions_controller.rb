@@ -57,6 +57,10 @@ class TransactionsController < ApplicationController
   def transaction_params
     params.require(:transaction).permit(
       :number,
+      :start_display,
+      :end_display,
+      :difference,
+      :price,
       :total,
       :purpose,
       :created_at,
