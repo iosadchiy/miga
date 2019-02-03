@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170304125540) do
+ActiveRecord::Schema.define(version: 20190203110254) do
 
   create_table "dues", force: :cascade do |t|
     t.integer  "kind",       null: false
@@ -72,8 +72,10 @@ ActiveRecord::Schema.define(version: 20170304125540) do
   end
 
   create_table "settings", force: :cascade do |t|
-    t.decimal "price_electricity", null: false
-    t.decimal "price_water",       null: false
+    t.decimal "price_electricity",                       null: false
+    t.decimal "price_electricity_day",   default: "0.0", null: false
+    t.decimal "price_electricity_night", default: "0.0", null: false
+    t.decimal "price_water",                             null: false
     t.string  "cashier"
     t.integer "custom_due_id"
   end
