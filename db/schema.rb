@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190203110254) do
+ActiveRecord::Schema.define(version: 20190203121343) do
 
   create_table "dues", force: :cascade do |t|
     t.integer  "kind",       null: false
@@ -61,23 +61,24 @@ ActiveRecord::Schema.define(version: 20190203110254) do
 
   create_table "registers", force: :cascade do |t|
     t.integer  "plot_id"
-    t.integer  "kind",            null: false
+    t.integer  "kind",                           null: false
     t.string   "name"
     t.string   "number"
     t.integer  "initial_display"
     t.string   "seal"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.boolean  "active",          default: true, null: false
     t.index ["plot_id"], name: "index_registers_on_plot_id"
   end
 
   create_table "settings", force: :cascade do |t|
     t.decimal "price_electricity",                       null: false
-    t.decimal "price_electricity_day",   default: "0.0", null: false
-    t.decimal "price_electricity_night", default: "0.0", null: false
     t.decimal "price_water",                             null: false
     t.string  "cashier"
     t.integer "custom_due_id"
+    t.decimal "price_electricity_day",   default: "0.0", null: false
+    t.decimal "price_electricity_night", default: "0.0", null: false
   end
 
   create_table "transactions", force: :cascade do |t|
