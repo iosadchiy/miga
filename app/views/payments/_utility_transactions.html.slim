@@ -9,7 +9,7 @@ table.table
     th= t 'payments.new.price_per_unit'
     th= t 'payments.new.total'
   tbody
-    - [:electricity, :water].each do |kind|
+    - [:electricity, :electricity_day, :electricity_night, :water].each do |kind|
       - (@transactions[kind] || []).each do |transaction|
         = form.fields_for :transactions, transaction do |ff|
           = ff.hidden_field :kind

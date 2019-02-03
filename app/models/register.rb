@@ -18,7 +18,7 @@
 #
 
 class Register < ApplicationRecord
-  enum kind: [:electricity, :water]
+  enum kind: [:electricity, :water, :electricity_day, :electricity_night]
   belongs_to :plot
   has_many :transactions, inverse_of: :payable, as: :payable
 

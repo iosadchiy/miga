@@ -56,9 +56,13 @@ ru:
         seal: "Номер пломбы"
       register/kind:
         electricity: "Электросчетчик"
+        electricity_day: "Электросчетчик (дневной)"
+        electricity_night: "Электросчетчик (ночной)"
         water: "Водомер"
       setting:
-        price_electricity: "Электричество, цена за кВт·ч, рублей"
+        price_electricity: "Электричество, единый тариф, цена за кВт·ч, рублей"
+        price_electricity_day: "Электричество, дневной тариф, цена за кВт·ч, рублей"
+        price_electricity_night: "Электричество, ночной тариф, цена за кВт·ч, рублей"
         price_water: "Вода, цена за м³, рублей"
         cashier: "Кассир"
       transaction:
@@ -175,6 +179,8 @@ ru:
   transactions:
     ground:
       electricity: "Оплата за электроэнергию: %{end_display}-%{start_display}=%{difference} кВт·ч по %{price}"
+      electricity_day: "Оплата за электроэнергию по дневному тарифу: %{end_display}-%{start_display}=%{difference} кВт·ч по %{price}"
+      electricity_night: "Оплата за электроэнергию по ночному тарифу: %{end_display}-%{start_display}=%{difference} кВт·ч по %{price}"
       water: "Оплата за воду: %{end_display}-%{start_display}=%{difference} м³ по %{price}"
       entrance: "Оплата вступительного взноса '%{purpose}'"
       membership: "Оплата членских взносов %{purpose}"
