@@ -19,7 +19,7 @@ table.table
             td= transaction.register.human_name
             td= ff.input :start_display, disabled: !transaction.start_display_edit_allowed?,
               label: false
-            td= ff.input :end_display, label: false
-            td= ff.input :difference, label: false
+            td= ff.input :end_display, label: false, disabled: !transaction.register.active
+            td= ff.input :difference, label: false, disabled: !transaction.register.active
             td= number_to_currency Setting.config["price_#{transaction.register.kind}"]
-            td= ff.input :total, label: false
+            td= ff.input :total, label: false, disabled: !transaction.register.active

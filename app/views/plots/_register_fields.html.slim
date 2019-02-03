@@ -4,4 +4,4 @@ tr
   td= ff.text_field :number, class: "form-control string optional"
   td= ff.text_field :initial_display, class: "form-control string optional"
   td= ff.text_field :seal, class: "form-control string optional"
-  td &times;
+  td= ff.check_box :active, class: "form-control optional", title: "Uncheck to make inactive"
