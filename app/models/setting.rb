@@ -18,7 +18,7 @@ class Setting < ApplicationRecord
       record.errors.add(attr, I18n.t('settings.only_one_allowed'))
     end
   end
-  validates :price_electricity, :price_water, numericality: true
+  validates :price_electricity, :price_electricity_day, :price_electricity_night, :price_water, numericality: true
 
   def self.instance
     @instance ||= first || Setting.create!

@@ -1,5 +1,7 @@
 = simple_form_for @setting do |f|
   = f.input :price_electricity
+  = f.input :price_electricity_day
+  = f.input :price_electricity_night
   = f.input :price_water
   = f.input :cashier
   = f.submit class: 'btn btn-primary'
