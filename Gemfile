@@ -88,6 +88,4 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-#gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-gem 'json', github: 'flori/json', branch: 'v1.8'
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
