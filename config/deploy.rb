@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock "3.11.0"
+lock "3.7.2"
 
 set :application, "miga"
 set :repo_url, "ssh://git@bitbucket.org/iosadchii/miga-be.git"
